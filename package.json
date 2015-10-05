@@ -1,7 +1,7 @@
 {
-  "name": "webpack-example",
+  "name": "manual-order-app",
   "version": "0.0.1",
-  "description": "Webpack example",
+  "description": "Manual Order",
   "main": "dist/index.js",
   "engines": {
     "node": ">=0.10.32"
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/richard-lopes/webpack-example.git"
+    "url": "git+https://github.com/rberruezo/manual-order-app.git"
   },
   "bugs": {
-    "url": "https://github.com/richard-lopes/webpack-example/issues"
+    "url": "https://github.com/rberruezo/manual-order-app/issues"
   },
-  "author": "Richard LOPES",
+  "author": "Ramiro Berruezo",
   "license": "MIT",
-  "homepage": "https://github.com/richard-lopes/webpack-example#readme",
+  "homepage": "https://github.com/rberruezo/manual-order-app#readme",
   "dependencies": {
     "alt": "0.17.1",
     "babel-runtime": "5.6.18",
