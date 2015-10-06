@@ -4,17 +4,19 @@ import actions from 'actions/loginActions';
 
 @createStore(flux)
 class LoginStore {
-  email = 'user@shopbeam.com';
-  pass = 'PSWD';
+  user = {
+  	email: 'user@shopbeam.com',
+  	pass: 'PSWD'
+  };
 
   @bind(actions.updateEmail)
   updateEmail(email) {
-    this.email = email;
+    this.user.email = email;
   }
 
   @bind(actions.updatePass)
   updatePass(pass) {
-    this.pass = pass;
+    this.user.pass = pass;
   }
 }
 
