@@ -2,10 +2,10 @@ import flux from 'control';
 import {createActions} from 'alt/utils/decorators';
 
 @createActions(flux)
-class DummyActions {
+class LoginActions {
   constructor() {
     this.generateActions('updateName');
   }
 }
 
-export default DummyActions;
+export default LoginActions;

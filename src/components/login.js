@@ -1,10 +1,10 @@
 import React from 'react';
 import connectToStores from 'alt/utils/connectToStores';
-import DummyStore from 'stores/dummyStore';
-import DummyActions from 'actions/dummyActions';
+import LoginStore from 'stores/loginStore';
+import LoginActions from 'actions/loginActions';
 
 @connectToStores
-class Example extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,11 +13,11 @@ class Example extends React.Component {
   }
 
   static getStores(props) {
-    return [DummyStore];
+    return [LoginStore];
   }
 
   static getPropsFromStores(props) {
-    return DummyStore.getState();
+    return LoginStore.getState();
   }
 
   render() {
@@ -31,8 +31,8 @@ class Example extends React.Component {
 
   onChange = evt => {
     this.setState({name: evt.target.value});
-    DummyActions.updateName(evt.target.value);
+    LoginActions.updateName(evt.target.value);
   }
 }
 
-export default Example;
+export default Login;

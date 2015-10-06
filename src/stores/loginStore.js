@@ -1,9 +1,9 @@
 import flux from 'control';
 import {createStore, bind} from 'alt/utils/decorators';
-import actions from 'actions/dummyActions';
+import actions from 'actions/loginActions';
 
 @createStore(flux)
-class DummyStore {
+class LoginStore {
   name = 'awesome';
 
   @bind(actions.updateName)
@@ -12,4 +12,4 @@ class DummyStore {
   }
 }
 
-export default DummyStore;
+export default LoginStore;

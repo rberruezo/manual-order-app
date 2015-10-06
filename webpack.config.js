@@ -21,7 +21,7 @@ module.exports = {
     path: path.join(__dirname, 'tmp'),
     publicPath: '',
     filename: '[name].js',
-    library: ['Example', '[name]'],
+    library: ['Login', '[name]'],
     pathInfo: true
   },
 
