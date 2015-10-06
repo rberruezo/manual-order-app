@@ -8,7 +8,7 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: props.name
+      user: props.user
     }
   }
 
@@ -23,15 +23,15 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <input type="text" value={this.state.name} onChange={this.onChange}/>
-        <h1>It works: {this.props.name}</h1>
+        <input type="text" value={this.state.user} onChange={this.onChange}/>
+        <h1>It works: {this.props.user}</h1>
       </div>
     );
   }
 
   onChange = evt => {
-    this.setState({name: evt.target.value});
-    LoginActions.updateName(evt.target.value);
+    this.setState({user: evt.target.value});
+    LoginActions.updateUser(evt.target.value);
   }
 }
 

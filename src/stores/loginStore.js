@@ -4,11 +4,11 @@ import actions from 'actions/loginActions';
 
 @createStore(flux)
 class LoginStore {
-  name = 'awesome';
+  user = 'user@shopbeam.com';
 
-  @bind(actions.updateName)
-  updateName(name) {
-    this.name = name;
+  @bind(actions.updateUser)
+  updateUser(user) {
+    this.user = user;
   }
 }
 
