@@ -4,7 +4,7 @@ import {createActions} from 'alt/utils/decorators';
 @createActions(flux)
 class LoginActions {
   constructor() {
-    this.generateActions('updateUser');
+    this.generateActions('updateEmail', 'updatePass');
   }
 }
 

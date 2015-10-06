@@ -8,7 +8,8 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: props.user
+      email: props.email,
+      pass: props.pass
     }
   }
 
@@ -23,15 +24,21 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <input type="text" value={this.state.user} onChange={this.onChange}/>
-        <h1>It works: {this.props.user}</h1>
+        <input type="text" value={this.props.email} onChange={this.onEmailChange}/>
+        <input type="password" value={this.props.pass} onChange={this.onPassChange}/>
+        <h1>It works: {this.props.email} {this.props.pass}</h1>
       </div>
     );
   }
 
-  onChange = evt => {
-    this.setState({user: evt.target.value});
-    LoginActions.updateUser(evt.target.value);
+  onEmailChange = evt => {
+    this.setState({email: evt.target.value});
+    LoginActions.updateEmail(evt.target.value);
+  }
+
+  onPassChange = evt => {
+    this.setState({pass: evt.target.value});
+    LoginActions.updatePass(evt.target.value);
   }
 }
 
