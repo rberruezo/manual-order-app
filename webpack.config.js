@@ -27,7 +27,9 @@ module.exports = {
 
   module: {
     loaders: [
-      {test: /\.js?$/, exclude: /node_modules/, loader: 'babel?cacheDirectory'}
+      {test: /\.js?$/, exclude: /node_modules/, loader: 'babel?cacheDirectory'},
+      {test: /\.css$/, loader: 'style!css' },
+      {test: /\.styl$/, loader: 'style!css!stylus' }
     ]
   },
   plugins: [

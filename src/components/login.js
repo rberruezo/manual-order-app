@@ -3,6 +3,8 @@ import connectToStores from 'alt/utils/connectToStores';
 import LoginStore from 'stores/loginStore';
 import LoginActions from 'actions/loginActions';
 
+require('../styles/main.styl');
+
 @connectToStores
 class Login extends React.Component {
   constructor(props) {
@@ -23,6 +25,7 @@ class Login extends React.Component {
   render() {
     return (
       <div>
+        <strong> Strong div </strong>
         <input type="text" value={this.props.user.email} onChange={this.onEmailChange}/>
         <input type="password" value={this.props.user.pass} onChange={this.onPassChange}/>
         <h1>It works: {this.props.user.email} {this.props.user.pass}</h1>
