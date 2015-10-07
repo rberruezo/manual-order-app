@@ -5,8 +5,8 @@ import actions from 'actions/loginActions';
 @createStore(flux)
 class LoginStore {
   user = {
-  	email: 'user@shopbeam.com',
-  	pass: 'PSWD'
+  	email: '',
+  	pass: ''
   };
 
   @bind(actions.updateEmail)

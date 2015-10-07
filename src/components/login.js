@@ -24,12 +24,18 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
-        <strong> Strong div </strong>
-        <input type="text" value={this.props.user.email} onChange={this.onEmailChange}/>
-        <input type="password" value={this.props.user.pass} onChange={this.onPassChange}/>
-        <h1>It works: {this.props.user.email} {this.props.user.pass}</h1>
-      </div>
+      <section className="login-box">
+        <header className="login-header">
+          <h1>Log In</h1>
+          <h2>Don't have an account? <a href="#sign" className="login-sign">Sign up</a></h2>
+        </header>
+        <div className="login-content">
+          <input type="mail" value={this.props.user.email} onChange={this.onEmailChange} placeholder="E-mail Address" className="login-mail"/>
+          <input type="password" value={this.props.user.pass} onChange={this.onPassChange} placeholder="Password" className="login-pass"/>
+          <a href="#forgot" className="login-forgot">Forgot password?</a>
+          <button className="login-enter">Log in    </button>
+        </div>
+      </section>
     );
   }
 
