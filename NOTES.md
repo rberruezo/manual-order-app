@@ -6,3 +6,6 @@ Source: https://github.com/deedubs/webpack-example-stylus
 
 ### login page
 Source: http://codepen.io/lucaslimay/pen/WvYaRw
+
+### react-routes example
+Source: http://jsfiddle.net/piel/tg6rtc69/8/
