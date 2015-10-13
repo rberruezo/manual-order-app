@@ -21,7 +21,7 @@ class LoginStore {
 
   @bind(actions.loginUser)
   loginUser(user) {
-    console.log(user);
+    // console.log(user);
   }
 }
 
