@@ -10,7 +10,7 @@ class LoginActions {
 
   loginUser(user) {
   	this.dispatch();
-	  userSource.fetch()
+	  userSource.loginUser(user)
 	    .then((status) => {
 	    	console.log(status)
 	    })
