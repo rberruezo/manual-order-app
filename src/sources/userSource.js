@@ -24,7 +24,7 @@ var userSource = {
             resolve({status: 'OK'});
           }
         });
-        resolve({status: 'Error'});
+        reject("Error: Invalid user or password");
       }, 250);
     });
   }
