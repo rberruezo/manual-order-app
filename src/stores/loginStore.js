@@ -9,6 +9,8 @@ class LoginStore {
   	pass: ''
   };
 
+  is_logged_in = false;
+
   @bind(actions.updateEmail)
   updateEmail(email) {
     this.user.email = email;
@@ -21,14 +23,24 @@ class LoginStore {
 
   @bind(actions.loginUser)
   loginUser(user) {
-    console.log('LOGIN ' + user.email);
+    this.is_logged_in = true;
     this.user = user;
+    // console.log('LOGIN ' + user.email);
+    // console.log(this.user);
   }
 
   @bind(actions.logoutUser)
   logoutUser() {
-    console.log('LOGOUT');
+    this.is_logged_in = false;
     this.user = {email: '', pass: ''};
+    // console.log('LOGOUT');
+    // console.log(this.user);
+  }
+
+  isLoggedIn() {
+    // console.log('loginStore - isLoggedIn');
+    // console.log(this.user);
+    return this.is_logged_in;
   }
 }
 
