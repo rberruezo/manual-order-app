@@ -21,7 +21,14 @@ class LoginStore {
 
   @bind(actions.loginUser)
   loginUser(user) {
-    // console.log(user);
+    console.log('LOGIN ' + user.email);
+    this.user = user;
+  }
+
+  @bind(actions.logoutUser)
+  logoutUser() {
+    console.log('LOGOUT');
+    this.user = {email: '', pass: ''};
   }
 }
 

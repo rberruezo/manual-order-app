@@ -9,10 +9,10 @@ class LoginActions {
   }
 
   loginUser(user) {
-  	this.dispatch();
 	  userSource.loginUser(user)
 	    .then((status) => {
 	    	console.log(status)
+  			this.dispatch(user);
 	    })
 	    .catch((errorMessage) => {
 	      console.log(errorMessage);
@@ -24,6 +24,10 @@ class LoginActions {
 	loginFailed(errorMessage) {
 	  this.dispatch(errorMessage);
 	}
+
+	logoutUser() {
+  	this.dispatch();
+  }
 }
 
 export default LoginActions;

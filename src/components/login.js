@@ -29,11 +29,11 @@ class Login extends React.Component {
           <h1>Log In</h1>
           <h2>Dont have an account? <a href="#sign" className="login-sign">Sign up</a></h2>
         </header>
-        <form className="login-content">
+        <form className="login-content" onSubmit={this.handleLogin}>
           <input type="mail" value={this.props.user.email} onChange={this.handleEmailChange} placeholder="E-mail Address" className="login-mail"/>
           <input type="password" value={this.props.user.pass} onChange={this.handlePasswordChange} placeholder="Password" className="login-pass"/>
           <a href="#forgot" className="login-forgot">Forgot password?</a>
-          <button className="login-enter" onClick={this.handleLogin}>Log in    </button>
+          <button className="login-enter" type="submit">Log in    </button>
         </form>
       </section>
     );
