@@ -16,6 +16,7 @@ class LoginActions {
 	    })
 	    .catch((errorMessage) => {
 	      console.log(errorMessage);
+	      alert(errorMessage);
 	      this.actions.loginFailed(errorMessage);
 	    });
   }
