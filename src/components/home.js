@@ -2,6 +2,8 @@ import React from 'react';
 import LoginStore from 'stores/loginStore';
 import LoginActions from 'actions/loginActions';
 
+require('../styles/navbar.styl');
+
 var Griddle = require('griddle-react');
 
 var fakeData =  [
@@ -27,8 +29,12 @@ class Home extends React.Component {
     	<div>
 				<nav>
 	        <ul>
-		        <li> Hello, {LoginStore.getState().user.email} </li>
-		        <li> <button className="login-enter" onClick={this.handleLogout}>Log out</button> </li>
+		        <li>
+		        	Hello, {LoginStore.getState().user.email}
+		        </li>
+		        <div className="logout-button">
+		        	<button className="login-enter" onClick={this.handleLogout}>Log out</button>
+		        </div>
 		      </ul>
 	      </nav>
 				<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
