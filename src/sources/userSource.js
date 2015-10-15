@@ -4,7 +4,8 @@ var mockData = {
 
 var mockUsers = [
   { email: 'ramiro.berruezo@graion.com', pass: 'password' },
-  { email: 'un.email@gmail.com', pass: '1235' }
+  { email: 'un.email@gmail.com', pass: '1235' },
+  { email: 'a@a.com', pass: '1234' }
 ];
 
 var userSource = {
