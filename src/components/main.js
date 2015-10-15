@@ -21,10 +21,10 @@ class Main extends React.Component {
   }
 
   render() {
-    if (!this.isLoggedIn()) {
-      return (<Login />)
-    } else {
+    if (this.isLoggedIn()) {
       return (<Home />)
+    } else {
+      return (<Login />)
     }
     <RouteHandler/>
   }
