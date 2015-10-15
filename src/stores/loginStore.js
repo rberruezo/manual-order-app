@@ -25,22 +25,12 @@ class LoginStore {
   loginUser(user) {
     this.is_logged_in = true;
     this.user = user;
-    // console.log('LOGIN ' + user.email);
-    // console.log(this.user);
   }
 
   @bind(actions.logoutUser)
   logoutUser() {
     this.is_logged_in = false;
     this.user = {email: '', pass: ''};
-    // console.log('LOGOUT');
-    // console.log(this.user);
-  }
-
-  isLoggedIn() {
-    // console.log('loginStore - isLoggedIn');
-    // console.log(this.user);
-    return this.is_logged_in;
   }
 }
 
