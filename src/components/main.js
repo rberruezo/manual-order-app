@@ -32,7 +32,7 @@ class Main extends React.Component {
 	isLoggedIn() {
 		// console.log('Main.js -- isLoggedIn - user');
 		// console.log(LoginStore.getState().user);
-    return LoginStore.getState().is_logged_in;
+    return this.props.is_logged_in;
   }
 
 }
