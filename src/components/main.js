@@ -30,7 +30,7 @@ class Main extends React.Component {
   }
 
 	isLoggedIn() {
-    return this.props.is_logged_in || localStorage.getItem('email');
+    return localStorage.getItem('email');
   }
 
 }

@@ -22,11 +22,7 @@ var fakeData =  [
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    var email = LoginStore.getState().user.email;
-    if (!email) {
-    	email = localStorage.getItem('email');
-    }
-    this.email = email;
+    this.email = localStorage.getItem('email');
   }
 
   render() {
