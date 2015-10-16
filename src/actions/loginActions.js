@@ -9,9 +9,13 @@ class LoginActions {
   }
 
   loginUser(user) {
+		var savedEmail = localStorage.getItem('email');
 	  userSource.loginUser(user)
 	    .then((status) => {
 	    	console.log(status)
+	    	if (savedEmail !== user.email) {
+		      localStorage.setItem('email', user.email);
+		    }
   			this.dispatch(user);
 	    })
 	    .catch((errorMessage) => {
@@ -26,6 +30,7 @@ class LoginActions {
 	}
 
 	logoutUser() {
+    localStorage.removeItem('email');
   	this.dispatch();
   }
 }

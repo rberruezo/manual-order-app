@@ -22,6 +22,11 @@ var fakeData =  [
 class Home extends React.Component {
   constructor(props) {
     super(props);
+    var email = LoginStore.getState().user.email;
+    if (!email) {
+    	email = localStorage.getItem('email');
+    }
+    this.email = email;
   }
 
   render() {
@@ -30,7 +35,7 @@ class Home extends React.Component {
 				<nav>
 	        <ul>
 		        <li>
-		        	Hello, {LoginStore.getState().user.email}
+		        	Hello, {this.email}
 		        </li>
 		        <div className="logout-button">
 		        	<button className="login-enter" onClick={this.handleLogout}>Log out</button>
