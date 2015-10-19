@@ -24,7 +24,7 @@ var userService = {
   },
 
   logoutUser: function () {
-    return localStorage.removeItem('email');
+    localStorage.removeItem('email');
   },
 
   loggedUser: function() {
@@ -33,6 +33,14 @@ var userService = {
 
   isLoggedIn: function() {
     return localStorage.getItem('email') != null;
+  },
+
+  setUserToken: function(token) {
+    localStorage.setItem('token', token);
+  },
+
+  getUserToken: function() {
+    return localStorage.getItem('token');
   }
 };
 
