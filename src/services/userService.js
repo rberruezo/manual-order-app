@@ -12,7 +12,10 @@ var mockUsers = [
 
 var userService = {
   loginUser: function (user) {
-    user.token = userService.getUserToken();
+
+    console.log('Try to login...');
+    console.log(user);
+
     return new Promise(function (resolve, reject) {
       setTimeout(function () {
 

@@ -40,12 +40,14 @@ class Login extends React.Component {
   }
 
   handleEmailChange = evt => {
-    this.setState({user: {email: evt.target.value, pass: this.props.user.pass}});
+    this.props.user.email = evt.target.value;
+    this.setState(this.props.user);
     LoginActions.updateEmail(evt.target.value);
   }
 
   handlePasswordChange = evt => {
-    this.setState({user: {email: this.props.user.email, pass: evt.target.value}});
+    this.props.user.pass = evt.target.value;
+    this.setState(this.props.user);
     LoginActions.updatePass(evt.target.value);
   }
 
