@@ -62,6 +62,10 @@ var userService = {
 
   getUserToken: function() {
     return localStorage.getItem('user_token');
+  },
+
+  isUserTokenSet: function() {
+    return localStorage.getItem('user_token') != null;
   }
 };
 

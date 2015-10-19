@@ -2,6 +2,7 @@ import React from 'react';
 import connectToStores from 'alt/utils/connectToStores';
 import LoginStore from 'stores/loginStore';
 import LoginActions from 'actions/loginActions';
+import UserService from 'services/userService';
 
 require('../styles/main.styl');
 
@@ -11,7 +12,8 @@ class Login extends React.Component {
     super(props);
     this.state = {
       user: props.user
-    }
+    };
+    this.state.user.token = UserService.getUserToken();
   }
 
   static getStores(props) {
