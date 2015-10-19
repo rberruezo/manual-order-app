@@ -1,6 +1,6 @@
 import flux from 'control';
 import {createActions} from 'alt/utils/decorators';
-import userService from 'sources/userService';
+import UserService from 'services/userService';
 
 @createActions(flux)
 class LoginActions {
@@ -9,7 +9,7 @@ class LoginActions {
   }
 
   loginUser(user) {
-	  userService.loginUser(user)
+	  UserService.loginUser(user)
 	    .then((status) => {
 	    	console.log(status);
   			this.dispatch(user);
@@ -26,7 +26,7 @@ class LoginActions {
 	}
 
 	logoutUser() {
-    userService.logoutUser();
+    UserService.logoutUser();
   	this.dispatch();
   }
 }

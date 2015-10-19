@@ -22,7 +22,6 @@ var fakeData =  [
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.email = UserService.loggedUser();
   }
 
   render() {
@@ -31,7 +30,7 @@ class Home extends React.Component {
 				<nav>
 	        <ul>
 		        <li>
-		        	Hello, {this.email}
+							Hello, {UserService.loggedUser()}
 		        </li>
 		        <div className="logout-button">
 		        	<button className="login-enter" onClick={this.handleLogout}>Log out</button>

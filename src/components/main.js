@@ -22,16 +22,12 @@ class Main extends React.Component {
   }
 
   render() {
-    if (this.isLoggedIn()) {
+    if (UserService.isLoggedIn()) {
       return (<Home />)
     } else {
       return (<Login />)
     }
     <RouteHandler/>
-  }
-
-	isLoggedIn() {
-    return UserService.isLoggedIn();
   }
 
 }
