@@ -8,7 +8,7 @@ var mockUsers = [
   { email: 'a@a.com', pass: '1234' }
 ];
 
-var userSource = {
+var userService = {
   fetch: function () {
     return new Promise(function (resolve, reject) {
       setTimeout(function () {
@@ -31,4 +31,4 @@ var userSource = {
   }
 };
 
-export default userSource;
+export default userService;

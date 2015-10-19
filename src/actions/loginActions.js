@@ -1,6 +1,6 @@
 import flux from 'control';
 import {createActions} from 'alt/utils/decorators';
-import userSource from 'sources/userSource';
+import userService from 'sources/userService';
 
 @createActions(flux)
 class LoginActions {
@@ -10,7 +10,7 @@ class LoginActions {
 
   loginUser(user) {
 		var savedEmail = localStorage.getItem('email');
-	  userSource.loginUser(user)
+	  userService.loginUser(user)
 	    .then((status) => {
 	    	console.log(status)
 	    	if (savedEmail !== user.email) {
