@@ -9,14 +9,6 @@ var mockUsers = [
 ];
 
 var userService = {
-  fetch: function () {
-    return new Promise(function (resolve, reject) {
-      setTimeout(function () {
-        resolve(mockData);
-      }, 250);
-    });
-  },
-
   loginUser: function (user) {
     return new Promise(function (resolve, reject) {
       setTimeout(function () {
