@@ -12,3 +12,6 @@ Source: http://jsfiddle.net/piel/tg6rtc69/8/
 
 ### griddle-react: Griddle is a simple grid component for use with React
 Source: http://griddlegriddle.github.io/Griddle/
+
+### mathjs library
+Source: http://mathjs.org/
