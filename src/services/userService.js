@@ -22,12 +22,25 @@ var userService = {
       setTimeout(function () {
         mockUsers.map(function(mockUser) {
           if (user.email == mockUser.email && user.pass == mockUser.pass) {
+            localStorage.setItem('email', user.email);
             resolve({status: 'OK'});
           }
         });
         reject("Error: Invalid user or password");
       }, 250);
     });
+  },
+
+  logoutUser: function () {
+    return localStorage.removeItem('email');
+  },
+
+  loggedUser: function() {
+    return localStorage.getItem('email');
+  },
+
+  isLoggedIn: function() {
+    return localStorage.getItem('email') != null;
   }
 };
 

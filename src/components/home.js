@@ -1,6 +1,6 @@
 import React from 'react';
-import LoginStore from 'stores/loginStore';
 import LoginActions from 'actions/loginActions';
+import UserService from 'services/userService';
 
 require('../styles/navbar.styl');
 
@@ -22,7 +22,7 @@ var fakeData =  [
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.email = localStorage.getItem('email');
+    this.email = UserService.loggedUser();
   }
 
   render() {
