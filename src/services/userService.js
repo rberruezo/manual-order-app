@@ -24,7 +24,7 @@ var userService = {
 
         mockUsers.map(function(mockUser) {
           if (user.email == mockUser.email && user.pass == mockUser.pass) {
-            localStorage.setItem('user_email', user.email);
+            userService.setUserEmail(user.email);
             resolve({status: 'OK'});
           }
         });
@@ -47,6 +47,14 @@ var userService = {
 
   isLoggedIn: function() {
     return localStorage.getItem('user_email') != null;
+  },
+
+  setUserEmail: function(email) {
+    localStorage.setItem('user_email', email);
+  },
+
+  getUserEmail: function() {
+    return localStorage.getItem('user_email');
   },
 
   setUserToken: function(token) {
