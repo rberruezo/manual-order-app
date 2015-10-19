@@ -12,15 +12,11 @@ var mockUsers = [
 
 var userService = {
   loginUser: function (user) {
+    user.token = userService.getUserToken();
     return new Promise(function (resolve, reject) {
       setTimeout(function () {
 
-        // TODO: Call to login service with postData
-        var postData = {
-          email: user.email,
-          pass: user.pass,
-          token: userService.getUserToken()
-        }
+        // TODO: Call to login service with user object
 
         mockUsers.map(function(mockUser) {
           if (user.email == mockUser.email && user.pass == mockUser.pass) {
