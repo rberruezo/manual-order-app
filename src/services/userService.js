@@ -39,16 +39,12 @@ var userService = {
     localStorage.removeItem('user');
   },
 
-  isLoggedIn: function() {
-    return userService.getUserEmail() != null;
-  },
-
   setUserEmail: function(email) {
     userService.persistUserAttribute('email', email);
   },
 
   getUserEmail: function() {
-    return userService.getUserAttribute('email');
+    return userService.getPersistedUserAttribute('email');
   },
 
   setUserToken: function(token) {
@@ -56,10 +52,10 @@ var userService = {
   },
 
   getUserToken: function() {
-    return userService.getUserAttribute('token');
+    return userService.getPersistedUserAttribute('token');
   },
 
-  isUserTokenSet: function() {
+  isLoggedIn: function() {
     return userService.getUserToken() != null;
   },
 
@@ -69,7 +65,7 @@ var userService = {
     localStorage.setItem('user', JSON.stringify(user));
   },
 
-  getUserAttribute: function(attribute) {
+  getPersistedUserAttribute: function(attribute) {
     var user = userService.getPersistedUser();
     if (user[attribute] == undefined) {
       return null;
