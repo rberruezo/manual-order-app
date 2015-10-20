@@ -11,7 +11,8 @@ class LoginActions {
   loginUser(user) {
 	  UserService.loginUser(user)
 	    .then((status) => {
-	    	console.log(status);
+	    	UserService.setUserToken(status.user_token);
+	    	user.token = status.user_token;
   			this.dispatch(user);
 	    })
 	    .catch((errorMessage) => {

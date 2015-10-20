@@ -1,4 +1,6 @@
 import React from 'react';
+import connectToStores from 'alt/utils/connectToStores';
+import LoginStore from 'stores/loginStore';
 import LoginActions from 'actions/loginActions';
 import UserService from 'services/userService';
 
@@ -19,9 +21,27 @@ var fakeData =  [
 	{"id": 9, "name": "Augusto Rodriguez", "city": "Brasilia", "country": "Brazil", "favoriteNumber": 5 }
 ];
 
+@connectToStores
 class Home extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentWillMount() {
+  	this.setState({
+    	user: {
+	    	email: UserService.loggedUser(),
+	    	token: UserService.getUserToken()
+	    }
+	  });
+  }
+
+  static getStores(props) {
+    return [LoginStore];
+  }
+
+  static getPropsFromStores(props) {
+    return LoginStore.getState();
   }
 
   render() {
@@ -30,7 +50,7 @@ class Home extends React.Component {
 				<nav>
 	        <ul>
 		        <li>
-							Hello, {UserService.loggedUser()}
+							Hello, {this.state.user.email} {this.state.user.token}
 		        </li>
 		        <div className="logout-button">
 		        	<button className="login-enter" onClick={this.handleLogout}>Log out</button>

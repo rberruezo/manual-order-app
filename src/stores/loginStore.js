@@ -1,14 +1,15 @@
 import flux from 'control';
 import {createStore, bind} from 'alt/utils/decorators';
 import LoginActions from 'actions/loginActions';
-import AuthActions from 'actions/authActions';
+
+var APP_TOKEN = 'MO-95196396';
 
 @createStore(flux)
 class LoginStore {
   user = {
   	email: '',
     pass: '',
-    token: ''
+    token: APP_TOKEN
   };
 
   @bind(LoginActions.updateEmail)
@@ -23,20 +24,12 @@ class LoginStore {
 
   @bind(LoginActions.loginUser)
   loginUser(user) {
-    this.user.email = user.email;
-    this.user.pass = user.pass;
+    this.user = user;
   }
 
   @bind(LoginActions.logoutUser)
   logoutUser() {
-    this.user = {email: '', pass: '', token: ''};
-  }
-
-  @bind(AuthActions.authenticateApp)
-  authenticateApp(token) {
-    console.log('authenticateApp');
-    console.log(token);
-    this.user.token = token;
+    this.user = {email: '', pass: '', token: APP_TOKEN};
   }
 }
 

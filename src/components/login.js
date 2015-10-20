@@ -13,7 +13,6 @@ class Login extends React.Component {
     this.state = {
       user: props.user
     };
-    this.state.user.token = UserService.getUserToken();
   }
 
   static getStores(props) {

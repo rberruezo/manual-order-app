@@ -1,8 +1,4 @@
-import AuthActions from 'actions/authActions';
-
-var mockData = {
-  status: 'OK'
-};
+var math = require('mathjs');
 
 var mockUsers = [
   { email: 'ramiro.berruezo@graion.com', pass: 'password' },
@@ -19,12 +15,17 @@ var userService = {
     return new Promise(function (resolve, reject) {
       setTimeout(function () {
 
-        // TODO: Call to login service with user object
+        // TODO: Call to login service with user object and APP_TOKEN
 
         mockUsers.map(function(mockUser) {
           if (user.email == mockUser.email && user.pass == mockUser.pass) {
+            var mockResponse = {
+              user_token: math.randomInt(10000, 99999),
+              status: 'OK'
+            };
             userService.setUserEmail(user.email);
-            resolve({status: 'OK'});
+            userService.setUserToken(mockResponse.user_token);
+            resolve(mockResponse);
           }
         });
 
@@ -37,7 +38,6 @@ var userService = {
   logoutUser: function () {
     localStorage.removeItem('user_email');
     localStorage.removeItem('user_token');
-    AuthActions.authenticateApp();
   },
 
   loggedUser: function() {
