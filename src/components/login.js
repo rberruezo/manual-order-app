@@ -2,7 +2,6 @@ import React from 'react';
 import connectToStores from 'alt/utils/connectToStores';
 import LoginStore from 'stores/loginStore';
 import LoginActions from 'actions/loginActions';
-import UserService from 'services/userService';
 
 require('../styles/main.styl');
 
