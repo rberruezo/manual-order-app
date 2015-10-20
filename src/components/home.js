@@ -30,7 +30,7 @@ class Home extends React.Component {
   componentWillMount() {
   	this.setState({
     	user: {
-	    	email: UserService.loggedUser(),
+	    	email: UserService.getUserEmail(),
 	    	token: UserService.getUserToken()
 	    }
 	  });
@@ -50,7 +50,7 @@ class Home extends React.Component {
 				<nav>
 	        <ul>
 		        <li>
-							Hello, {this.state.user.email} {this.state.user.token}
+							Hello, {this.state.user.email}
 		        </li>
 		        <div className="logout-button">
 		        	<button className="login-enter" onClick={this.handleLogout}>Log out</button>

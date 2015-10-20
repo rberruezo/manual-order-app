@@ -36,36 +36,54 @@ var userService = {
   },
 
   logoutUser: function () {
-    localStorage.removeItem('user_email');
-    localStorage.removeItem('user_token');
-  },
-
-  loggedUser: function() {
-    return localStorage.getItem('user_email');
+    localStorage.removeItem('user');
   },
 
   isLoggedIn: function() {
-    return localStorage.getItem('user_email') != null;
+    return userService.getUserEmail() != null;
   },
 
   setUserEmail: function(email) {
-    localStorage.setItem('user_email', email);
+    userService.persistUserAttribute('email', email);
   },
 
   getUserEmail: function() {
-    return localStorage.getItem('user_email');
+    return userService.getUserAttribute('email');
   },
 
   setUserToken: function(token) {
-    localStorage.setItem('user_token', token);
+    userService.persistUserAttribute('token', token);
   },
 
   getUserToken: function() {
-    return localStorage.getItem('user_token');
+    return userService.getUserAttribute('token');
   },
 
   isUserTokenSet: function() {
-    return localStorage.getItem('user_token') != null;
+    return userService.getUserToken() != null;
+  },
+
+  persistUserAttribute: function(attribute, value) {
+    var user = userService.getPersistedUser();
+    user[attribute] = value;
+    localStorage.setItem('user', JSON.stringify(user));
+  },
+
+  getUserAttribute: function(attribute) {
+    var user = userService.getPersistedUser();
+    if (user[attribute] == undefined) {
+      return null;
+    }
+    return user[attribute];
+  },
+
+  getPersistedUser: function () {
+    var user_json = localStorage.getItem('user');
+    console.log(user_json);
+    if (user_json == null) {
+      return {};
+    }
+    return JSON.parse(user_json);
   }
 };
 
