@@ -28,9 +28,13 @@ class Home extends React.Component {
   }
 
   componentWillMount() {
+
+  	console.log('willmount');
+  	console.log(this.props);
+
   	this.setState({
     	user: {
-	    	email: UserService.getUserEmail(),
+	    	email: this.props.user.email,
 	    	token: UserService.getUserToken()
 	    }
 	  });

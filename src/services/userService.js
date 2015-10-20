@@ -73,6 +73,10 @@ var userService = {
     return user[attribute];
   },
 
+  persistUser: function(user) {
+    localStorage.setItem('user', JSON.stringify(user));
+  },
+
   getPersistedUser: function () {
     var user_json = localStorage.getItem('user');
     console.log(user_json);

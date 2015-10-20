@@ -1,13 +1,14 @@
 import flux from 'control';
 import {createStore, bind} from 'alt/utils/decorators';
 import LoginActions from 'actions/loginActions';
+import UserService from 'services/userService';
 
 var APP_TOKEN = 'MO-95196396';
 
 @createStore(flux)
 class LoginStore {
   user = {
-  	email: '',
+  	email: UserService.getUserEmail(),
     pass: '',
     token: APP_TOKEN
   };
@@ -25,11 +26,13 @@ class LoginStore {
   @bind(LoginActions.loginUser)
   loginUser(user) {
     this.user = user;
+    UserService.persistUser(user);
   }
 
   @bind(LoginActions.logoutUser)
   logoutUser() {
     this.user = {email: '', pass: '', token: APP_TOKEN};
+    UserService.logoutUser();
   }
 }
 

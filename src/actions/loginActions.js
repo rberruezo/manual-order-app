@@ -11,8 +11,8 @@ class LoginActions {
   loginUser(user) {
 	  UserService.loginUser(user)
 	    .then((status) => {
-	    	UserService.setUserToken(status.user_token);
 	    	user.token = status.user_token;
+	    	user.pass = null;
   			this.dispatch(user);
 	    })
 	    .catch((errorMessage) => {
@@ -27,7 +27,6 @@ class LoginActions {
 	}
 
 	logoutUser() {
-    UserService.logoutUser();
   	this.dispatch();
   }
 }
