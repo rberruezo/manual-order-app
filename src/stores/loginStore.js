@@ -1,13 +1,13 @@
 import flux from 'control';
 import {createStore, bind} from 'alt/utils/decorators';
 import LoginActions from 'actions/loginActions';
-import UserLocalStorage from 'storage/userLocalStorage';
+import UserStorage from 'storage/userStorage';
 
 @createStore(flux)
 class LoginStore {
 
   constructor() {
-    this.user = UserLocalStorage.getPersistedUser();
+    this.user = UserStorage.getUser();
   }
 
   @bind(LoginActions.updateEmail)
@@ -23,13 +23,13 @@ class LoginStore {
   @bind(LoginActions.loginUser)
   loginUser(user) {
     this.user = user;
-    UserLocalStorage.persistUser(user);
+    UserStorage.setUser(user);
   }
 
   @bind(LoginActions.logoutUser)
   logoutUser() {
     this.user = {};
-    UserLocalStorage.logoutUser();
+    UserStorage.removeUser();
   }
 }
 
