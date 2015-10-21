@@ -1,8 +1,7 @@
 import flux from 'control';
 import {createActions} from 'alt/utils/decorators';
 import AuthService from 'services/authService';
-
-var APP_TOKEN = 'MO-95196396';
+import {APP_TOKEN} from 'constants/constants';
 
 @createActions(flux)
 class LoginActions {

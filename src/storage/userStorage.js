@@ -1,19 +1,18 @@
 import ObjectStorage from 'storage/objectStorage';
-
-var user_key_name = 'manual_app_user';
+import {STORAGE_USER_KEY} from 'constants/constants';
 
 var userStorage = {
   
   removeUser: function () {
-    ObjectStorage.remove(user_key_name);
+    ObjectStorage.remove(STORAGE_USER_KEY);
   },
 
   setUser: function(user) {
-  	ObjectStorage.set(user_key_name, user);
+  	ObjectStorage.set(STORAGE_USER_KEY, user);
   },
 
   getUser: function () {
-    return ObjectStorage.get(user_key_name);
+    return ObjectStorage.get(STORAGE_USER_KEY);
   }
 
 };
