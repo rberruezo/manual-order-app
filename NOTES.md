@@ -15,3 +15,6 @@ Source: http://griddlegriddle.github.io/Griddle/
 
 ### mathjs library
 Source: http://mathjs.org/
+
+### superagent to make requests
+Source: https://github.com/visionmedia/superagent
