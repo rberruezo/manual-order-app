@@ -7,11 +7,17 @@ var APP_TOKEN = 'MO-95196396';
 
 @createStore(flux)
 class LoginStore {
-  user = {
-  	email: UserService.getUserEmail(),
-    pass: '',
-    token: APP_TOKEN
-  };
+
+  constructor() {
+    this.user = UserService.getPersistedUser();
+    if (this.user == null) {
+      this.user = {
+      	email: '',
+        pass: '',
+        token: APP_TOKEN
+      };
+    }
+  }
 
   @bind(LoginActions.updateEmail)
   updateEmail(email) {

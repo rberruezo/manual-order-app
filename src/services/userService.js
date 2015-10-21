@@ -23,8 +23,6 @@ var userService = {
               user_token: math.randomInt(10000, 99999),
               status: 'OK'
             };
-            userService.setUserEmail(user.email);
-            userService.setUserToken(mockResponse.user_token);
             resolve(mockResponse);
           }
         });
@@ -39,24 +37,16 @@ var userService = {
     localStorage.removeItem('user');
   },
 
-  setUserEmail: function(email) {
-    userService.persistUserAttribute('email', email);
-  },
-
-  getUserEmail: function() {
+  getPersistedUserEmail: function() {
     return userService.getPersistedUserAttribute('email');
   },
 
-  setUserToken: function(token) {
-    userService.persistUserAttribute('token', token);
-  },
-
-  getUserToken: function() {
+  getPersistedUserToken: function() {
     return userService.getPersistedUserAttribute('token');
   },
 
   isLoggedIn: function() {
-    return userService.getUserToken() != null;
+    return userService.getPersistedUserToken() != null;
   },
 
   persistUserAttribute: function(attribute, value) {

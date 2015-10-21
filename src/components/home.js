@@ -2,7 +2,6 @@ import React from 'react';
 import connectToStores from 'alt/utils/connectToStores';
 import LoginStore from 'stores/loginStore';
 import LoginActions from 'actions/loginActions';
-import UserService from 'services/userService';
 
 require('../styles/navbar.styl');
 
@@ -28,16 +27,7 @@ class Home extends React.Component {
   }
 
   componentWillMount() {
-
-  	console.log('willmount');
-  	console.log(this.props);
-
-  	this.setState({
-    	user: {
-	    	email: this.props.user.email,
-	    	token: UserService.getUserToken()
-	    }
-	  });
+  	this.setState(this.props);
   }
 
   static getStores(props) {
