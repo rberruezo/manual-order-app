@@ -1,6 +1,6 @@
 import flux from 'control';
 import {createActions} from 'alt/utils/decorators';
-import UserService from 'services/userService';
+import AuthService from 'services/authService';
 
 var APP_TOKEN = 'MO-95196396';
 
@@ -13,7 +13,7 @@ class LoginActions {
   loginUser(user) {
   	var request = user;
   	request.token = APP_TOKEN;
-	  UserService.loginUser(request)
+	  AuthService.loginUser(request)
 	    .then((status) => {
 	    	user.token = status.user_token;
 	    	user.pass = null;
