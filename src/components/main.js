@@ -4,7 +4,6 @@ import connectToStores from 'alt/utils/connectToStores';
 import LoginStore from 'stores/loginStore';
 import Login from 'components/login';
 import Home from 'components/home';
-import UserService from 'services/userService';
 
 @connectToStores
 class Main extends React.Component {
@@ -21,8 +20,12 @@ class Main extends React.Component {
     return LoginStore.getState();
   }
 
+  isLoggedIn() {
+  	return LoginStore.getState().user.token != undefined;
+  }
+
   render() {
-    if (UserService.isLoggedIn()) {
+    if (this.isLoggedIn()) {
       return (<Home />)
     } else {
       return (<Login />)

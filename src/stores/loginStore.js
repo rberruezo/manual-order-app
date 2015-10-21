@@ -3,20 +3,11 @@ import {createStore, bind} from 'alt/utils/decorators';
 import LoginActions from 'actions/loginActions';
 import UserService from 'services/userService';
 
-var APP_TOKEN = 'MO-95196396';
-
 @createStore(flux)
 class LoginStore {
 
   constructor() {
     this.user = UserService.getPersistedUser();
-    if (this.user == null) {
-      this.user = {
-      	email: '',
-        pass: '',
-        token: APP_TOKEN
-      };
-    }
   }
 
   @bind(LoginActions.updateEmail)
@@ -37,7 +28,7 @@ class LoginStore {
 
   @bind(LoginActions.logoutUser)
   logoutUser() {
-    this.user = {email: '', pass: '', token: APP_TOKEN};
+    this.user = {};
     UserService.logoutUser();
   }
 }
