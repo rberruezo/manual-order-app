@@ -2,11 +2,9 @@ import React from 'react';
 import connectToStores from 'alt/utils/connectToStores';
 import LoginStore from 'stores/loginStore';
 import LoginActions from 'actions/loginActions';
-import Mocks from 'mocks/mocks';
+import OrderTable from 'components/ordersTable';
 
 require('../styles/navbar.styl');
-
-var Griddle = require('griddle-react');
 
 @connectToStores
 class Home extends React.Component {
@@ -39,13 +37,7 @@ class Home extends React.Component {
 		        </div>
 		      </ul>
 	      </nav>
-				<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
-				<script src="//fb.me/react-0.13.2.js"></script>
-				<script src="//fb.me/JSXTransformer-0.13.2.js"></script>
-				<script type="text/javascript" src="scripts/griddle.js"></script>
-
-				<Griddle results={Mocks.getFakeData()} tableClassName="table" showFilter={true} showSettings={true} columns={["name", "city", "country"]}/>
-
+				<OrderTable/>
 			</div>
     );
   }

@@ -153,7 +153,7 @@ View<y:LabelModel>
     <node id="n8">
       <data key="d6">
         <y:GenericNode configuration="ShinyPlateNode">
-          <y:Geometry height="90.0" width="98.0" x="449.0" y="507.0"/>
+          <y:Geometry height="90.0" width="98.0" x="449.0" y="500.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Arial" fontSize="20" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.6875" modelName="custom" textColor="#000000" visible="true" width="74.048828125" x="11.9755859375" y="20.65625">Object
@@ -170,7 +170,7 @@ Storage<y:LabelModel>
     <node id="n9">
       <data key="d6">
         <y:GenericNode configuration="ShinyPlateNode">
-          <y:Geometry height="90.0" width="98.0" x="277.5" y="507.00000000000006"/>
+          <y:Geometry height="90.0" width="98.0" x="277.5" y="500.00000000000006"/>
           <y:Fill color="#EEEEEE" transparent="false"/>
           <y:BorderStyle color="#333333" type="dashed" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Arial" fontSize="20" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="26.34375" modelName="custom" textColor="#000000" visible="true" width="61.783203125" x="18.1083984375" y="31.828124999999943">Mocks<y:LabelModel>
@@ -186,10 +186,28 @@ Storage<y:LabelModel>
     <node id="n10">
       <data key="d6">
         <y:GenericNode configuration="ShinyPlateNode">
-          <y:Geometry height="90.0" width="98.0" x="636.5" y="507.0"/>
+          <y:Geometry height="90.0" width="98.0" x="636.5" y="500.0"/>
           <y:Fill color="#C0C0C0" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Arial" fontSize="20" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="26.34375" modelName="custom" textColor="#000000" visible="true" width="94.048828125" x="1.9755859375" y="31.828125">Constants<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n11">
+      <data key="d6">
+        <y:GenericNode configuration="ShinyPlateNode">
+          <y:Geometry height="90.0" width="98.0" x="777.5" y="361.0"/>
+          <y:Fill color="#3366FF" transparent="false"/>
+          <y:BorderStyle hasColor="false" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Arial" fontSize="20" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="71.03125" modelName="custom" textColor="#000000" visible="true" width="65.123046875" x="16.4384765625" y="9.484375">Orders
+Table
+View<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -320,7 +338,6 @@ removeUser<y:LabelModel>
       </data>
     </edge>
     <edge id="e7" source="n8" target="n2">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -330,13 +347,13 @@ removeUser<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e8" source="n9" target="n3">
+    <edge id="e8" source="n7" target="n11">
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="dotted" width="1.0"/>
-          <y:Arrows source="none" target="delta"/>
+          <y:LineStyle color="#000000" type="line" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
