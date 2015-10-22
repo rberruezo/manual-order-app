@@ -40,7 +40,7 @@ var authService = {
   	for (var i = 0; i < mockedUsers.length; i++) {
 		  if (user.email == mockedUsers[i].email && user.pass == mockedUsers[i].pass) {
 		    return {
-		      user_token: math.randomInt(10000, 99999),
+		      user_token: 'UT-' + math.randomInt(10000, 99999),
 		      status: 200
 		    };
 		  }
