@@ -2,23 +2,11 @@ import React from 'react';
 import connectToStores from 'alt/utils/connectToStores';
 import LoginStore from 'stores/loginStore';
 import LoginActions from 'actions/loginActions';
+import Mocks from 'mocks/mocks';
 
 require('../styles/navbar.styl');
 
 var Griddle = require('griddle-react');
-
-var fakeData =  [
-	{"id": 0, "name": "Mayer Leonard", "city": "London", "country": "United Kingdom", "favoriteNumber": 7 },
-	{"id": 1, "name": "Victoria Sarappa", "city": "Rosario", "country": "Argentina", "favoriteNumber": 3 },
-	{"id": 2, "name": "Juan Rojo", "city": "New York", "country": "USA", "favoriteNumber": 5 },
-	{"id": 3, "name": "Clara Orchow", "city": "Buenos Aires", "country": "Argentina", "favoriteNumber": 2 },
-	{"id": 4, "name": "Alan Pieroni", "city": "Krakow", "country": "Poland", "favoriteNumber": 1 },
-	{"id": 5, "name": "Ivan Levin", "city": "Madrid", "country": "Spain", "favoriteNumber": 9 },
-	{"id": 6, "name": "Matias Camacho", "city": "Moscow", "country": "Rusia", "favoriteNumber": 4 },
-	{"id": 7, "name": "Marcia Perdomo", "city": "Beijing", "country": "China", "favoriteNumber": 8 },
-	{"id": 8, "name": "Nicolas Vaamonde", "city": "San Fransisco", "country": "USA", "favoriteNumber": 6 },
-	{"id": 9, "name": "Augusto Rodriguez", "city": "Brasilia", "country": "Brazil", "favoriteNumber": 5 }
-];
 
 @connectToStores
 class Home extends React.Component {
@@ -56,7 +44,7 @@ class Home extends React.Component {
 				<script src="//fb.me/JSXTransformer-0.13.2.js"></script>
 				<script type="text/javascript" src="scripts/griddle.js"></script>
 
-				<Griddle results={fakeData} tableClassName="table" showFilter={true} showSettings={true} columns={["name", "city", "country"]}/>
+				<Griddle results={Mocks.getFakeData()} tableClassName="table" showFilter={true} showSettings={true} columns={["name", "city", "country"]}/>
 
 			</div>
     );
