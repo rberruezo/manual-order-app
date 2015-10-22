@@ -14,12 +14,13 @@ class LoginActions {
   	request.token = APP_TOKEN;
 	  AuthService.loginUser(request)
 	    .then((status) => {
-	    	user.token = status.user_token;
-	    	user.pass = null;
-  			this.dispatch(user);
+	    	var userInfo = {
+	    		email: user.email,
+	    		token: status.user_token
+	    	};
+  			this.dispatch(userInfo);
 	    })
 	    .catch((errorMessage) => {
-	      console.log(errorMessage);
 	      alert(errorMessage);
 	      this.actions.loginFailed(errorMessage);
 	    });
