@@ -26,11 +26,6 @@ class LoginStore {
     UserStorage.setUser(user);
   }
 
-  @bind(LoginActions.loginFailed)
-  loginFailed() {
-    this.user.token = null;
-  }
-
   @bind(LoginActions.logoutUser)
   logoutUser() {
     this.user = {};

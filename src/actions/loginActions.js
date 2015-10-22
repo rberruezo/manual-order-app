@@ -11,7 +11,7 @@ class LoginActions {
 
   loginUser(user) {
   	var request = user;
-  	request.token = APP_TOKEN;
+  	request.app_token = APP_TOKEN;
 	  AuthService.loginUser(request)
 	    .then((status) => {
 	    	var userInfo = {

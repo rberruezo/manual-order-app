@@ -10,21 +10,18 @@ var mockedUsers = [
 ];
 
 var authService = {
-  loginUser: function (user) {
-    // console.log('Try to login...');
-    // console.log(user);
+  loginUser: function (requestData) {
     return new Promise(function (resolve, reject) {
     	request
 				.post(API_SIGN_IN_URL)
-  			.send(user)
+  			.send(requestData)
 				.end(function (err, res) {
 					if (res.status === 404) {
 						reject('Service not found');
 					} else {
-						// resolve(JSON.parse(res.text));
-						// console.log(JSON.parse(res.body.data));
-						var mockedResponse = authService.mockedResponse(user);
-						// console.log(mockedResponse);
+						var userData = requestData;
+						delete userData.app_token;
+						var mockedResponse = authService.mockedResponse(userData);
 						if (mockedResponse.status == 200) {
 	            resolve(mockedResponse);
 	          } else {
