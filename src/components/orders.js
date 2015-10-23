@@ -25,12 +25,12 @@ class Orders extends React.Component {
   }
 
 	getColumnsNames() {
-		return ["createdAt", "order_id", "consumer_name", "item_count"];
+		return ["created_at", "order_id", "consumer_name", "item_count"];
 	}
 
 	getColumnsMetadata() {
 		return [
-			{"columnName": "createdAt", "order": 4, "locked": false, "visible": true, "displayName": "Created At"},
+			{"columnName": "created_at", "order": 4, "locked": false, "visible": true, "displayName": "Created At"},
 		  {"columnName": "order_id", "order": 1, "locked": false, "visible": true, "displayName": "ID"},
 		  {"columnName": "consumer_name", "order": 2, "locked": false, "visible": true, "displayName": "Consumer"},
 		  {"columnName": "item_count", "order": 3, "locked": false, "visible": true, "displayName": "Item Count"}
@@ -57,7 +57,7 @@ class Orders extends React.Component {
 					columns={this.getColumnsNames()}
 					columnMetadata={this.getColumnsMetadata()}
 					noDataMessage={"No data could be found."}
-					initialSort="createdAt"
+					initialSort="created_at"
 					initialSortAscending={true}
 					sortDescendingComponent=' v'
 					sortAscendingComponent=' ^'
