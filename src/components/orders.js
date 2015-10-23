@@ -7,7 +7,7 @@ import OrdersActions from 'actions/ordersActions';
 var Griddle = require('griddle-react');
 
 @connectToStores
-class OrdersTable extends React.Component {
+class Orders extends React.Component {
 
 	constructor(props) {
     super(props);
@@ -70,4 +70,4 @@ class OrdersTable extends React.Component {
 
 }
 
-export default OrdersTable;
+export default Orders;

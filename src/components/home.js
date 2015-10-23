@@ -1,5 +1,5 @@
 import React from 'react';
-import OrderTable from 'components/ordersTable';
+import Orders from 'components/orders';
 import NavigationBar from 'components/navigationBar';
 
 class Home extends React.Component {
@@ -8,7 +8,7 @@ class Home extends React.Component {
     return (
     	<div>
 				<NavigationBar/>
-				<OrderTable/>
+				<Orders/>
 			</div>
     );
   }
