@@ -1,7 +1,7 @@
 {
-  "name": "manual-order-app",
+  "name": "order-manager-app",
   "version": "0.0.1",
-  "description": "Manual Order",
+  "description": "Order Manager",
   "main": "dist/index.js",
   "engines": {
     "node": ">=0.10.32"
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rberruezo/manual-order-app.git"
+    "url": "git+https://github.com/rberruezo/order-manager.git"
   },
   "bugs": {
-    "url": "https://github.com/rberruezo/manual-order-app/issues"
+    "url": "https://github.com/rberruezo/order-manager/issues"
   },
   "author": "Ramiro Berruezo",
   "license": "MIT",
-  "homepage": "https://github.com/rberruezo/manual-order-app#readme",
+  "homepage": "https://github.com/rberruezo/order-manager#readme",
   "dependencies": {
     "alt": "0.17.1",
     "babel-runtime": "5.6.18",
