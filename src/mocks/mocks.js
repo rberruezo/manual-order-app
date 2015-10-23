@@ -33,7 +33,10 @@ var mocks = {
   },
 
   getFakeData: function() {
-  	return fakeData;
+  	return {
+  		data: fakeData,
+  		status: 200
+  	};
 	}
 
 };

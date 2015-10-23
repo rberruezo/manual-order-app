@@ -1,9 +1,28 @@
 import React from 'react';
 import Mocks from 'mocks/mocks';
+import connectToStores from 'alt/utils/connectToStores';
+import OrdersStore from 'stores/ordersStore';
+import OrdersActions from 'actions/ordersActions';
 
 var Griddle = require('griddle-react');
 
+@connectToStores
 class OrdersTable extends React.Component {
+
+	constructor(props) {
+    super(props);
+    this.state = {
+      orders: props.orders
+    };
+  }
+
+  static getStores(props) {
+    return [OrdersStore];
+  }
+
+  static getPropsFromStores(props) {
+    return OrdersStore.getState();
+  }
 
 	getColumnsNames() {
 		return ["createdAt", "order_id", "consumer_name", "item_count"];
@@ -31,7 +50,7 @@ class OrdersTable extends React.Component {
 				<script type="text/javascript" src="scripts/griddle.js"></script>
 
 				<Griddle
-					results={Mocks.getFakeData()}
+					results={this.props.orders}
 					tableClassName="table"
 					showFilter={true}
 					showSettings={true}
