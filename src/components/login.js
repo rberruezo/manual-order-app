@@ -3,7 +3,7 @@ import connectToStores from 'alt/utils/connectToStores';
 import LoginStore from 'stores/loginStore';
 import LoginActions from 'actions/loginActions';
 
-require('../styles/main.styl');
+require('../styles/login.styl');
 
 @connectToStores
 class Login extends React.Component {
