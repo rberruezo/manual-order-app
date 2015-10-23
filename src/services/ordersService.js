@@ -13,7 +13,7 @@ var ordersService = {
 					if (res.status === 404) {
 						reject('Service not found');
 					} else {
-						var response = Mocks.getFakeData();
+						var response = Mocks.getAllowedOrders(requestData.user_token);
 						if (response.status == 200) {
 	            resolve(response);
 	          } else {

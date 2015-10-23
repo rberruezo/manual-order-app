@@ -6,7 +6,7 @@ var mockedUsers = [
   { email: 'a@a.com', pass: '1234' }
 ];
 
-var fakeData = [
+var mockedOrders = [
 	{"createdAt": 1410231218, "order_id": 1, "consumer_name": "Victoria Sarappa", "item_count": 3 },
 	{"createdAt": 1510231105, "order_id": 2, "consumer_name": "Juan Rojo", "item_count": 5 },
 	{"createdAt": 1306231749, "order_id": 3, "consumer_name": "Clara Orchow", "item_count": 2 },
@@ -32,9 +32,9 @@ var mocks = {
 		return {status: 500};		
   },
 
-  getFakeData: function() {
+  getAllowedOrders: function(user_token) {
   	return {
-  		data: fakeData,
+  		data: mockedOrders,
   		status: 200
   	};
 	}
