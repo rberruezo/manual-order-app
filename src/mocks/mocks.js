@@ -37,6 +37,15 @@ var mocks = {
   		data: mockedOrders,
   		status: 200
   	};
+	},
+
+	removeOrder: function(order_id, user_token) {
+		for (var i = 0; i < mockedOrders.length; i++) {
+			if (mockedOrders[i].order_id == order_id) {
+				mockedOrders.splice(i,1);
+			}
+		}
+		return {status: 200};
 	}
 
 };

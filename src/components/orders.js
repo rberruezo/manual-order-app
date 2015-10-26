@@ -38,7 +38,7 @@ class Orders extends React.Component {
 	}
 
 	handleOrderClick(row, evt) {
-    console.log(row.props.data);
+    OrdersActions.removeOrder(row.props.data.order_id);
   }
 
   render() {
