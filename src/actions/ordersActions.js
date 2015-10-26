@@ -1,7 +1,6 @@
 import flux from 'control';
 import {createActions} from 'alt/utils/decorators';
 import OrdersService from 'services/ordersService';
-import LoginStore from 'stores/loginStore';
 
 @createActions(flux)
 class OrdersActions {
@@ -24,8 +23,7 @@ class OrdersActions {
 
   removeOrder(order_id) {
   	var request = {
-  		order_id: order_id,
-  		user_token: LoginStore.getState().user.token
+  		order_id: order_id
   	};
 	  OrdersService.removeOrder(request)
 	    .then((status) => {

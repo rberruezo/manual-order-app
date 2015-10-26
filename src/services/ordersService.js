@@ -1,4 +1,5 @@
 import {API_GET_ORDERS_URL} from 'constants/constants';
+import LoginStore from 'stores/loginStore';
 import Mocks from 'mocks/mocks';
 
 var request = require('superagent');
@@ -25,6 +26,7 @@ var ordersService = {
   },
 
   removeOrder: function (requestData) {
+  	requestData.user_token = LoginStore.getState().user.token;
     return new Promise(function (resolve, reject) {
     	request
 				.post(API_GET_ORDERS_URL)
