@@ -18,7 +18,6 @@ class OrdersActions {
 	    })
 	    .catch((errorMessage) => {
 	      alert(errorMessage);
-	      // this.actions.loginFailed(errorMessage);
 	    });
   }
 

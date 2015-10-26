@@ -37,6 +37,11 @@ class Orders extends React.Component {
 		];
 	}
 
+	getArrayOfOrders() {
+		var obj = this.props.orders;
+		return Object.keys(obj).map(function (key) { return obj[key]; });
+	}
+
 	handleOrderClick(row, evt) {
     OrdersActions.removeOrder(row.props.data.order_id);
   }
@@ -50,7 +55,7 @@ class Orders extends React.Component {
 				<script type="text/javascript" src="scripts/griddle.js"></script>
 
 				<Griddle
-					results={this.props.orders}
+					results={this.getArrayOfOrders()}
 					tableClassName="table"
 					showFilter={true}
 					showSettings={true}

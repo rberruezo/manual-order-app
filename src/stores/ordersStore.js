@@ -17,11 +17,7 @@ class OrdersStore {
 
   @bind(OrdersActions.removeOrder)
   removeOrder(order_id) {
-		for (var i = 0; i < this.orders.length; i++) {
-			if (this.orders[i].order_id == order_id) {
-				this.orders.splice(i,1);
-			}
-		}
+		delete this.orders[order_id];
   }
 
 }

@@ -6,17 +6,17 @@ var mockedUsers = [
   { email: 'a@a.com', pass: '1234' }
 ];
 
-var mockedOrders = [
-	{"created_at": 1410231218, "order_id": 1, "consumer_name": "Victoria Sarappa", "item_count": 3 },
-	{"created_at": 1510231105, "order_id": 2, "consumer_name": "Juan Rojo", "item_count": 5 },
-	{"created_at": 1306231749, "order_id": 3, "consumer_name": "Clara Orchow", "item_count": 2 },
-	{"created_at": 1508181228, "order_id": 4, "consumer_name": "Alan Pieroni", "item_count": 1 },
-	{"created_at": 1511051238, "order_id": 5, "consumer_name": "Ivan Levin", "item_count": 9 },
-	{"created_at": 1503150753, "order_id": 6, "consumer_name": "Matias Camacho", "item_count": 4 },
-	{"created_at": 1511182302, "order_id": 7, "consumer_name": "Marcia Perdomo", "item_count": 8 },
-	{"created_at": 1511181818, "order_id": 8, "consumer_name": "Nicolas Vaamonde", "item_count": 6 },
-	{"created_at": 1511180729, "order_id": 9, "consumer_name": "Augusto Rodriguez", "item_count": 5 }
-];
+var mockedOrders = {
+	701: {"created_at": 1410231218, "order_id": 701, "consumer_name": "Victoria Sarappa", "item_count": 3 },
+	702: {"created_at": 1510231105, "order_id": 702, "consumer_name": "Juan Rojo", "item_count": 5 },
+	703: {"created_at": 1306231749, "order_id": 703, "consumer_name": "Clara Orchow", "item_count": 2 },
+	704: {"created_at": 1508181228, "order_id": 704, "consumer_name": "Alan Pieroni", "item_count": 1 },
+	705: {"created_at": 1511051238, "order_id": 705, "consumer_name": "Ivan Levin", "item_count": 9 },
+	706: {"created_at": 1503150753, "order_id": 706, "consumer_name": "Matias Camacho", "item_count": 4 },
+	707: {"created_at": 1511182302, "order_id": 707, "consumer_name": "Marcia Perdomo", "item_count": 8 },
+	708: {"created_at": 1511181818, "order_id": 708, "consumer_name": "Nicolas Vaamonde", "item_count": 6 },
+	709: {"created_at": 1511180729, "order_id": 709, "consumer_name": "Augusto Rodriguez", "item_count": 5 }
+};
 
 var mocks = {
 
@@ -40,11 +40,7 @@ var mocks = {
 	},
 
 	removeOrder: function(order_id, user_token) {
-		for (var i = 0; i < mockedOrders.length; i++) {
-			if (mockedOrders[i].order_id == order_id) {
-				mockedOrders.splice(i,1);
-			}
-		}
+		delete mockedOrders[order_id];
 		return {status: 200};
 	}
 
