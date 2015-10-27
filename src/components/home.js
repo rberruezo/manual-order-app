@@ -21,7 +21,6 @@ class Home extends React.Component {
   }
 
   isOrderSelected() {
-  	console.log(OrdersStore.getState());
   	return OrdersStore.getState().selectedOrder != undefined;
   }
 
