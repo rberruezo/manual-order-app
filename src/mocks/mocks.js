@@ -7,15 +7,15 @@ var mockedUsers = [
 ];
 
 var mockedOrders = {
-	701: {"created_at": 1410231218, "order_id": 701, "consumer_name": "Victoria Sarappa", "item_count": 3 },
-	702: {"created_at": 1510231105, "order_id": 702, "consumer_name": "Juan Rojo", "item_count": 5 },
-	703: {"created_at": 1306231749, "order_id": 703, "consumer_name": "Clara Orchow", "item_count": 2 },
-	704: {"created_at": 1508181228, "order_id": 704, "consumer_name": "Alan Pieroni", "item_count": 1 },
-	705: {"created_at": 1511051238, "order_id": 705, "consumer_name": "Ivan Levin", "item_count": 9 },
-	706: {"created_at": 1503150753, "order_id": 706, "consumer_name": "Matias Camacho", "item_count": 4 },
-	707: {"created_at": 1511182302, "order_id": 707, "consumer_name": "Marcia Perdomo", "item_count": 8 },
-	708: {"created_at": 1511181818, "order_id": 708, "consumer_name": "Nicolas Vaamonde", "item_count": 6 },
-	709: {"created_at": 1511180729, "order_id": 709, "consumer_name": "Augusto Rodriguez", "item_count": 5 }
+	701: {"createdAt": 1410231218, "orderId": 701, "consumerName": "Victoria Sarappa", "itemCount": 3 },
+	702: {"createdAt": 1510231105, "orderId": 702, "consumerName": "Juan Rojo", "itemCount": 5 },
+	703: {"createdAt": 1306231749, "orderId": 703, "consumerName": "Clara Orchow", "itemCount": 2 },
+	704: {"createdAt": 1508181228, "orderId": 704, "consumerName": "Alan Pieroni", "itemCount": 1 },
+	705: {"createdAt": 1511051238, "orderId": 705, "consumerName": "Ivan Levin", "itemCount": 9 },
+	706: {"createdAt": 1503150753, "orderId": 706, "consumerName": "Matias Camacho", "itemCount": 4 },
+	707: {"createdAt": 1511182302, "orderId": 707, "consumerName": "Marcia Perdomo", "itemCount": 8 },
+	708: {"createdAt": 1511181818, "orderId": 708, "consumerName": "Nicolas Vaamonde", "itemCount": 6 },
+	709: {"createdAt": 1511180729, "orderId": 709, "consumerName": "Augusto Rodriguez", "itemCount": 5 }
 };
 
 var mocks = {
@@ -45,11 +45,11 @@ var mocks = {
 	},
 
 	getOrder: function(order_id, user_token) {
-		var data = mockedOrders[order_id];
-		data.status = 7;
-		data.extra = 'extra-information';
+		var order = mockedOrders[order_id];
+		order.status = 7;
+		order.extra = 'extra-information';
 		return {
-			order: data,
+			order: order,
 			status: 200
 		};
 	}

@@ -8,7 +8,7 @@ var request = require('superagent');
 var ordersService = {
   getAllowedOrders: function () {
   	var requestData = {
-  		user_token: ordersService.getUserToken()
+  		userToken: ordersService.getUserToken()
   	}
     return new Promise(function (resolve, reject) {
     	request
@@ -18,7 +18,7 @@ var ordersService = {
 					if (res.status === 404) {
 						reject('Service not found');
 					} else {
-						var response = Mocks.getAllowedOrders(requestData.user_token);
+						var response = Mocks.getAllowedOrders(requestData.userToken);
 						if (response.status == 200) {
 	            resolve(response);
 	          } else {
@@ -30,7 +30,7 @@ var ordersService = {
   },
 
   removeOrder: function (requestData) {
-  	requestData.user_token = ordersService.getUserToken();
+  	requestData.userToken = ordersService.getUserToken();
     return new Promise(function (resolve, reject) {
     	request
 				.post(API_REMOVE_ORDER_URL)
@@ -39,7 +39,7 @@ var ordersService = {
 					if (res.status === 404) {
 						reject('Service not found');
 					} else {
-						var response = Mocks.removeOrder(requestData.order_id, requestData.user_token);
+						var response = Mocks.removeOrder(requestData.orderId, requestData.userToken);
 						if (response.status == 200) {
 	            resolve(response);
 	          } else {
@@ -51,7 +51,7 @@ var ordersService = {
   },
 
   getOrder: function (requestData) {
-  	requestData.user_token = ordersService.getUserToken();
+  	requestData.userToken = ordersService.getUserToken();
     return new Promise(function (resolve, reject) {
     	request
 				.post(API_GET_ORDER_URL)
@@ -60,7 +60,7 @@ var ordersService = {
 					if (res.status === 404) {
 						reject('Service not found');
 					} else {
-						var response = Mocks.getOrder(requestData.order_id, requestData.user_token);
+						var response = Mocks.getOrder(requestData.orderId, requestData.userToken);
 						if (response.status == 200) {
 	            resolve(response);
 	          } else {

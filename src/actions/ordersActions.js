@@ -20,7 +20,7 @@ class OrdersActions {
 
   removeOrder(order_id) {
   	var request = {
-  		order_id: order_id
+  		orderId: order_id
   	};
 	  OrdersService.removeOrder(request)
 	    .then((response) => {
@@ -33,7 +33,7 @@ class OrdersActions {
 
   selectOrder(order_id) {
     var request = {
-      order_id: order_id
+      orderId: order_id
     };
     OrdersService.getOrder(request)
       .then((response) => {
