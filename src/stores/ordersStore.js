@@ -20,6 +20,16 @@ class OrdersStore {
 		delete this.orders[order_id];
   }
 
+  @bind(OrdersActions.selectOrder)
+  selectOrder(order_id) {
+    this.selectedOrderId = order_id;
+  }
+
+  @bind(OrdersActions.deselectOrder)
+  deselectOrder() {
+    delete this.selectedOrderId;
+  }
+
 }
 
 export default OrdersStore;

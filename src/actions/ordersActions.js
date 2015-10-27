@@ -5,7 +5,7 @@ import OrdersService from 'services/ordersService';
 @createActions(flux)
 class OrdersActions {
   constructor() {
-    this.generateActions();
+    this.generateActions('selectOrder', 'deselectOrder');
   }
 
   getAllowedOrders() {

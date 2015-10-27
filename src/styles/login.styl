@@ -2,6 +2,8 @@ cl-primary = #01B3EB
 cl-secondary = #58B217
 cl-third = #8996A4
 cl-quaternary = lightblue
+cl-red = #f00
+cl-blue = #00f
 html
 body
   width 100%
@@ -106,3 +108,21 @@ body
     background-image linear-gradient(to top, rgba(#fff,0), cl-secondary - 20)
     transform scale(.98)
     transition .3s all
+.accept-button
+  @extends .login-enter
+  background cl-blue + 30
+  &:hover
+    background cl-blue + 60
+    background-image linear-gradient(to bottom, rgba(#fff,0), cl-blue + 30)
+  &:active    
+    background cl-blue
+    background-image linear-gradient(to top, rgba(#fff,0), cl-blue - 20)
+.cancel-button
+  @extends .login-enter
+  background cl-red + 30
+  &:hover
+    background cl-red + 60
+    background-image linear-gradient(to bottom, rgba(#fff,0), cl-red + 30)
+  &:active    
+    background cl-red
+    background-image linear-gradient(to top, rgba(#fff,0), cl-red - 20)
