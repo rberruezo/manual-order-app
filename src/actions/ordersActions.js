@@ -8,11 +8,8 @@ class OrdersActions {
     this.generateActions();
   }
 
-  getAllowedOrders(user_token) {
-  	var request = {
-  		user_token: user_token
-  	};
-	  OrdersService.getAllowedOrders(request)
+  getAllowedOrders() {
+	  OrdersService.getAllowedOrders()
 	    .then((status) => {
   			this.dispatch(status.data);
 	    })

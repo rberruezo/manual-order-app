@@ -7,7 +7,7 @@ import Mocks from 'mocks/mocks';
 class OrdersStore {
 
   constructor() {
-    this.orders = Mocks.getAllowedOrders({user_token: '123'}).data;
+    this.orders = Mocks.getAllowedOrders().data;
   }
 
   @bind(OrdersActions.getAllowedOrders)

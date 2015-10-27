@@ -4,8 +4,12 @@ import Mocks from 'mocks/mocks';
 
 var request = require('superagent');
 
+
 var ordersService = {
-  getAllowedOrders: function (requestData) {
+  getAllowedOrders: function () {
+  	var requestData = {
+  		user_token: ordersService.getUserToken()
+  	}
     return new Promise(function (resolve, reject) {
     	request
 				.post(API_GET_ORDERS_URL)
@@ -26,7 +30,7 @@ var ordersService = {
   },
 
   removeOrder: function (requestData) {
-  	requestData.user_token = LoginStore.getState().user.token;
+  	requestData.user_token = ordersService.getUserToken();
     return new Promise(function (resolve, reject) {
     	request
 				.post(API_GET_ORDERS_URL)
@@ -44,7 +48,11 @@ var ordersService = {
 					}
 			});
     });
-  }
+  },
+
+	getUserToken: function() {
+		return LoginStore.getState().user.token;
+	}
 
 };
 
