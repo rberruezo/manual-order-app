@@ -2,14 +2,18 @@ import React from 'react';
 import connectToStores from 'alt/utils/connectToStores';
 import OrdersStore from 'stores/ordersStore';
 import OrdersActions from 'actions/ordersActions';
+import Utilities from 'utilities/utilities';
+
+var originalOrder = {};
 
 @connectToStores
 class OrderForm extends React.Component {
 
 	constructor(props) {
     super(props);
+    Utilities.copyObject(originalOrder, props.selectedOrder);
     this.state = {
-      order: props.selectedOrder
+      selectedOrder: props.selectedOrder
     };
   }
 
@@ -21,23 +25,34 @@ class OrderForm extends React.Component {
     return OrdersStore.getState();
   }
 
-	cancelChanges() {
-    OrdersActions.deselectOrder();
-  }
-
   render() {
+  	var order = this.state.selectedOrder;
     return (
     	<section className="login-box">
         <header className="login-header">
-          <h1>Hi, Im an order form! {this.state.order.consumerName}</h1>
+          <h1>Hi, Im an order form! {order.consumerName}</h1>
         </header>
         <div className="login-content" onSubmit={this.handleLogin}>
-        	<input type="text" value={this.state.order.consumerName} placeholder="Consumer" className="login-mail"/>
+        	<input type="text" value={order.consumerName} onChange={this.handleConsumerNameChange} placeholder="Consumer" className="login-mail"/>
           <button className="cancel-button" onClick={this.cancelChanges}>CANCEL</button>
         	<button className="accept-button" onClick={this.acceptChanges}>ACCEPT</button>
         </div>
       </section>
     );
+  }
+
+  cancelChanges = evt => {
+  	Utilities.copyObject(this.props.selectedOrder, originalOrder);
+    OrdersActions.deselectOrder();
+  }
+
+  acceptChanges = evt => {
+    OrdersActions.deselectOrder();
+  }
+
+  handleConsumerNameChange = evt => {
+    this.props.selectedOrder.consumerName = evt.target.value;
+    this.setState(this.props.selectedOrder);
   }
 
 }
