@@ -7,7 +7,7 @@ import Mocks from 'mocks/mocks';
 class OrdersStore {
 
   constructor() {
-    this.orders = Mocks.getAllowedOrders().data;
+    this.orders = Mocks.getAllowedOrders().orders;
   }
 
   @bind(OrdersActions.getAllowedOrders)
@@ -21,13 +21,13 @@ class OrdersStore {
   }
 
   @bind(OrdersActions.selectOrder)
-  selectOrder(order_id) {
-    this.selectedOrderId = order_id;
+  selectOrder(order) {
+    this.selectedOrder = order;
   }
 
   @bind(OrdersActions.deselectOrder)
   deselectOrder() {
-    delete this.selectedOrderId;
+    delete this.selectedOrder;
   }
 
 }

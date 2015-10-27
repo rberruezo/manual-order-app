@@ -5,13 +5,13 @@ import OrdersService from 'services/ordersService';
 @createActions(flux)
 class OrdersActions {
   constructor() {
-    this.generateActions('selectOrder', 'deselectOrder');
+    this.generateActions('deselectOrder');
   }
 
   getAllowedOrders() {
 	  OrdersService.getAllowedOrders()
-	    .then((status) => {
-  			this.dispatch(status.data);
+	    .then((response) => {
+  			this.dispatch(response.orders);
 	    })
 	    .catch((errorMessage) => {
 	      alert(errorMessage);
@@ -23,12 +23,25 @@ class OrdersActions {
   		order_id: order_id
   	};
 	  OrdersService.removeOrder(request)
-	    .then((status) => {
+	    .then((response) => {
   			this.dispatch(order_id);
 	    })
 	    .catch((errorMessage) => {
 	      alert(errorMessage);
 	    });
+  }
+
+  selectOrder(order_id) {
+    var request = {
+      order_id: order_id
+    };
+    OrdersService.getOrder(request)
+      .then((response) => {
+        this.dispatch(response.order);
+      })
+      .catch((errorMessage) => {
+        alert(errorMessage);
+      });
   }
 
 }

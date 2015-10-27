@@ -9,7 +9,7 @@ class OrderForm extends React.Component {
 	constructor(props) {
     super(props);
     this.state = {
-      orderId: props.selectedOrderId
+      order: props.selectedOrder
     };
   }
 
@@ -27,13 +27,16 @@ class OrderForm extends React.Component {
 
   render() {
     return (
-    	<div>
-				Hi, Im an order form! {this.state.orderId}
-				<div className="order-form-buttons">
-        	<button className="cancel-button" onClick={this.cancelChanges}>CANCEL</button>
+    	<section className="login-box">
+        <header className="login-header">
+          <h1>Hi, Im an order form! {this.state.order.consumer_name}</h1>
+        </header>
+        <div className="login-content" onSubmit={this.handleLogin}>
+        	<input type="text" value={this.state.order.consumer_name} placeholder="Consumer" className="login-mail"/>
+          <button className="cancel-button" onClick={this.cancelChanges}>CANCEL</button>
         	<button className="accept-button" onClick={this.acceptChanges}>ACCEPT</button>
         </div>
-			</div>
+      </section>
     );
   }
 

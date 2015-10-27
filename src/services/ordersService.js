@@ -1,4 +1,4 @@
-import {API_GET_ORDERS_URL} from 'constants/constants';
+import {API_GET_ORDERS_URL, API_REMOVE_ORDER_URL, API_GET_ORDER_URL} from 'constants/constants';
 import LoginStore from 'stores/loginStore';
 import Mocks from 'mocks/mocks';
 
@@ -33,13 +33,34 @@ var ordersService = {
   	requestData.user_token = ordersService.getUserToken();
     return new Promise(function (resolve, reject) {
     	request
-				.post(API_GET_ORDERS_URL)
+				.post(API_REMOVE_ORDER_URL)
   			.send(requestData)
 				.end(function (err, res) {
 					if (res.status === 404) {
 						reject('Service not found');
 					} else {
 						var response = Mocks.removeOrder(requestData.order_id, requestData.user_token);
+						if (response.status == 200) {
+	            resolve(response);
+	          } else {
+	          	reject('Error: Invalid user or password');
+	          }
+					}
+			});
+    });
+  },
+
+  getOrder: function (requestData) {
+  	requestData.user_token = ordersService.getUserToken();
+    return new Promise(function (resolve, reject) {
+    	request
+				.post(API_GET_ORDER_URL)
+  			.send(requestData)
+				.end(function (err, res) {
+					if (res.status === 404) {
+						reject('Service not found');
+					} else {
+						var response = Mocks.getOrder(requestData.order_id, requestData.user_token);
 						if (response.status == 200) {
 	            resolve(response);
 	          } else {

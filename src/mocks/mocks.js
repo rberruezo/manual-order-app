@@ -34,7 +34,7 @@ var mocks = {
 
   getAllowedOrders: function(user_token) {
   	return {
-  		data: mockedOrders,
+  		orders: mockedOrders,
   		status: 200
   	};
 	},
@@ -42,6 +42,16 @@ var mocks = {
 	removeOrder: function(order_id, user_token) {
 		delete mockedOrders[order_id];
 		return {status: 200};
+	},
+
+	getOrder: function(order_id, user_token) {
+		var data = mockedOrders[order_id];
+		data.status = 7;
+		data.extra = 'extra-information';
+		return {
+			order: data,
+			status: 200
+		};
 	}
 
 };
