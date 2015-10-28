@@ -43,7 +43,7 @@ class Orders extends React.Component {
 	}
 
 	handleOrderClick(row, evt) {
-    OrdersActions.selectOrder(row.props.data.orderId);
+    OrdersActions.dequeueOrder(row.props.data.orderId);
   }
 
   render() {

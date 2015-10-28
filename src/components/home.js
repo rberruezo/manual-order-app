@@ -21,7 +21,7 @@ class Home extends React.Component {
   }
 
   isOrderSelected() {
-  	return OrdersStore.getState().selectedOrder != undefined;
+  	return OrdersStore.getState().dequeuedOrder != undefined;
   }
 
   getOrderView() {

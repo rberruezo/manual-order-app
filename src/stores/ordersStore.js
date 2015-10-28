@@ -20,14 +20,14 @@ class OrdersStore {
 		delete this.orders[order_id];
   }
 
-  @bind(OrdersActions.selectOrder)
-  selectOrder(order) {
-    this.selectedOrder = order;
+  @bind(OrdersActions.dequeueOrder)
+  dequeueOrder(order) {
+    this.dequeuedOrder = order;
   }
 
   @bind(OrdersActions.deselectOrder)
   deselectOrder() {
-    delete this.selectedOrder;
+    delete this.dequeuedOrder;
   }
 
 }

@@ -11,9 +11,9 @@ class OrderForm extends React.Component {
 
 	constructor(props) {
     super(props);
-    Utilities.copyObjectAttributes(originalOrder, props.selectedOrder);
+    Utilities.copyObjectAttributes(originalOrder, props.dequeuedOrder);
     this.state = {
-      selectedOrder: props.selectedOrder
+      dequeuedOrder: props.dequeuedOrder
     };
   }
 
@@ -26,7 +26,7 @@ class OrderForm extends React.Component {
   }
 
   render() {
-  	var order = this.state.selectedOrder;
+  	var order = this.state.dequeuedOrder;
     return (
     	<section className="login-box">
         <header className="login-header">
@@ -44,7 +44,7 @@ class OrderForm extends React.Component {
   }
 
   cancelChanges = evt => {
-  	Utilities.copyObjectAttributes(this.props.selectedOrder, originalOrder);
+  	Utilities.copyObjectAttributes(this.props.dequeuedOrder, originalOrder);
     OrdersActions.deselectOrder();
   }
 
@@ -53,8 +53,8 @@ class OrderForm extends React.Component {
   }
 
   handleChange = evt => {
-  	this.props.selectedOrder[evt.target.name] = evt.target.value;
-    this.setState(this.props.selectedOrder);
+  	this.props.dequeuedOrder[evt.target.name] = evt.target.value;
+    this.setState(this.props.dequeuedOrder);
   }
 
 }

@@ -44,6 +44,19 @@ class OrdersActions {
       });
   }
 
+  dequeueOrder(order_id) {
+    var request = {
+      orderId: order_id
+    };
+    OrdersService.dequeueOrder(request)
+      .then((response) => {
+        this.dispatch(response.order);
+      })
+      .catch((errorMessage) => {
+        alert(errorMessage);
+      });
+  }
+
 }
 
 export default OrdersActions;
