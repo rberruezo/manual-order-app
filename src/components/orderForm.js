@@ -53,17 +53,19 @@ class OrderForm extends React.Component {
   }
 
   handleConsumerNameChange = evt => {
-    this.props.selectedOrder.consumerName = evt.target.value;
-    this.setState(this.props.selectedOrder);
+  	this.handleChange('consumerName', evt.target.value);
   }
 
   handleItemCountChange = evt => {
-    this.props.selectedOrder.itemCount = evt.target.value;
-    this.setState(this.props.selectedOrder);
+  	this.handleChange('itemCount', evt.target.value);
   }
 
   handleStatusChange = evt => {
-    this.props.selectedOrder.status = evt.target.value;
+  	this.handleChange('status', evt.target.value);
+  }
+
+  handleChange(attribute, value) {
+    this.props.selectedOrder[attribute] = value;
     this.setState(this.props.selectedOrder);
   }
 
