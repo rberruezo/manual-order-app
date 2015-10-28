@@ -34,6 +34,8 @@ class OrderForm extends React.Component {
         </header>
         <div className="login-content" onSubmit={this.handleLogin}>
         	<input type="text" value={order.consumerName} onChange={this.handleConsumerNameChange} placeholder="Consumer" className="login-mail"/>
+        	<input type="number" value={order.itemCount} onChange={this.handleItemCountChange} placeholder="Item Count" className="login-mail"/>
+        	<input type="number" value={order.status} onChange={this.handleStatusChange} placeholder="Status" className="login-mail"/>
           <button className="cancel-button" onClick={this.cancelChanges}>CANCEL</button>
         	<button className="accept-button" onClick={this.acceptChanges}>ACCEPT</button>
         </div>
@@ -52,6 +54,16 @@ class OrderForm extends React.Component {
 
   handleConsumerNameChange = evt => {
     this.props.selectedOrder.consumerName = evt.target.value;
+    this.setState(this.props.selectedOrder);
+  }
+
+  handleItemCountChange = evt => {
+    this.props.selectedOrder.itemCount = evt.target.value;
+    this.setState(this.props.selectedOrder);
+  }
+
+  handleStatusChange = evt => {
+    this.props.selectedOrder.status = evt.target.value;
     this.setState(this.props.selectedOrder);
   }
 
