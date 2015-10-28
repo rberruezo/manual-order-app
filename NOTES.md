@@ -18,3 +18,6 @@ Source: http://mathjs.org/
 
 ### superagent to make requests
 Source: https://github.com/visionmedia/superagent
+
+### building a multi-step form with react
+Source: https://viget.com/extend/building-a-multi-step-registration-form-with-react
