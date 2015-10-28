@@ -11,7 +11,7 @@ class OrderForm extends React.Component {
 
 	constructor(props) {
     super(props);
-    Utilities.copyObject(originalOrder, props.selectedOrder);
+    Utilities.copyObjectAttributes(originalOrder, props.selectedOrder);
     this.state = {
       selectedOrder: props.selectedOrder
     };
@@ -42,7 +42,7 @@ class OrderForm extends React.Component {
   }
 
   cancelChanges = evt => {
-  	Utilities.copyObject(this.props.selectedOrder, originalOrder);
+  	Utilities.copyObjectAttributes(this.props.selectedOrder, originalOrder);
     OrdersActions.deselectOrder();
   }
 

@@ -1,7 +1,7 @@
 
 var utilities = {
 
-	copyObject: function(objDest, objSrc) {
+	copyObjectAttributes: function(objDest, objSrc) {
 		for (var key in objSrc) {
 			objDest[key] = objSrc[key];
 		}
