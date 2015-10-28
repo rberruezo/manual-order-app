@@ -33,9 +33,9 @@ class OrderForm extends React.Component {
           <h1>Hi, Im an order form! {order.consumerName}</h1>
         </header>
         <div className="login-content" onSubmit={this.handleLogin}>
-        	<input type="text" value={order.consumerName} onChange={this.handleConsumerNameChange} placeholder="Consumer" className="login-mail"/>
-        	<input type="number" value={order.itemCount} onChange={this.handleItemCountChange} placeholder="Item Count" className="login-mail"/>
-        	<input type="number" value={order.status} onChange={this.handleStatusChange} placeholder="Status" className="login-mail"/>
+        	<input name="consumerName" type="text" value={order.consumerName} onChange={this.handleChange} placeholder="Consumer" className="login-mail"/>
+        	<input name="itemCount" type="number" value={order.itemCount} onChange={this.handleChange} placeholder="Item Count" className="login-mail"/>
+        	<input name="status" type="number" value={order.status} onChange={this.handleChange} placeholder="Status" className="login-mail"/>
           <button className="cancel-button" onClick={this.cancelChanges}>CANCEL</button>
         	<button className="accept-button" onClick={this.acceptChanges}>ACCEPT</button>
         </div>
@@ -52,20 +52,8 @@ class OrderForm extends React.Component {
     OrdersActions.deselectOrder();
   }
 
-  handleConsumerNameChange = evt => {
-  	this.handleChange('consumerName', evt.target.value);
-  }
-
-  handleItemCountChange = evt => {
-  	this.handleChange('itemCount', evt.target.value);
-  }
-
-  handleStatusChange = evt => {
-  	this.handleChange('status', evt.target.value);
-  }
-
-  handleChange(attribute, value) {
-    this.props.selectedOrder[attribute] = value;
+  handleChange = evt => {
+  	this.props.selectedOrder[evt.target.name] = evt.target.value;
     this.setState(this.props.selectedOrder);
   }
 
