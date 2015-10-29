@@ -5,6 +5,8 @@ import ShippingAndBilling from 'components/orderWizardSteps/shippingAndBilling';
 import OrderReview from 'components/orderWizardSteps/orderReview';
 import Success from 'components/orderWizardSteps/success';
 
+require('../styles/orderWizard.styl');
+
 var fieldValues = {
   name     : null,
   email    : null,

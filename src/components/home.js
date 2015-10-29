@@ -2,7 +2,7 @@ import React from 'react';
 import connectToStores from 'alt/utils/connectToStores';
 import OrdersStore from 'stores/ordersStore';
 import Orders from 'components/orders';
-import OrderFulfillmentWizard from 'components/orderFulfillmentWizard';
+import OrderForm from 'components/orderForm';
 import NavigationBar from 'components/navigationBar';
 
 @connectToStores
@@ -26,7 +26,7 @@ class Home extends React.Component {
 
   getOrderView() {
 		if (this.isOrderSelected()) {
-			return (<OrderFulfillmentWizard />)
+			return (<OrderForm />)
 		} else {
 			return (<Orders />)
 		}
