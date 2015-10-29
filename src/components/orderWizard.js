@@ -8,7 +8,7 @@ import OrderWizardFlux from 'components/orderWizardFlux';
 var originalOrder = {};
 
 @connectToStores
-class OrderForm extends React.Component {
+class OrderWizard extends React.Component {
 
 	constructor(props) {
     super(props);
@@ -61,4 +61,4 @@ class OrderForm extends React.Component {
 
 }
 
-export default OrderForm;
+export default OrderWizard;

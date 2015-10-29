@@ -1,5 +1,4 @@
 import React from 'react';
-import OrderForm from 'components/orderForm';
 import ProductsInformation from 'components/orderWizardSteps/productsInformation';
 import ShippingAndBilling from 'components/orderWizardSteps/shippingAndBilling';
 import OrderReview from 'components/orderWizardSteps/orderReview';
