@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductsInformation from 'components/orderWizardSteps/productsInformation';
+import CartItems from 'components/orderWizardSteps/cartItems';
 import ShippingAndBilling from 'components/orderWizardSteps/shippingAndBilling';
 import OrderReview from 'components/orderWizardSteps/orderReview';
 import Success from 'components/orderWizardSteps/success';
@@ -49,17 +49,20 @@ class OrderWizardFlux extends React.Component {
   showStep() {
     switch(this.state.step) {
       case 1:
-        return <ProductsInformation fieldValues={fieldValues}
-					                          nextStep={this.nextStep}
-					                          previousStep={this.previousStep}
-					                          saveValues={this.saveValues} />
+        return <CartItems fieldValues={fieldValues}
+                          order={this.props.order}
+                          nextStep={this.nextStep}
+                          previousStep={this.previousStep}
+                          saveValues={this.saveValues} />
       case 2:
         return <ShippingAndBilling 	fieldValues={fieldValues}
+                                    order={this.props.order}
 					                          nextStep={this.nextStep}
 					                          previousStep={this.previousStep}
 					                          saveValues={this.saveValues} />
       case 3:
         return <OrderReview 	fieldValues={fieldValues}
+                              order={this.props.order}
 		                          previousStep={this.previousStep}
 		                          submitRegistration={this.submitRegistration} />
       case 4:
