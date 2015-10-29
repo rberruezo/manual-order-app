@@ -3,7 +3,7 @@ import connectToStores from 'alt/utils/connectToStores';
 import OrdersStore from 'stores/ordersStore';
 import OrdersActions from 'actions/ordersActions';
 import Utilities from 'utilities/utilities';
-import OrderFulfillmentWizard from 'components/orderFulfillmentWizard';
+import OrderWizardFlux from 'components/orderWizardFlux';
 
 var originalOrder = {};
 
@@ -33,7 +33,7 @@ class OrderForm extends React.Component {
         <header className="login-header">
           <h1>Hi, Im an order form! {order.consumerName}</h1>
         </header>
-        <OrderFulfillmentWizard />
+        <OrderWizardFlux />
         <div className="login-content" onSubmit={this.handleLogin}>
         	<input name="consumerName" type="text" value={order.consumerName} onChange={this.handleChange} placeholder="Consumer" className="login-mail"/>
         	<input name="itemCount" type="number" value={order.itemCount} onChange={this.handleChange} placeholder="Item Count" className="login-mail"/>

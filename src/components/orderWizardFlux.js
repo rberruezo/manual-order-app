@@ -15,7 +15,7 @@ var fieldValues = {
   colors   : []
 }
 
-class OrderFulfillmentWizard extends React.Component {
+class OrderWizardFlux extends React.Component {
 
 	constructor(props) {
     super(props);
@@ -84,4 +84,4 @@ class OrderFulfillmentWizard extends React.Component {
 
 }
 
-export default OrderFulfillmentWizard;
+export default OrderWizardFlux;
