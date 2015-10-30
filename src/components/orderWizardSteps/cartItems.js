@@ -18,11 +18,6 @@ class CartItems extends React.Component {
             return ( <Item item={item} /> )
           });
   }
-
-  handleChange = evt => {
-    this.props.order[evt.target.name] = evt.target.value;
-    this.setState(this.props.order);
-  }
 }
 
 export default CartItems;
