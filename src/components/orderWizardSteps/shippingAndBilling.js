@@ -18,8 +18,13 @@ class ShippingAndBilling extends React.Component {
             <label>Email</label>
             <input type="email" ref="email" defaultValue={this.props.fieldValues.email} />
           </li>
+          <ul className="form-fields">
+            <li className="form-footer">
+              <button className="btn -default pull-left" onClick={this.props.previousStep}>Back</button>
+              <button className="btn -primary pull-right" onClick={this.nextStep}>Save &amp; Continue</button>
+            </li>
+          </ul>
           <li className="form-footer">
-            <button className="btn -primary pull-right" onClick={this.nextStep}>Save &amp; Continue</button>
           </li>
         </ul>
       </div>
