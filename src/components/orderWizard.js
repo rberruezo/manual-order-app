@@ -28,6 +28,57 @@ class OrderWizard extends React.Component {
 
   render() {
   	var order = this.state.dequeuedOrder;
+
+
+    order["id"] = 1;
+    order["shippingCents"] = 999;
+    order["taxCents"] = 875;
+    order["orderTotalCents"] = 10000;
+    order["notes"] = "Some notes";
+    order["appliedCommissionCents"] = 2000;
+    order["userId"] = 1;
+    order["shippingAddressId"] = 1;
+    order["billingAddressId"] = 2;
+    order["paymentId"] = 1;
+    order["shareWithPublisher"] = true;
+    order["apiKey"] = "1ca052ae-f0b5-7c9c-a931-5a417ae374d9";
+    order["sourceUrl"] = "www.google.com";
+    order["shippingAddress"] = {
+        "address1": "1 Main St.",
+        "address2": "",
+        "city": "Rockaway",
+        "state": "NJ",
+        "zip": "07866",
+        "status": 1,
+        "addressType": 1,
+        "UserId": 1
+    };
+    order["billingAddress"] = {
+        "address1": "1 State St.",
+        "address2": "18th Floor",
+        "city": "New York",
+        "state": "NY",
+        "zip": 10001,
+        "addressType": 1,
+        "UserId": 1,
+        "status": 1
+    };
+    order["paymentData"] = {
+        "type": 1,
+        "number": "1cb8fe45fd5c129a5f1d5da1e5116ea48c79714a2a298d724d374cc360b5f3bf",
+        "expirationMonth": 5,
+        "expirationYear": 2015,
+        "name": "Bob Denver",
+        "cvv": "111"
+    };
+    order["user"] = {
+        "email": "bob.denver@lostatsea.com",
+        "password": "NIRqT9W6HBhMGUp9kxOUkcHs+cIloGZY54aBk9ujxwElG4MI4L2G9XAU8buVnq9i9x1IjDf//Mf6+HcfqfHNEyusRxeEhV0J8kJ0JxenMNVMFinB9oNJV6tjxmvbbS1u2Jz77Lb+zftuF2DZcXDAl6FYV0e2+KVU7vRPsN1r8lxV3ZK89Y00G2fIg3aFMVFILE4ioZyQTftDH2hk3PXw+cNUTezDzT9My+SBsp3MNUVYyfMc2Jw2TP1rarMUeOEEVpvw+El2Ens3SiCzwuGAG/fFeB6Fgi3Q3LWHJ2DONb7pQq0sZ6z20l5QAgfaB00MJE5vhLZtwx6Ql7mCytTWcw==",
+        "firstName": "Bob",
+        "lastName": "Denver",
+        "status": 1,
+        "salt": "800.ALB4OJFHLJGP/xtvxQuPspwy8nPgoS7zNOZQRlbC+TQ/cMPUT1H/WwNaonjKhgn1qZ9VFP/CIfC03TlkyDgu0w=="
+    };
   	order.items =
   		[
 				{

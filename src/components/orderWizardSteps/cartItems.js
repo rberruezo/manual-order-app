@@ -8,7 +8,7 @@ class CartItems extends React.Component {
       <div className="login-content" onSubmit={this.handleLogin}>
         <h2>Cart Items</h2>
         {this.getItemsView()}
-        <button className="accept-button" onClick={this.nextStep}>Save &amp; Continue</button>
+        <button className="accept-button" onClick={this.props.nextStep}>Save &amp; Continue</button>
       </div>
     )
   }
@@ -17,20 +17,6 @@ class CartItems extends React.Component {
     return this.props.order.items.map(function(item) {
             return ( <Item item={item} /> )
           });
-  }
-
-  nextStep = evt => {
-    evt.preventDefault();
-
-    // Get values via this.refs
-    // var data = {
-    //   name     : this.refs.name.getDOMNode().value,
-    //   password : this.refs.password.getDOMNode().value,
-    //   email    : this.refs.email.getDOMNode().value,
-    // }
-
-    // this.props.saveValues(data)
-    this.props.nextStep();
   }
 
   handleChange = evt => {

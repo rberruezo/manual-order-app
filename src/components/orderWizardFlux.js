@@ -2,17 +2,18 @@ import React from 'react';
 import CartItems from 'components/orderWizardSteps/cartItems';
 import ShippingAndBilling from 'components/orderWizardSteps/shippingAndBilling';
 import OrderReview from 'components/orderWizardSteps/orderReview';
+import Payment from 'components/orderWizardSteps/payment';
 import Success from 'components/orderWizardSteps/success';
 
 require('../styles/orderWizard.styl');
 
-var fieldValues = {
-  name     : null,
-  email    : null,
-  password : null,
-  age      : null,
-  colors   : []
-}
+// var fieldValues = {
+//   name     : null,
+//   email    : null,
+//   password : null,
+//   age      : null,
+//   colors   : []
+// }
 
 class OrderWizardFlux extends React.Component {
 
@@ -24,9 +25,9 @@ class OrderWizardFlux extends React.Component {
   }
 
   saveValues(field_value) {
-    return function() {
-      fieldValues = assign({}, fieldValues, field_value)
-    }.bind(this)()
+    // return function() {
+    //   fieldValues = assign({}, fieldValues, field_value)
+    // }.bind(this)()
   }
 
   nextStep = evt => {
@@ -49,30 +50,32 @@ class OrderWizardFlux extends React.Component {
   showStep() {
     switch(this.state.step) {
       case 1:
-        return <CartItems fieldValues={fieldValues}
-                          order={this.props.order}
+        return <CartItems order={this.props.order}
                           nextStep={this.nextStep}
                           previousStep={this.previousStep}
                           saveValues={this.saveValues} />
       case 2:
-        return <ShippingAndBilling 	fieldValues={fieldValues}
-                                    order={this.props.order}
-					                          nextStep={this.nextStep}
-					                          previousStep={this.previousStep}
-					                          saveValues={this.saveValues} />
+        return <ShippingAndBilling  order={this.props.order}
+                                    nextStep={this.nextStep}
+                                    previousStep={this.previousStep}
+                                    saveValues={this.saveValues} />
       case 3:
-        return <OrderReview 	fieldValues={fieldValues}
-                              order={this.props.order}
+        return <Payment  order={this.props.order}
+                                    nextStep={this.nextStep}
+                                    previousStep={this.previousStep}
+                                    saveValues={this.saveValues} />
+      case 4:
+        return <OrderReview 	order={this.props.order}
 		                          previousStep={this.previousStep}
 		                          submitRegistration={this.submitRegistration} />
-      case 4:
-        return <Success fieldValues={fieldValues} />
+      case 5:
+        return <Success />
     }
   }
 
   render() {
     var style = {
-      width : (this.state.step / 4 * 100) + '%'
+      width : (this.state.step / 5 * 100) + '%'
     }
 
     return (

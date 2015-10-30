@@ -1,10 +1,10 @@
 import React from 'react';
 
-class ShippingAndBilling extends React.Component {
+class Payment extends React.Component {
   render() {
     return (
       <div>
-        <h2>Shipping and Billing</h2>
+        <h2>Payment</h2>
         <ul className="form-fields">
           <ul className="form-fields">
             <li className="form-footer">
@@ -20,4 +20,4 @@ class ShippingAndBilling extends React.Component {
   }
 }
 
-export default ShippingAndBilling;
+export default Payment;
