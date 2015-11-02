@@ -7,14 +7,6 @@ import Success from 'components/orderWizardSteps/success';
 
 require('../styles/orderWizard.styl');
 
-// var fieldValues = {
-//   name     : null,
-//   email    : null,
-//   password : null,
-//   age      : null,
-//   colors   : []
-// }
-
 class OrderWizardFlux extends React.Component {
 
 	constructor(props) {
@@ -22,12 +14,6 @@ class OrderWizardFlux extends React.Component {
     this.state = {
       step : 1
     };
-  }
-
-  saveValues(field_value) {
-    // return function() {
-    //   fieldValues = assign({}, fieldValues, field_value)
-    // }.bind(this)()
   }
 
   nextStep = evt => {
@@ -43,7 +29,6 @@ class OrderWizardFlux extends React.Component {
   }
 
   submitRegistration = evt => {
-  	console.log('submitRegistration');
     this.nextStep();
   }
 
@@ -55,19 +40,19 @@ class OrderWizardFlux extends React.Component {
                           previousStep={this.props.cancelChanges}
                           saveValues={this.saveValues} />
       case 2:
-        return <ShippingAndBilling  order={this.props.order}
-                                    nextStep={this.nextStep}
-                                    previousStep={this.previousStep}
-                                    saveValues={this.saveValues} />
+        return <ShippingAndBilling order={this.props.order}
+                                   nextStep={this.nextStep}
+                                   previousStep={this.previousStep}
+                                   saveValues={this.saveValues} />
       case 3:
-        return <Payment  order={this.props.order}
-                                    nextStep={this.nextStep}
-                                    previousStep={this.previousStep}
-                                    saveValues={this.saveValues} />
+        return <Payment order={this.props.order}
+                        nextStep={this.nextStep}
+                        previousStep={this.previousStep}
+                        saveValues={this.saveValues} />
       case 4:
-        return <OrderReview 	order={this.props.order}
-		                          previousStep={this.previousStep}
-		                          submitRegistration={this.submitRegistration} />
+        return <OrderReview order={this.props.order}
+		                        previousStep={this.previousStep}
+		                        submitRegistration={this.submitRegistration} />
       case 5:
         return <Success close={this.props.acceptChanges} />
     }

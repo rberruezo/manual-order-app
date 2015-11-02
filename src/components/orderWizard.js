@@ -36,13 +36,6 @@ class OrderWizard extends React.Component {
         <OrderWizardFlux order={order}
         								 cancelChanges={this.cancelChanges}
         								 acceptChanges={this.acceptChanges} />
-        <div className="login-content" onSubmit={this.handleLogin}>
-        	<input name="consumerName" type="text" value={order.consumerName} onChange={this.handleChange} placeholder="Consumer" className="login-mail"/>
-        	<input name="itemCount" type="number" value={order.itemCount} onChange={this.handleChange} placeholder="Item Count" className="login-mail"/>
-        	<input name="status" type="number" value={order.status} onChange={this.handleChange} placeholder="Status" className="login-mail"/>
-          <button className="cancel-button" onClick={this.cancelChanges}>CANCEL</button>
-        	<button className="accept-button" onClick={this.acceptChanges}>ACCEPT</button>
-        </div>
       </section>
     );
   }

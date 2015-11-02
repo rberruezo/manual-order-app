@@ -9,15 +9,15 @@ var mockedUsers = [
 ];
 
 var mockedOrders = {
-	701: {"createdAt": 1410231218, "orderId": 701, "consumerName": "Victoria Sarappa", "itemCount": 3, "status": 11 },
-	702: {"createdAt": 1510231105, "orderId": 702, "consumerName": "Juan Rojo", "itemCount": 5, "status": 11 },
-	703: {"createdAt": 1306231749, "orderId": 703, "consumerName": "Clara Orchow", "itemCount": 2, "status": 11 },
-	704: {"createdAt": 1508181228, "orderId": 704, "consumerName": "Alan Pieroni", "itemCount": 1, "status": 11 },
-	705: {"createdAt": 1511051238, "orderId": 705, "consumerName": "Ivan Levin", "itemCount": 9, "status": 11 },
-	706: {"createdAt": 1503150753, "orderId": 706, "consumerName": "Matias Camacho", "itemCount": 4, "status": 11 },
-	707: {"createdAt": 1511182302, "orderId": 707, "consumerName": "Marcia Perdomo", "itemCount": 8, "status": 11 },
-	708: {"createdAt": 1511181818, "orderId": 708, "consumerName": "Nicolas Vaamonde", "itemCount": 6, "status": 11 },
-	709: {"createdAt": 1511180729, "orderId": 709, "consumerName": "Augusto Rodriguez", "itemCount": 5, "status": 11 }
+	701: {"createdAt": 1410231218, "orderId": 701, "user": {"firstName": "Victoria", "lastName": "Sarappa"}, "itemCount": 3, "status": 11 },
+	702: {"createdAt": 1510231105, "orderId": 702, "user": {"firstName": "Juan", "lastName": "Rojo"}, "itemCount": 5, "status": 11 },
+	703: {"createdAt": 1306231749, "orderId": 703, "user": {"firstName": "Clara", "lastName": "Orchow"}, "itemCount": 2, "status": 11 },
+	704: {"createdAt": 1508181228, "orderId": 704, "user": {"firstName": "Alan", "lastName": "Pieroni"}, "itemCount": 1, "status": 11 },
+	705: {"createdAt": 1511051238, "orderId": 705, "user": {"firstName": "Ivan", "lastName": "Levin"}, "itemCount": 9, "status": 11 },
+	706: {"createdAt": 1503150753, "orderId": 706, "user": {"firstName": "Matias", "lastName": "Camacho"}, "itemCount": 4, "status": 11 },
+	707: {"createdAt": 1511182302, "orderId": 707, "user": {"firstName": "Marcia", "lastName": "Perdomo"}, "itemCount": 8, "status": 11 },
+	708: {"createdAt": 1511181818, "orderId": 708, "user": {"firstName": "Nicolas", "lastName": "Vaamonde"}, "itemCount": 6, "status": 11 },
+	709: {"createdAt": 1511180729, "orderId": 709, "user": {"firstName": "Augusto", "lastName": "Rodriguez"}, "itemCount": 5, "status": 11 }
 };
 
 function addDataToOrder(order) {
@@ -65,8 +65,6 @@ function addDataToOrder(order) {
 	order["user"] = {
 	    "email": "bob.denver@lostatsea.com",
 	    "password": "NIRqT9W6HBhMGUp9kxOUkcHs+cIloGZY54aBk9ujxwElG4MI4L2G9XAU8buVnq9i9x1IjDf//Mf6+HcfqfHNEyusRxeEhV0J8kJ0JxenMNVMFinB9oNJV6tjxmvbbS1u2Jz77Lb+zftuF2DZcXDAl6FYV0e2+KVU7vRPsN1r8lxV3ZK89Y00G2fIg3aFMVFILE4ioZyQTftDH2hk3PXw+cNUTezDzT9My+SBsp3MNUVYyfMc2Jw2TP1rarMUeOEEVpvw+El2Ens3SiCzwuGAG/fFeB6Fgi3Q3LWHJ2DONb7pQq0sZ6z20l5QAgfaB00MJE5vhLZtwx6Ql7mCytTWcw==",
-	    "firstName": "Bob",
-	    "lastName": "Denver",
 	    "status": 1,
 	    "salt": "800.ALB4OJFHLJGP/xtvxQuPspwy8nPgoS7zNOZQRlbC+TQ/cMPUT1H/WwNaonjKhgn1qZ9VFP/CIfC03TlkyDgu0w=="
 	};

@@ -6,6 +6,12 @@ import OrdersActions from 'actions/ordersActions';
 
 var Griddle = require('griddle-react');
 
+class CompleteNameComponent extends React.Component{
+  render() {
+    return (<div> {this.props.rowData.user.firstName + ' ' + this.props.rowData.user.lastName} </div>);
+  }
+};
+
 @connectToStores
 class Orders extends React.Component {
 
@@ -25,15 +31,15 @@ class Orders extends React.Component {
   }
 
 	getColumnsNames() {
-		return ["createdAt", "orderId", "consumerName", "itemCount"];
+		return ["createdAt", "orderId", "user", "itemCount"];
 	}
 
 	getColumnsMetadata() {
 		return [
-			{"columnName": "createdAt", "order": 4, "locked": false, "visible": true, "displayName": "Created At"},
-		  {"columnName": "orderId", "order": 1, "locked": false, "visible": true, "displayName": "ID"},
-		  {"columnName": "consumerName", "order": 2, "locked": false, "visible": true, "displayName": "Consumer"},
-		  {"columnName": "itemCount", "order": 3, "locked": false, "visible": true, "displayName": "Item Count"}
+			{columnName: "createdAt", order: 4, locked: false, visible: true, displayName: "Created At"},
+		  {columnName: "orderId", order: 1, locked: false, visible: true, displayName: "ID"},
+		  {columnName: "user", order: 2, locked: false, visible: true, displayName: "Consumer", customComponent: CompleteNameComponent},
+		  {columnName: "itemCount", order: 3, locked: false, visible: true, displayName: "Item Count"}
 		];
 	}
 
