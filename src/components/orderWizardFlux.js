@@ -52,7 +52,7 @@ class OrderWizardFlux extends React.Component {
       case 1:
         return <CartItems order={this.props.order}
                           nextStep={this.nextStep}
-                          previousStep={this.previousStep}
+                          previousStep={this.props.cancelChanges}
                           saveValues={this.saveValues} />
       case 2:
         return <ShippingAndBilling  order={this.props.order}
@@ -69,7 +69,7 @@ class OrderWizardFlux extends React.Component {
 		                          previousStep={this.previousStep}
 		                          submitRegistration={this.submitRegistration} />
       case 5:
-        return <Success />
+        return <Success close={this.props.acceptChanges} />
     }
   }
 

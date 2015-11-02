@@ -5,6 +5,7 @@ class Success extends React.Component {
     return (
       <div>
         <h2>Successfully Registered!</h2>
+        <button className="accept-button" onClick={this.props.close}>Close</button>
       </div>
     )
   }

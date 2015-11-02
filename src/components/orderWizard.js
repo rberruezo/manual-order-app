@@ -131,7 +131,9 @@ class OrderWizard extends React.Component {
         <header>
           <h1>Hi, Im an order form! {order.consumerName}</h1>
         </header>
-        <OrderWizardFlux order={order} />
+        <OrderWizardFlux order={order}
+        								 cancelChanges={this.cancelChanges}
+        								 acceptChanges={this.acceptChanges} />
         <div className="login-content" onSubmit={this.handleLogin}>
         	<input name="consumerName" type="text" value={order.consumerName} onChange={this.handleChange} placeholder="Consumer" className="login-mail"/>
         	<input name="itemCount" type="number" value={order.itemCount} onChange={this.handleChange} placeholder="Item Count" className="login-mail"/>
