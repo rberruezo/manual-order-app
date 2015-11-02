@@ -1,19 +1,27 @@
 import React from 'react';
 
+require('../../styles/form.styl');
+
 class Consumer extends React.Component {
   render() {
     var consumer = this.props.order.user;
     return (
-      <div className="login-content">
-        <h2>Consumer</h2>
-        <input name="firstName" type="text" value={consumer.firstName} onChange={this.handleChange} placeholder="First Name" className="login-mail"/>
-        <input name="lastName" type="text" value={consumer.lastName} onChange={this.handleChange} placeholder="Last Name" className="login-mail"/>
-        <ul className="form-fields">
-          <li className="form-footer">
-            <button className="btn -default pull-left" onClick={this.props.previousStep}>Back</button>
-            <button className="btn -primary pull-right" onClick={this.props.nextStep}>Save &amp; Continue</button>
-          </li>
-        </ul>
+      <div className="fs-form-wrap" id="fs-form-wrap">
+        <form id="myform" className="fs-form fs-form-overview fs-show" autocomplete="off">
+          <h2>Consumer</h2>
+          <ol className="fs-fields">
+            <li>
+              <label className="fs-field-label fs-anim-upper" for="firstName">First name</label>
+              <input className="fs-anim-lower" id="firstName" name="firstName" type="text" value={consumer.firstName} onChange={this.handleChange} placeholder="First Name" required="" />
+            </li>
+            <li>
+              <label className="fs-field-label fs-anim-upper" for="lastName">Last name</label>
+              <input className="fs-anim-lower" id="lastName" name="lastName" type="text" value={consumer.lastName} onChange={this.handleChange} placeholder="Last Name" required="" />
+            </li>
+          </ol>
+        </form>
+        <button className="cancel-button" onClick={this.props.previousStep}>Back</button>
+        <button className="accept-button" onClick={this.props.nextStep}>Save &amp; Continue</button>
       </div>
     )
   }
