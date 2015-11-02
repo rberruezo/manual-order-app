@@ -5,7 +5,7 @@ class CartItems extends React.Component {
   render() {
     var order = this.props.order;
     return (
-      <div className="login-content" onSubmit={this.handleLogin}>
+      <div className="login-content">
         <h2>Cart Items</h2>
         {this.getItemsView()}
         <ul className="form-fields">

@@ -4,7 +4,7 @@ class Payment extends React.Component {
   render() {
     var payment = this.props.order.paymentData;
     return (
-      <div className="login-content" onSubmit={this.handleLogin}>
+      <div className="login-content">
         <h2>Payment</h2>
         <input name="type" type="text" value={payment.type} onChange={this.handleChange} placeholder="Type" className="login-mail"/>
         <input name="number" type="text" value={payment.number} onChange={this.handleChange} placeholder="Number" className="login-mail"/>

@@ -4,7 +4,7 @@ import Address from 'components/orderWizardSteps/address';
 class ShippingAndBilling extends React.Component {
   render() {
     return (
-      <div className="login-content" onSubmit={this.handleLogin}>
+      <div className="login-content">
         <h2>Shipping address</h2>
         <Address address={this.props.order.shippingAddress} />
         <h2>Billing address</h2>
