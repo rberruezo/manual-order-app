@@ -8,12 +8,8 @@ class CartItems extends React.Component {
       <div className="login-content">
         <h2>Cart Items</h2>
         {this.getItemsView()}
-        <ul className="form-fields">
-          <li className="form-footer">
-            <button className="btn -default pull-left" onClick={this.props.previousStep}>Back</button>
-            <button className="btn -primary pull-right" onClick={this.props.nextStep}>Save &amp; Continue</button>
-          </li>
-        </ul>
+        <button className="cancel-button" onClick={this.props.previousStep}>Back</button>
+        <button className="accept-button" onClick={this.props.nextStep}>Save &amp; Continue</button>
       </div>
     )
   }
