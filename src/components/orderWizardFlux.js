@@ -3,6 +3,7 @@ import CartItems from 'components/orderWizardSteps/cartItems';
 import ShippingAndBilling from 'components/orderWizardSteps/shippingAndBilling';
 import OrderReview from 'components/orderWizardSteps/orderReview';
 import Payment from 'components/orderWizardSteps/payment';
+import Consumer from 'components/orderWizardSteps/consumer';
 import Success from 'components/orderWizardSteps/success';
 
 require('../styles/orderWizard.styl');
@@ -37,30 +38,32 @@ class OrderWizardFlux extends React.Component {
       case 1:
         return <CartItems order={this.props.order}
                           nextStep={this.nextStep}
-                          previousStep={this.props.cancelChanges}
-                          saveValues={this.saveValues} />
+                          previousStep={this.props.cancelChanges} />
       case 2:
         return <ShippingAndBilling order={this.props.order}
                                    nextStep={this.nextStep}
-                                   previousStep={this.previousStep}
-                                   saveValues={this.saveValues} />
+                                   previousStep={this.previousStep} />
       case 3:
         return <Payment order={this.props.order}
                         nextStep={this.nextStep}
-                        previousStep={this.previousStep}
-                        saveValues={this.saveValues} />
+                        previousStep={this.previousStep} />
       case 4:
+        return <Consumer order={this.props.order}
+                         nextStep={this.nextStep}
+                         previousStep={this.previousStep} />
+
+      case 5:
         return <OrderReview order={this.props.order}
 		                        previousStep={this.previousStep}
 		                        submitRegistration={this.submitRegistration} />
-      case 5:
+      case 6:
         return <Success close={this.props.acceptChanges} />
     }
   }
 
   render() {
     var style = {
-      width : (this.state.step / 5 * 100) + '%'
+      width : (this.state.step / 6 * 100) + '%'
     }
 
     return (

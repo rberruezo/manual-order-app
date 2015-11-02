@@ -62,12 +62,10 @@ function addDataToOrder(order) {
 	    "name": "Bob Denver",
 	    "cvv": "111"
 	};
-	order["user"] = {
-	    "email": "bob.denver@lostatsea.com",
-	    "password": "NIRqT9W6HBhMGUp9kxOUkcHs+cIloGZY54aBk9ujxwElG4MI4L2G9XAU8buVnq9i9x1IjDf//Mf6+HcfqfHNEyusRxeEhV0J8kJ0JxenMNVMFinB9oNJV6tjxmvbbS1u2Jz77Lb+zftuF2DZcXDAl6FYV0e2+KVU7vRPsN1r8lxV3ZK89Y00G2fIg3aFMVFILE4ioZyQTftDH2hk3PXw+cNUTezDzT9My+SBsp3MNUVYyfMc2Jw2TP1rarMUeOEEVpvw+El2Ens3SiCzwuGAG/fFeB6Fgi3Q3LWHJ2DONb7pQq0sZ6z20l5QAgfaB00MJE5vhLZtwx6Ql7mCytTWcw==",
-	    "status": 1,
-	    "salt": "800.ALB4OJFHLJGP/xtvxQuPspwy8nPgoS7zNOZQRlbC+TQ/cMPUT1H/WwNaonjKhgn1qZ9VFP/CIfC03TlkyDgu0w=="
-	};
+	order.user.email = "bob.denver@lostatsea.com";
+	order.user.password = "NIRqT9W6HBhMGUp9kxOUkcHs+cIloGZY54aBk9ujxwElG4MI4L2G9XAU8buVnq9i9x1IjDf//Mf6+HcfqfHNEyusRxeEhV0J8kJ0JxenMNVMFinB9oNJV6tjxmvbbS1u2Jz77Lb+zftuF2DZcXDAl6FYV0e2+KVU7vRPsN1r8lxV3ZK89Y00G2fIg3aFMVFILE4ioZyQTftDH2hk3PXw+cNUTezDzT9My+SBsp3MNUVYyfMc2Jw2TP1rarMUeOEEVpvw+El2Ens3SiCzwuGAG/fFeB6Fgi3Q3LWHJ2DONb7pQq0sZ6z20l5QAgfaB00MJE5vhLZtwx6Ql7mCytTWcw==";
+	order.user.status = 1;
+	order.user.salt = "800.ALB4OJFHLJGP/xtvxQuPspwy8nPgoS7zNOZQRlbC+TQ/cMPUT1H/WwNaonjKhgn1qZ9VFP/CIfC03TlkyDgu0w==";
 	order.items =
 		[
 			{
