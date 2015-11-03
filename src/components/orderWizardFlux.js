@@ -31,7 +31,9 @@ class OrderWizardFlux extends React.Component {
   }
 
   submitChanges = evt => {
-    this.nextStep();
+    this.setState({
+      step : 6
+    })
   }
 
   showStep() {
@@ -39,19 +41,23 @@ class OrderWizardFlux extends React.Component {
       case 1:
         return <CartItems order={this.props.order}
                           nextStep={this.nextStep}
-                          previousStep={this.props.cancelChanges} />
+                          previousStep={this.props.cancelChanges}
+                          submitChanges={this.submitChanges} />
       case 2:
         return <ShippingAndBilling order={this.props.order}
                                    nextStep={this.nextStep}
-                                   previousStep={this.previousStep} />
+                                   previousStep={this.previousStep}
+                                   submitChanges={this.submitChanges} />
       case 3:
         return <Payment order={this.props.order}
                         nextStep={this.nextStep}
-                        previousStep={this.previousStep} />
+                        previousStep={this.previousStep}
+                        submitChanges={this.submitChanges} />
       case 4:
         return <Consumer order={this.props.order}
                          nextStep={this.nextStep}
-                         previousStep={this.previousStep} />
+                         previousStep={this.previousStep}
+                         submitChanges={this.submitChanges} />
 
       case 5:
         return <OrderReview order={this.props.order}

@@ -33,6 +33,7 @@ class Payment extends React.Component {
         <div className="button">
           <button onClick={this.props.previousStep}>Back</button>
           <button onClick={this.props.nextStep}>Continue</button>
+          <button onClick={this.props.submitChanges}>Submit Changes</button>
         </div>
       </div>
     )
