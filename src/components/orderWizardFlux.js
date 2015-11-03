@@ -39,70 +39,74 @@ class OrderWizardFlux extends React.Component {
     })
   }
 
-  showStep() {
-    switch(this.state.step) {
-      case CART_ITEMS:
-        return <CartItems order={this.props.order}
-                          nextStep={this.nextStep}
-                          previousStep={this.props.cancelChanges}
-                          submitChanges={this.submitChanges} />
-      case SHIPPING_AND_BILLING:
-        return <ShippingAndBilling order={this.props.order}
-                                   nextStep={this.nextStep}
-                                   previousStep={this.previousStep}
-                                   submitChanges={this.submitChanges} />
-      case PAYMENT:
-        return <Payment order={this.props.order}
-                        nextStep={this.nextStep}
-                        previousStep={this.previousStep}
-                        submitChanges={this.submitChanges} />
-      case CONSUMER:
-        return <Consumer order={this.props.order}
-                         nextStep={this.nextStep}
-                         previousStep={this.previousStep}
-                         submitChanges={this.submitChanges} />
-
-      case ORDER_REVIEW:
-        return <OrderReview order={this.props.order}
-                            previousStep={this.previousStep}
-                            submitChanges={this.submitChanges} />
-      case SUCCESS:
-        return <Success close={this.props.acceptChanges} />
-    }
-  }
-
-  showFluxButtons() {
-    switch(this.state.step) {
-      case CART_ITEMS:
-        return <WizardFluxButtons buttons={[
-                                    {callback: this.props.cancelChanges, text: BACK},
-                                    {callback: this.nextStep, text: CONTINUE},
-                                    {callback: this.submitChanges, text: SUBMIT_CHANGES}
-                                  ]} />
-      case SHIPPING_AND_BILLING:
-      case PAYMENT:
-      case CONSUMER:
-        return <WizardFluxButtons buttons={[
-                                    {callback: this.previousStep, text: BACK},
-                                    {callback: this.nextStep, text: CONTINUE},
-                                    {callback: this.submitChanges, text: SUBMIT_CHANGES}
-                                  ]} />
-      case ORDER_REVIEW:
-        return <WizardFluxButtons buttons={[
-                                    {callback: this.previousStep, text: BACK},
-                                    {callback: this.submitChanges, text: SUBMIT_CHANGES}
-                                  ]} />
-      case SUCCESS:
-        return <WizardFluxButtons buttons={[
-                                    {callback: this.props.acceptChanges, text: CLOSE}
-                                  ]} />
-    }
-  }
-
   goToStep = evt => {
     this.setState({
       step : Number(evt.target.name)
     })
+  }
+
+  getStepView() {
+    var stepView;
+    switch(this.state.step) {
+      case CART_ITEMS:
+        stepView = <CartItems order={this.props.order} />
+        break;
+      case SHIPPING_AND_BILLING:
+        stepView = <ShippingAndBilling order={this.props.order} />
+        break;
+      case PAYMENT:
+        stepView = <Payment order={this.props.order} />
+        break;
+      case CONSUMER:
+        stepView = <Consumer order={this.props.order} />
+        break;
+      case ORDER_REVIEW:
+        stepView = <OrderReview order={this.props.order} />
+        break;
+      case SUCCESS:
+        stepView = <Success close={this.props.acceptChanges} />
+        break;
+      default:
+        stepView = <div></div>
+    }
+    return stepView;
+  }
+
+  getStepButtons() {
+    var buttons = [];
+    switch(this.state.step) {
+      case CART_ITEMS:
+        buttons = [
+                    {callback: this.props.cancelChanges, text: BACK},
+                    {callback: this.nextStep, text: CONTINUE},
+                    {callback: this.submitChanges, text: SUBMIT_CHANGES}
+                  ];
+        break;
+      case SHIPPING_AND_BILLING:
+      case PAYMENT:
+      case CONSUMER:
+        buttons = [
+                    {callback: this.previousStep, text: BACK},
+                    {callback: this.nextStep, text: CONTINUE},
+                    {callback: this.submitChanges, text: SUBMIT_CHANGES}
+                  ];
+        break;
+      case ORDER_REVIEW:
+        buttons = [
+                    {callback: this.previousStep, text: BACK},
+                    {callback: this.submitChanges, text: SUBMIT_CHANGES}
+                  ];
+        break;
+      case SUCCESS:
+        buttons = [
+                    {callback: this.props.acceptChanges, text: CLOSE}
+                  ];
+        break;                  
+      default:
+        buttons = [];
+        break;
+    }
+    return buttons;
   }
 
   render() {
@@ -110,8 +114,8 @@ class OrderWizardFlux extends React.Component {
       <main>
         <StepProgress goToStep={this.goToStep} />
         <div>
-          {this.showStep()}
-          {this.showFluxButtons()}
+          {this.getStepView()}
+          <WizardFluxButtons buttons={this.getStepButtons()} />
         </div>
       </main>
     )
