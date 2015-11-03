@@ -6,6 +6,7 @@ import OrderReview from 'components/orderWizardSteps/orderReview';
 import Payment from 'components/orderWizardSteps/payment';
 import Consumer from 'components/orderWizardSteps/consumer';
 import Success from 'components/orderWizardSteps/success';
+import {CART_ITEMS, SHIPPING_AND_BILLING, PAYMENT, CONSUMER, ORDER_REVIEW, SUCCESS} from 'constants/wizardSteps';
 
 require('../styles/simpleForm.styl');
 
@@ -32,38 +33,38 @@ class OrderWizardFlux extends React.Component {
 
   submitChanges = evt => {
     this.setState({
-      step : 6
+      step : SUCCESS
     })
   }
 
   showStep() {
     switch(this.state.step) {
-      case 1:
+      case CART_ITEMS:
         return <CartItems order={this.props.order}
                           nextStep={this.nextStep}
                           previousStep={this.props.cancelChanges}
                           submitChanges={this.submitChanges} />
-      case 2:
+      case SHIPPING_AND_BILLING:
         return <ShippingAndBilling order={this.props.order}
                                    nextStep={this.nextStep}
                                    previousStep={this.previousStep}
                                    submitChanges={this.submitChanges} />
-      case 3:
+      case PAYMENT:
         return <Payment order={this.props.order}
                         nextStep={this.nextStep}
                         previousStep={this.previousStep}
                         submitChanges={this.submitChanges} />
-      case 4:
+      case CONSUMER:
         return <Consumer order={this.props.order}
                          nextStep={this.nextStep}
                          previousStep={this.previousStep}
                          submitChanges={this.submitChanges} />
 
-      case 5:
+      case ORDER_REVIEW:
         return <OrderReview order={this.props.order}
 		                        previousStep={this.previousStep}
 		                        submitChanges={this.submitChanges} />
-      case 6:
+      case SUCCESS:
         return <Success close={this.props.acceptChanges} />
     }
   }
@@ -75,10 +76,6 @@ class OrderWizardFlux extends React.Component {
   }
 
   render() {
-    var style = {
-      width : (this.state.step / 6 * 100) + '%'
-    }
-
     return (
       <main>
         <StepProgress goToStep={this.goToStep} />
