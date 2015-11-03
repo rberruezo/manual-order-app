@@ -13,11 +13,6 @@ class Consumer extends React.Component {
         <div>
           <label for="lastName">Last Name:</label>
           <input id="lastName" name="lastName" type="text" value={consumer.lastName} onChange={this.handleChange} placeholder="Last Name" required="" />
-        </div>          
-        <div className="button">
-          <button onClick={this.props.previousStep}>Back</button>
-          <button onClick={this.props.nextStep}>Continue</button>
-          <button onClick={this.props.submitChanges}>Submit Changes</button>
         </div>
       </div>
     )

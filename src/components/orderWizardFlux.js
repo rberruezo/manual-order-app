@@ -6,6 +6,7 @@ import OrderReview from 'components/orderWizardSteps/orderReview';
 import Payment from 'components/orderWizardSteps/payment';
 import Consumer from 'components/orderWizardSteps/consumer';
 import Success from 'components/orderWizardSteps/success';
+import WizardFluxButtons from 'components/orderWizardSteps/wizardFluxButtons';
 import {CART_ITEMS, SHIPPING_AND_BILLING, PAYMENT, CONSUMER, ORDER_REVIEW, SUCCESS} from 'constants/wizardSteps';
 
 require('../styles/simpleForm.styl');
@@ -62,10 +63,30 @@ class OrderWizardFlux extends React.Component {
 
       case ORDER_REVIEW:
         return <OrderReview order={this.props.order}
-		                        previousStep={this.previousStep}
-		                        submitChanges={this.submitChanges} />
+                            previousStep={this.previousStep}
+                            submitChanges={this.submitChanges} />
       case SUCCESS:
         return <Success close={this.props.acceptChanges} />
+    }
+  }
+
+  showFluxButtons() {
+    switch(this.state.step) {
+      case CART_ITEMS:
+        return <WizardFluxButtons nextStep={this.nextStep}
+                                  previousStep={this.props.cancelChanges}
+                                  submitChanges={this.submitChanges} />
+      case SHIPPING_AND_BILLING:
+      case PAYMENT:
+      case CONSUMER:
+        return <WizardFluxButtons nextStep={this.nextStep}
+                                  previousStep={this.previousStep}
+                                  submitChanges={this.submitChanges} />
+      case ORDER_REVIEW:
+        return <WizardFluxButtons previousStep={this.previousStep}
+                                  submitChanges={this.submitChanges} />
+      case SUCCESS:
+        return <WizardFluxButtons close={this.props.acceptChanges} />
     }
   }
 
@@ -81,6 +102,7 @@ class OrderWizardFlux extends React.Component {
         <StepProgress goToStep={this.goToStep} />
         <div>
           {this.showStep()}
+          {this.showFluxButtons()}
         </div>
       </main>
     )

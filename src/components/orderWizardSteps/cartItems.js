@@ -7,11 +7,6 @@ class CartItems extends React.Component {
       <div className="simple-form">
         <h2>Cart Items</h2>
         {this.getItemsView()}
-        <div className="button">
-          <button onClick={this.props.previousStep}>Back</button>
-          <button onClick={this.props.nextStep}>Continue</button>
-          <button onClick={this.props.submitChanges}>Submit Changes</button>
-        </div>
       </div>
     )
   }

@@ -30,11 +30,6 @@ class Payment extends React.Component {
           <label for="cvv">CVV:</label>
           <input id="cvv" name="cvv" type="text" value={payment.cvv} onChange={this.handleChange} placeholder="CVV" required="" />
         </div>
-        <div className="button">
-          <button onClick={this.props.previousStep}>Back</button>
-          <button onClick={this.props.nextStep}>Continue</button>
-          <button onClick={this.props.submitChanges}>Submit Changes</button>
-        </div>
       </div>
     )
   }
