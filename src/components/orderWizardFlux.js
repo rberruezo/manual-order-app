@@ -1,4 +1,5 @@
 import React from 'react';
+import StepProgress from 'components/orderWizardSteps/stepProgress';
 import CartItems from 'components/orderWizardSteps/cartItems';
 import ShippingAndBilling from 'components/orderWizardSteps/shippingAndBilling';
 import OrderReview from 'components/orderWizardSteps/orderReview';
@@ -7,7 +8,6 @@ import Consumer from 'components/orderWizardSteps/consumer';
 import Success from 'components/orderWizardSteps/success';
 
 require('../styles/simpleForm.styl');
-require('../styles/wizardSteps.styl');
 
 class OrderWizardFlux extends React.Component {
 
@@ -75,16 +75,10 @@ class OrderWizardFlux extends React.Component {
 
     return (
       <main>
-        <span className="progress-step">Step {this.state.step}</span>
-        <progress className="progress" style={style}></progress>
-        <ul>
-          <li><a href="#" onClick={this.goToStep} name="1" id="1">Cart Items</a></li>
-          <li><a href="#" onClick={this.goToStep} name="2" id="2">Shipping &amp; Billing</a></li>
-          <li><a href="#" onClick={this.goToStep} name="3" id="3">Payment</a></li>
-          <li><a href="#" onClick={this.goToStep} name="4" id="4">Consumer</a></li>
-          <li><a href="#" onClick={this.goToStep} name="5" id="5">Order Review</a></li>
-        </ul>
-        {this.showStep()}
+        <StepProgress goToStep={this.goToStep} />
+        <div>
+          {this.showStep()}
+        </div>
       </main>
     )
   }
