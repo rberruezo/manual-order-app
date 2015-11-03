@@ -6,8 +6,8 @@ import Payment from 'components/orderWizardSteps/payment';
 import Consumer from 'components/orderWizardSteps/consumer';
 import Success from 'components/orderWizardSteps/success';
 
-require('../styles/orderWizard.styl');
 require('../styles/simpleForm.styl');
+require('../styles/wizardSteps.styl');
 
 class OrderWizardFlux extends React.Component {
 
@@ -62,6 +62,12 @@ class OrderWizardFlux extends React.Component {
     }
   }
 
+  goToStep = evt => {
+    this.setState({
+      step : Number(evt.target.name)
+    })
+  }
+
   render() {
     var style = {
       width : (this.state.step / 6 * 100) + '%'
@@ -71,6 +77,13 @@ class OrderWizardFlux extends React.Component {
       <main>
         <span className="progress-step">Step {this.state.step}</span>
         <progress className="progress" style={style}></progress>
+        <ul>
+          <li><a href="#" onClick={this.goToStep} name="1" id="1">Cart Items</a></li>
+          <li><a href="#" onClick={this.goToStep} name="2" id="2">Shipping &amp; Billing</a></li>
+          <li><a href="#" onClick={this.goToStep} name="3" id="3">Payment</a></li>
+          <li><a href="#" onClick={this.goToStep} name="4" id="4">Consumer</a></li>
+          <li><a href="#" onClick={this.goToStep} name="5" id="5">Order Review</a></li>
+        </ul>
         {this.showStep()}
       </main>
     )

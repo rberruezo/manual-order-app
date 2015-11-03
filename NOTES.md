@@ -21,3 +21,6 @@ Source: https://github.com/visionmedia/superagent
 
 ### building a multi-step form with react
 Source: https://viget.com/extend/building-a-multi-step-registration-form-with-react
+
+### create simple horizontal navigation menu
+Source: http://css-plus.com/2010/03/how-to-create-a-simple-horizontal-navigation-menu-from-scratch/
