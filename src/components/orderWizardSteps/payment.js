@@ -4,20 +4,36 @@ class Payment extends React.Component {
   render() {
     var payment = this.props.order.paymentData;
     return (
-      <div className="login-content">
+      <div className="simple-form">
         <h2>Payment</h2>
-        <input name="type" type="text" value={payment.type} onChange={this.handleChange} placeholder="Type" className="login-mail"/>
-        <input name="number" type="text" value={payment.number} onChange={this.handleChange} placeholder="Number" className="login-mail"/>
-        <input name="expirationMonth" type="number" value={payment.expirationMonth} onChange={this.handleChange} placeholder="Expiration Month" className="login-mail"/>
-        <input name="expirationYear" type="number" value={payment.expirationYear} onChange={this.handleChange} placeholder="Expiration Year" className="login-mail"/>
-        <input name="name" type="text" value={payment.name} onChange={this.handleChange} placeholder="Name" className="login-mail"/>
-        <input name="cvv" type="text" value={payment.cvv} onChange={this.handleChange} placeholder="CVV" className="login-mail"/>
-        <ul className="form-fields">
-          <li className="form-footer">
-            <button className="btn -default pull-left" onClick={this.props.previousStep}>Back</button>
-            <button className="btn -primary pull-right" onClick={this.props.nextStep}>Save &amp; Continue</button>
-          </li>
-        </ul>
+        <div>
+          <label for="type">Type:</label>
+          <input id="type" name="type" type="text" value={payment.type} onChange={this.handleChange} placeholder="Type" required="" />
+        </div>
+        <div>
+          <label for="number">Number:</label>
+          <input id="number" name="number" type="text" value={payment.number} onChange={this.handleChange} placeholder="Number" required="" />
+        </div>
+        <div>
+          <label for="expirationMonth">Expiration Month:</label>
+          <input id="expirationMonth" name="expirationMonth" type="number" value={payment.expirationMonth} onChange={this.handleChange} placeholder="Expiration Month" required="" />
+        </div>
+        <div>
+          <label for="expirationYear">Expiration Year:</label>
+          <input id="expirationYear" name="expirationYear" type="number" value={payment.expirationYear} onChange={this.handleChange} placeholder="Expiration Year" required="" />
+        </div>
+        <div>
+          <label for="name">Name:</label>
+          <input id="name" name="name" type="text" value={payment.name} onChange={this.handleChange} placeholder="Name" required="" />
+        </div>
+        <div>
+          <label for="cvv">CVV:</label>
+          <input id="cvv" name="cvv" type="text" value={payment.cvv} onChange={this.handleChange} placeholder="CVV" required="" />
+        </div>
+        <div className="button">
+          <button onClick={this.props.previousStep}>Back</button>
+          <button onClick={this.props.nextStep}>Continue</button>
+        </div>
       </div>
     )
   }

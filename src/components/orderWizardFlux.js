@@ -7,6 +7,7 @@ import Consumer from 'components/orderWizardSteps/consumer';
 import Success from 'components/orderWizardSteps/success';
 
 require('../styles/orderWizard.styl');
+require('../styles/simpleForm.styl');
 
 class OrderWizardFlux extends React.Component {
 
@@ -29,7 +30,7 @@ class OrderWizardFlux extends React.Component {
     })
   }
 
-  submitRegistration = evt => {
+  submitChanges = evt => {
     this.nextStep();
   }
 
@@ -55,7 +56,7 @@ class OrderWizardFlux extends React.Component {
       case 5:
         return <OrderReview order={this.props.order}
 		                        previousStep={this.previousStep}
-		                        submitRegistration={this.submitRegistration} />
+		                        submitChanges={this.submitChanges} />
       case 6:
         return <Success close={this.props.acceptChanges} />
     }

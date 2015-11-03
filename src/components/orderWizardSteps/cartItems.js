@@ -3,13 +3,14 @@ import Item from 'components/orderWizardSteps/item';
 
 class CartItems extends React.Component {
   render() {
-    var order = this.props.order;
     return (
-      <div className="login-content">
+      <div className="simple-form">
         <h2>Cart Items</h2>
         {this.getItemsView()}
-        <button className="cancel-button" onClick={this.props.previousStep}>Back</button>
-        <button className="accept-button" onClick={this.props.nextStep}>Save &amp; Continue</button>
+        <div className="button">
+          <button onClick={this.props.previousStep}>Back</button>
+          <button onClick={this.props.nextStep}>Continue</button>
+        </div>
       </div>
     )
   }
