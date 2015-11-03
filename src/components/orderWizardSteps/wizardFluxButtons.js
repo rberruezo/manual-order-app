@@ -1,22 +1,19 @@
 import React from 'react';
 
-class WizardFluxButtons extends React.Component {
-  
-	getButton(onClickCallback, text) {
-		if (onClickCallback == undefined) {
-			return
-		} else {
-			return <button onClick={onClickCallback}>{text}</button>
-		}
-	}
+/******************************************************************************
+PRECOND: this.props.buttons should have an array of objects with the following
+structure: {callback: this.nextStep, text: 'Continue'}
+POSCOND: render returns the specified buttons with the associated callback on
+the onClick event
+******************************************************************************/
 
+class WizardFluxButtons extends React.Component {
   render() {
     return (
       <div className="button">
-				{this.getButton(this.props.previousStep, 'Back')}
-				{this.getButton(this.props.nextStep, 'Continue')}
-				{this.getButton(this.props.submitChanges, 'Submit Changes')}
-				{this.getButton(this.props.close, 'Close')}
+				{this.props.buttons.map(function(button){
+		   		return <button onClick={button.callback}>{button.text}</button>;
+				})}
 			</div>
     )
   }
