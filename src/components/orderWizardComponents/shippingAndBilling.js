@@ -1,5 +1,5 @@
 import React from 'react';
-import Address from 'components/orderWizardSteps/address';
+import Address from 'components/orderWizardComponents/address';
 
 class ShippingAndBilling extends React.Component {
   render() {

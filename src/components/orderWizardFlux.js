@@ -1,7 +1,7 @@
 import React from 'react';
-import StepProgress from 'components/orderWizardSteps/stepProgress';
-import OrderWizardFluxButtonpad from 'components/orderWizardSteps/orderWizardFluxButtonpad';
-import OrderWizardStep from 'components/orderWizardSteps/orderWizardStep';
+import StepProgress from 'components/orderWizardComponents/stepProgress';
+import OrderWizardFluxButtonpad from 'components/orderWizardComponents/orderWizardFluxButtonpad';
+import OrderWizardStep from 'components/orderWizardComponents/orderWizardStep';
 import {SUCCESS} from 'constants/wizardSteps';
 
 require('../styles/simpleForm.styl');
