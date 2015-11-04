@@ -29,15 +29,10 @@ class OrderWizard extends React.Component {
   render() {
   	var order = this.state.dequeuedOrder;
     return (
-    	<section>
-        <header>
-          <h1>Hi, Im an order form! {order.consumerName}</h1>
-        </header>
-        <OrderWizardFlux order={order}
-        								 cancelChanges={this.cancelChanges}
-                         closeWizard={this.closeWizard}
-        								 submitChanges={this.submitChanges} />
-      </section>
+      <OrderWizardFlux order={order}
+      								 cancelChanges={this.cancelChanges}
+                       closeWizard={this.closeWizard}
+      								 submitChanges={this.submitChanges} />
     );
   }
 
