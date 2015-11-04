@@ -7,7 +7,7 @@ POSCOND: render returns the specified buttons with the associated callback on
 the onClick event
 ******************************************************************************/
 
-class WizardFluxButtons extends React.Component {
+class Buttonpad extends React.Component {
   render() {
     return (
       <div className="button">
@@ -19,4 +19,4 @@ class WizardFluxButtons extends React.Component {
   }
 }
 
-export default WizardFluxButtons;
+export default Buttonpad;

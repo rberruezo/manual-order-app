@@ -6,9 +6,8 @@ import OrderReview from 'components/orderWizardSteps/orderReview';
 import Payment from 'components/orderWizardSteps/payment';
 import Consumer from 'components/orderWizardSteps/consumer';
 import Success from 'components/orderWizardSteps/success';
-import WizardFluxButtons from 'components/orderWizardSteps/wizardFluxButtons';
+import OrderWizardFluxButtonpad from 'components/orderWizardSteps/orderWizardFluxButtonpad';
 import {CART_ITEMS, SHIPPING_AND_BILLING, PAYMENT, CONSUMER, ORDER_REVIEW, SUCCESS} from 'constants/wizardSteps';
-import {BACK, CONTINUE, SUBMIT_CHANGES, CLOSE} from 'constants/wizardStepsButtons';
 
 require('../styles/simpleForm.styl');
 
@@ -64,7 +63,7 @@ class OrderWizardFlux extends React.Component {
         stepView = <OrderReview order={this.props.order} />
         break;
       case SUCCESS:
-        stepView = <Success close={this.props.acceptChanges} />
+        stepView = <Success />
         break;
       default:
         stepView = <div></div>
@@ -72,41 +71,14 @@ class OrderWizardFlux extends React.Component {
     return stepView;
   }
 
-  getStepButtons() {
-    var buttons = [];
-    switch(this.state.step) {
-      case CART_ITEMS:
-        buttons = [
-                    {callback: this.props.cancelChanges, text: BACK},
-                    {callback: this.nextStep, text: CONTINUE},
-                    {callback: this.submitChanges, text: SUBMIT_CHANGES}
-                  ];
-        break;
-      case SHIPPING_AND_BILLING:
-      case PAYMENT:
-      case CONSUMER:
-        buttons = [
-                    {callback: this.previousStep, text: BACK},
-                    {callback: this.nextStep, text: CONTINUE},
-                    {callback: this.submitChanges, text: SUBMIT_CHANGES}
-                  ];
-        break;
-      case ORDER_REVIEW:
-        buttons = [
-                    {callback: this.previousStep, text: BACK},
-                    {callback: this.submitChanges, text: SUBMIT_CHANGES}
-                  ];
-        break;
-      case SUCCESS:
-        buttons = [
-                    {callback: this.props.acceptChanges, text: CLOSE}
-                  ];
-        break;                  
-      default:
-        buttons = [];
-        break;
-    }
-    return buttons;
+  getButtonpadCallbacks() {
+    return {
+      previousStep: this.previousStep,
+      nextStep: this.nextStep,
+      submitChanges: this.submitChanges,
+      acceptChanges: this.props.acceptChanges,
+      cancelChanges: this.props.cancelChanges
+    };
   }
 
   render() {
@@ -115,7 +87,8 @@ class OrderWizardFlux extends React.Component {
         <StepProgress goToStep={this.goToStep} />
         <div>
           {this.getStepView()}
-          <WizardFluxButtons buttons={this.getStepButtons()} />
+          <OrderWizardFluxButtonpad step={this.state.step}
+                                    callbacks={this.getButtonpadCallbacks()} />
         </div>
       </main>
     )
