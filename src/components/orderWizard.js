@@ -51,8 +51,7 @@ class OrderWizard extends React.Component {
   }
 
   submitChanges = evt => {
-    console.log('Submit Changes');
-    //TODO
+    OrdersActions.submitOrder(this.props.dequeuedOrder);
   }
 
   handleChange = evt => {

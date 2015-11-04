@@ -159,6 +159,14 @@ var mocks = {
 			order: order,
 			status: 200
 		};
+	},
+
+	submitOrder: function(order, user_token) {
+		console.log('Submitting order: ');
+		console.log(order);
+		return {
+			status: 200
+		};
 	}
 
 };

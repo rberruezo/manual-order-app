@@ -50,11 +50,18 @@ class OrderWizardFlux extends React.Component {
     };
   }
 
+  getOrderWizardStepbar() {
+    if (this.state.step != SUCCESS) {
+      return <OrderWizardStepbar step={this.state.step}
+                                 goToStep={this.goToStep} />
+    }
+    return;
+  }
+
   render() {
     return (
       <main>
-        <OrderWizardStepbar step={this.state.step}
-                            goToStep={this.goToStep} />
+        {this.getOrderWizardStepbar()}
         <OrderWizardStep step={this.state.step}
                          order={this.props.order} />
         <OrderWizardFluxButtonpad step={this.state.step}

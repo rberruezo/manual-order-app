@@ -57,6 +57,19 @@ class OrdersActions {
       });
   }
 
+  submitOrder(order) {
+    var request = {
+      order: order
+    };
+    OrdersService.submitOrder(request)
+      .then((response) => {
+        this.dispatch(response.order);
+      })
+      .catch((errorMessage) => {
+        alert(errorMessage);
+      });
+  }
+
 }
 
 export default OrdersActions;
