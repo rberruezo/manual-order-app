@@ -52,7 +52,8 @@ class OrderWizardFlux extends React.Component {
   render() {
     return (
       <main>
-        <OrderWizardStepbar goToStep={this.goToStep} />
+        <OrderWizardStepbar step={this.state.step}
+                            goToStep={this.goToStep} />
         <div>
           <OrderWizardStep step={this.state.step}
                            order={this.props.order} />
