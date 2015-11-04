@@ -54,12 +54,10 @@ class OrderWizardFlux extends React.Component {
       <main>
         <OrderWizardStepbar step={this.state.step}
                             goToStep={this.goToStep} />
-        <div>
-          <OrderWizardStep step={this.state.step}
-                           order={this.props.order} />
-          <OrderWizardFluxButtonpad step={this.state.step}
-                                    callbacks={this.getButtonpadCallbacks()} />
-        </div>
+        <OrderWizardStep step={this.state.step}
+                         order={this.props.order} />
+        <OrderWizardFluxButtonpad step={this.state.step}
+                                  callbacks={this.getButtonpadCallbacks()} />
       </main>
     )
   }
