@@ -2,7 +2,7 @@ import React from 'react';
 import OrderWizardStepbar from 'components/orderWizardComponents/parts/orderWizardStepbar';
 import OrderWizardStep from 'components/orderWizardComponents/parts/orderWizardStep';
 import OrderWizardFluxButtonpad from 'components/orderWizardComponents/parts/orderWizardFluxButtonpad';
-import {SUCCESS} from 'constants/wizardSteps';
+import {SUCCESS} from 'constants/orderWizardSteps';
 
 require('../../styles/simpleForm.styl');
 

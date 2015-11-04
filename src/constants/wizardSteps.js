@@ -1,8 +1,0 @@
-export default {
-	CART_ITEMS: 1,
-	SHIPPING_AND_BILLING: 2,
-	PAYMENT: 3,
-	CONSUMER: 4,
-  ORDER_REVIEW: 5,
-  SUCCESS: 6
-}

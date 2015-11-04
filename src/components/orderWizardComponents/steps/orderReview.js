@@ -1,10 +1,11 @@
 import React from 'react';
+import {ORDER_REVIEW_TITLE} from 'constants/orderWizardSteps';
 
 class OrderReview extends React.Component {
   render() {
     return (
       <div className="simple-form">
-        <h2>Order Review</h2>
+        <h2>{ORDER_REVIEW_TITLE}</h2>
       </div>
     )
   }

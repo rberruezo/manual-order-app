@@ -1,11 +1,12 @@
 import React from 'react';
+import {CONSUMER_TITLE} from 'constants/orderWizardSteps';
 
 class Consumer extends React.Component {
   render() {
     var consumer = this.props.order.user;
     return (
       <div className="simple-form">
-        <h2>Consumer</h2>
+        <h2>{CONSUMER_TITLE}</h2>
         <div>
           <label for="firstName">First Name:</label>
           <input id="firstName" name="firstName" type="text" value={consumer.firstName} onChange={this.handleChange} placeholder="First Name" required="" />

@@ -1,5 +1,5 @@
 import React from 'react';
-import {CART_ITEMS, SHIPPING_AND_BILLING, PAYMENT, CONSUMER, ORDER_REVIEW, SUCCESS} from 'constants/wizardSteps';
+import {CART_ITEMS, SHIPPING_AND_BILLING, PAYMENT, CONSUMER, ORDER_REVIEW, SUCCESS} from 'constants/orderWizardSteps';
 import CartItems from 'components/orderWizardComponents/steps/cartItems';
 import ShippingAndBilling from 'components/orderWizardComponents/steps/shippingAndBilling';
 import OrderReview from 'components/orderWizardComponents/steps/orderReview';

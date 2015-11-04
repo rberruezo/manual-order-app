@@ -1,7 +1,7 @@
 import React from 'react';
 import Buttonpad from 'components/orderWizardComponents/resources/buttonpad';
-import {CART_ITEMS, SHIPPING_AND_BILLING, PAYMENT, CONSUMER, ORDER_REVIEW, SUCCESS} from 'constants/wizardSteps';
-import {BACK, CONTINUE, SUBMIT_CHANGES, CLOSE} from 'constants/wizardStepsButtons';
+import {CART_ITEMS, SHIPPING_AND_BILLING, PAYMENT, CONSUMER, ORDER_REVIEW, SUCCESS} from 'constants/orderWizardSteps';
+import {BACK, CONTINUE, SUBMIT_CHANGES, CLOSE} from 'constants/orderWizardStepsButtons';
 
 class OrderWizardFluxButtonpad extends React.Component {
 

@@ -1,0 +1,14 @@
+export default {
+	CART_ITEMS: 1,
+	SHIPPING_AND_BILLING: 2,
+	PAYMENT: 3,
+	CONSUMER: 4,
+  ORDER_REVIEW: 5,
+  SUCCESS: 6,
+  CART_ITEMS_TITLE: 'Cart Items',
+	SHIPPING_AND_BILLING_TITLE: 'Shipping & Billing',
+	PAYMENT_TITLE: 'Payment',
+	CONSUMER_TITLE: 'Consumer',
+  ORDER_REVIEW_TITLE: 'Order Review',
+  SUCCESS_TITLE: 'Success'
+}
