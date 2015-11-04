@@ -4,7 +4,7 @@ import OrderWizardFluxButtonpad from 'components/orderWizardComponents/orderWiza
 import OrderWizardStep from 'components/orderWizardComponents/orderWizardStep';
 import {SUCCESS} from 'constants/wizardSteps';
 
-require('../styles/simpleForm.styl');
+require('../../styles/simpleForm.styl');
 
 class OrderWizardFlux extends React.Component {
 
