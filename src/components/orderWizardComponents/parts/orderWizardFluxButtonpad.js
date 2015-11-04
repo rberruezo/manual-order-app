@@ -1,7 +1,7 @@
 import React from 'react';
 import Buttonpad from 'components/orderWizardComponents/resources/buttonpad';
 import {CART_ITEMS, SHIPPING_AND_BILLING, PAYMENT, CONSUMER, ORDER_REVIEW, SUCCESS} from 'constants/orderWizardSteps';
-import {BACK, CONTINUE, SUBMIT_CHANGES, CLOSE} from 'constants/orderWizardStepsButtons';
+import {CANCEL, BACK, CONTINUE, SUBMIT_CHANGES, CLOSE} from 'constants/orderWizardStepsButtons';
 
 class OrderWizardFluxButtonpad extends React.Component {
 
@@ -11,7 +11,7 @@ class OrderWizardFluxButtonpad extends React.Component {
     switch(this.props.step) {
       case CART_ITEMS:
         buttons = [
-                    {callback: callbacks.cancelChanges, text: BACK},
+                    {callback: callbacks.cancelChanges, text: CANCEL},
                     {callback: callbacks.nextStep, text: CONTINUE},
                     {callback: callbacks.submitChanges, text: SUBMIT_CHANGES}
                   ];
@@ -33,7 +33,7 @@ class OrderWizardFluxButtonpad extends React.Component {
         break;
       case SUCCESS:
         buttons = [
-                    {callback: callbacks.acceptChanges, text: CLOSE}
+                    {callback: callbacks.closeWizard, text: CLOSE}
                   ];
         break;                  
       default:

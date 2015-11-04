@@ -2,8 +2,9 @@
 var utilities = {
 
 	copyObjectAttributes: function(objDest, objSrc) {
-		for (var key in objSrc) {
-			objDest[key] = objSrc[key];
+		var objSrcClone = JSON.parse(JSON.stringify(objSrc));
+		for (var key in objSrcClone) {
+			objDest[key] = objSrcClone[key];
 		}
 	}
 

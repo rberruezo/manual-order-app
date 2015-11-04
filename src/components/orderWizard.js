@@ -35,7 +35,8 @@ class OrderWizard extends React.Component {
         </header>
         <OrderWizardFlux order={order}
         								 cancelChanges={this.cancelChanges}
-        								 acceptChanges={this.acceptChanges} />
+                         closeWizard={this.closeWizard}
+        								 submitChanges={this.submitChanges} />
       </section>
     );
   }
@@ -45,8 +46,13 @@ class OrderWizard extends React.Component {
     OrdersActions.deselectOrder();
   }
 
-  acceptChanges = evt => {
+  closeWizard = evt => {
     OrdersActions.deselectOrder();
+  }
+
+  submitChanges = evt => {
+    console.log('Submit Changes');
+    //TODO
   }
 
   handleChange = evt => {

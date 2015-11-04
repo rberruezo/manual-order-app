@@ -28,6 +28,7 @@ class OrderWizardFlux extends React.Component {
   }
 
   submitChanges = evt => {
+    this.props.submitChanges();
     this.setState({
       step : SUCCESS
     })
@@ -44,7 +45,7 @@ class OrderWizardFlux extends React.Component {
       previousStep: this.previousStep,
       nextStep: this.nextStep,
       submitChanges: this.submitChanges,
-      acceptChanges: this.props.acceptChanges,
+      closeWizard: this.props.closeWizard,
       cancelChanges: this.props.cancelChanges
     };
   }
