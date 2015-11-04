@@ -1,8 +1,8 @@
 import React from 'react';
 
-require('../../styles/stepProgress.styl');
+require('../../../styles/stepbar.styl');
 
-class StepProgress extends React.Component {
+class OrderWizardStepbar extends React.Component {
   render() {
     return (
       <ul>
@@ -16,4 +16,4 @@ class StepProgress extends React.Component {
   }
 }
 
-export default StepProgress;
+export default OrderWizardStepbar;

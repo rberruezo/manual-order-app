@@ -1,5 +1,5 @@
 import React from 'react';
-import Item from 'components/orderWizardComponents/item';
+import Item from 'components/orderWizardComponents/resources/item';
 
 class CartItems extends React.Component {
   render() {

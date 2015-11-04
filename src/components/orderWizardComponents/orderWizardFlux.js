@@ -1,7 +1,7 @@
 import React from 'react';
-import StepProgress from 'components/orderWizardComponents/stepProgress';
-import OrderWizardFluxButtonpad from 'components/orderWizardComponents/orderWizardFluxButtonpad';
-import OrderWizardStep from 'components/orderWizardComponents/orderWizardStep';
+import OrderWizardStepbar from 'components/orderWizardComponents/parts/orderWizardStepbar';
+import OrderWizardStep from 'components/orderWizardComponents/parts/orderWizardStep';
+import OrderWizardFluxButtonpad from 'components/orderWizardComponents/parts/orderWizardFluxButtonpad';
 import {SUCCESS} from 'constants/wizardSteps';
 
 require('../../styles/simpleForm.styl');
@@ -52,7 +52,7 @@ class OrderWizardFlux extends React.Component {
   render() {
     return (
       <main>
-        <StepProgress goToStep={this.goToStep} />
+        <OrderWizardStepbar goToStep={this.goToStep} />
         <div>
           <OrderWizardStep step={this.state.step}
                            order={this.props.order} />
