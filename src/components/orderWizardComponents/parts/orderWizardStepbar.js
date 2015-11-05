@@ -1,13 +1,27 @@
 import React from 'react';
 import {CART_ITEMS_TITLE, SHIPPING_AND_BILLING_TITLE, PAYMENT_TITLE, CONSUMER_TITLE, ORDER_REVIEW_TITLE} from 'constants/orderWizardSteps';
-import {CART_ITEMS, SHIPPING_AND_BILLING, PAYMENT, CONSUMER, ORDER_REVIEW} from 'constants/orderWizardSteps';
+import {CART_ITEMS, SHIPPING_AND_BILLING, PAYMENT, CONSUMER, ORDER_REVIEW, SUCCESS} from 'constants/orderWizardSteps';
 import StepbarOption from 'components/orderWizardComponents/resources/stepbarOption';
 
 require('../../../styles/stepbar.styl');
 
 class OrderWizardStepbar extends React.Component {
   
-  getStepsTitles() {
+  getVisibleBarSteps() {
+    return [
+      CART_ITEMS,
+      SHIPPING_AND_BILLING,
+      PAYMENT,
+      CONSUMER,
+      ORDER_REVIEW
+    ];
+  }
+
+  isBarStepVisible() {
+    return this.getVisibleBarSteps().indexOf(this.props.step) > -1;
+  }
+
+  getStepsInfo() {
     return [
       {index: CART_ITEMS, title: CART_ITEMS_TITLE},
       {index: SHIPPING_AND_BILLING, title: SHIPPING_AND_BILLING_TITLE},
@@ -18,7 +32,9 @@ class OrderWizardStepbar extends React.Component {
   }
 
   render() {
-    var stepTitle = this.getStepsTitles();
+    if (!this.isBarStepVisible()) {
+      return (<ul/>)
+    }
     return (
       <ul>
         {this.getStepbarOptions()}
@@ -29,7 +45,7 @@ class OrderWizardStepbar extends React.Component {
   getStepbarOptions() {
     var currentStep = this.props.step;
     var goToStep = this.props.goToStep;
-    return this.getStepsTitles().map(function(step) {
+    return this.getStepsInfo().map(function(step) {
       return ( <StepbarOption index={step.index}
                               title={step.title}
                               currentStep={currentStep}
