@@ -3,8 +3,7 @@ import Mocks from 'mocks/mocks';
 import connectToStores from 'alt/utils/connectToStores';
 import OrdersStore from 'stores/ordersStore';
 import OrdersActions from 'actions/ordersActions';
-
-var Griddle = require('griddle-react');
+import Griddle from 'griddle-react';
 
 class CompleteNameComponent extends React.Component{
   render() {

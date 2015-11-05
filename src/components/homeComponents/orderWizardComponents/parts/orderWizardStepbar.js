@@ -2,8 +2,7 @@ import React from 'react';
 import {CART_ITEMS_TITLE, SHIPPING_AND_BILLING_TITLE, PAYMENT_TITLE, CONSUMER_TITLE, ORDER_REVIEW_TITLE} from 'constants/orderWizardSteps';
 import {CART_ITEMS, SHIPPING_AND_BILLING, PAYMENT, CONSUMER, ORDER_REVIEW, SUCCESS} from 'constants/orderWizardSteps';
 import StepbarOption from 'components/homeComponents/orderWizardComponents/resources/stepbarOption';
-
-require('../../../../styles/stepbar.styl');
+import 'styles/stepbar.styl';
 
 class OrderWizardStepbar extends React.Component {
   

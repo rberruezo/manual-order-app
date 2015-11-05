@@ -3,8 +3,7 @@ import OrderWizardStepbar from 'components/homeComponents/orderWizardComponents/
 import OrderWizardStep from 'components/homeComponents/orderWizardComponents/parts/orderWizardStep';
 import OrderWizardFluxButtonpad from 'components/homeComponents/orderWizardComponents/parts/orderWizardFluxButtonpad';
 import {SUCCESS} from 'constants/orderWizardSteps';
-
-require('../../../styles/simpleForm.styl');
+import 'styles/simpleForm.styl';
 
 class OrderWizardFlux extends React.Component {
 

@@ -1,6 +1,5 @@
 import React from 'react';
-
-require('../../../../styles/stepbar.styl');
+import 'styles/stepbar.styl';
 
 class StepbarOption extends React.Component {
 

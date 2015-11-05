@@ -2,8 +2,7 @@ import React from 'react';
 import connectToStores from 'alt/utils/connectToStores';
 import LoginStore from 'stores/loginStore';
 import LoginActions from 'actions/loginActions';
-
-require('../styles/login.styl');
+import 'styles/login.styl';
 
 @connectToStores
 class Login extends React.Component {
