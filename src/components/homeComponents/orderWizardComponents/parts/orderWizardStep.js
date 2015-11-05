@@ -1,11 +1,11 @@
 import React from 'react';
 import {CART_ITEMS, SHIPPING_AND_BILLING, PAYMENT, CONSUMER, ORDER_REVIEW, SUCCESS} from 'constants/orderWizardSteps';
-import CartItems from 'components/orderWizardComponents/steps/cartItems';
-import ShippingAndBilling from 'components/orderWizardComponents/steps/shippingAndBilling';
-import OrderReview from 'components/orderWizardComponents/steps/orderReview';
-import Payment from 'components/orderWizardComponents/steps/payment';
-import Consumer from 'components/orderWizardComponents/steps/consumer';
-import Success from 'components/orderWizardComponents/steps/success';
+import CartItems from 'components/homeComponents/orderWizardComponents/steps/cartItems';
+import ShippingAndBilling from 'components/homeComponents/orderWizardComponents/steps/shippingAndBilling';
+import OrderReview from 'components/homeComponents/orderWizardComponents/steps/orderReview';
+import Payment from 'components/homeComponents/orderWizardComponents/steps/payment';
+import Consumer from 'components/homeComponents/orderWizardComponents/steps/consumer';
+import Success from 'components/homeComponents/orderWizardComponents/steps/success';
 
 class OrderWizardStep extends React.Component {
   

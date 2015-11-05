@@ -1,10 +1,10 @@
 import React from 'react';
-import OrderWizardStepbar from 'components/orderWizardComponents/parts/orderWizardStepbar';
-import OrderWizardStep from 'components/orderWizardComponents/parts/orderWizardStep';
-import OrderWizardFluxButtonpad from 'components/orderWizardComponents/parts/orderWizardFluxButtonpad';
+import OrderWizardStepbar from 'components/homeComponents/orderWizardComponents/parts/orderWizardStepbar';
+import OrderWizardStep from 'components/homeComponents/orderWizardComponents/parts/orderWizardStep';
+import OrderWizardFluxButtonpad from 'components/homeComponents/orderWizardComponents/parts/orderWizardFluxButtonpad';
 import {SUCCESS} from 'constants/orderWizardSteps';
 
-require('../../styles/simpleForm.styl');
+require('../../../styles/simpleForm.styl');
 
 class OrderWizardFlux extends React.Component {
 

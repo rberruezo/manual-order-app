@@ -1,5 +1,5 @@
 import React from 'react';
-import Buttonpad from 'components/orderWizardComponents/resources/buttonpad';
+import Buttonpad from 'components/homeComponents/orderWizardComponents/resources/buttonpad';
 import {CART_ITEMS, SHIPPING_AND_BILLING, PAYMENT, CONSUMER, ORDER_REVIEW, SUCCESS} from 'constants/orderWizardSteps';
 import {CANCEL, BACK, CONTINUE, SUBMIT_CHANGES, CLOSE} from 'constants/orderWizardStepsButtons';
 

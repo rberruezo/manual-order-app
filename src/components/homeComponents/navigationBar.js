@@ -3,7 +3,7 @@ import connectToStores from 'alt/utils/connectToStores';
 import LoginStore from 'stores/loginStore';
 import LoginActions from 'actions/loginActions';
 
-require('../styles/navbar.styl');
+require('../../styles/navbar.styl');
 
 @connectToStores
 class NavigationBar extends React.Component {

@@ -3,7 +3,7 @@ import connectToStores from 'alt/utils/connectToStores';
 import OrdersStore from 'stores/ordersStore';
 import OrdersActions from 'actions/ordersActions';
 import Utilities from 'utilities/utilities';
-import OrderWizardFlux from 'components/orderWizardComponents/orderWizardFlux';
+import OrderWizardFlux from 'components/homeComponents/orderWizardComponents/orderWizardFlux';
 
 var originalOrder = {};
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import connectToStores from 'alt/utils/connectToStores';
 import OrdersStore from 'stores/ordersStore';
-import Orders from 'components/orders';
-import OrderWizard from 'components/orderWizard';
-import NavigationBar from 'components/navigationBar';
+import Orders from 'components/homeComponents/orders';
+import OrderWizard from 'components/homeComponents/orderWizard';
+import NavigationBar from 'components/homeComponents/navigationBar';
 
 @connectToStores
 class Home extends React.Component {
