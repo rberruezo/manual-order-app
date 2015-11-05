@@ -8,35 +8,35 @@ class Item extends React.Component {
         <h2>Item</h2>
         <div>
           <label for="quantity">Quantity</label>
-          <input id="quantity" name="quantity" type="number" value={item.quantity} onChange={this.handleChange} placeholder="Quantity" required="" />
+          <div id="quantity" name="quantity" type="number" readonly>{item.quantity}</div>
         </div>
         <div>
           <label for="listPriceCents">List Price Cents</label>
-          <input id="listPriceCents" name="listPriceCents" type="number" value={item.listPriceCents} onChange={this.handleChange} placeholder="List Price Cents" required="" />
+          <div id="listPriceCents" name="listPriceCents" type="number" readonly>{item.listPriceCents}</div>
         </div>
         <div>
           <label for="salePriceCents">Sale Price Cents</label>
-          <input id="salePriceCents" name="salePriceCents" type="number" value={item.salePriceCents} onChange={this.handleChange} placeholder="Sale Price Cents" required="" />
+          <div id="salePriceCents" name="salePriceCents" type="number" readonly>{item.salePriceCents}</div>
         </div>
         <div>
           <label for="sourceUrl">Source Url</label>
-          <input id="sourceUrl" name="sourceUrl" type="text" value={item.sourceUrl} onChange={this.handleChange} placeholder="Source Url" required="" />
+          <div id="sourceUrl" name="sourceUrl" type="text" readonly>{item.sourceUrl}</div>
         </div>
         <div>
           <label for="status">Status</label>
-          <input id="status" name="status" type="number" value={item.status} onChange={this.handleChange} placeholder="Status" required="" />
+          <div id="status" name="status" type="number" readonly>{item.status}</div>
         </div>
         <div>
           <label for="name">Name</label>
-          <input id="name" name="name" type="text" value={item.name} onChange={this.handleChange} placeholder="Name" required="" />
+          <div id="name" name="name" type="text" readonly>{item.name}</div>
         </div>
         <div>
           <label for="color">Color</label>
-          <input id="color" name="color" type="text" value={item.color} onChange={this.handleChange} placeholder="Color" required="" />
+          <div id="color" name="color" type="text" readonly>{item.color}</div>
         </div>
         <div>
           <label for="size">Size</label>
-          <input id="size" name="size" type="text" value={item.size} onChange={this.handleChange} placeholder="Size" required="" />
+          <div id="size" name="size" type="text" readonly>{item.size}</div>
         </div>
       </div>
     )
