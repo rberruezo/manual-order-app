@@ -1,8 +1,8 @@
 import React from 'react';
-import Item from 'components/homeComponents/resources/item';
-import ShippingAndBilling from 'components/homeComponents/resources/shippingAndBilling';
-import Payment from 'components/homeComponents/resources/payment';
-import Success from 'components/homeComponents/resources/success';
+import Item from 'components/homeComponents/steps/item';
+import ShippingAndBilling from 'components/homeComponents/steps/shippingAndBilling';
+import Payment from 'components/homeComponents/steps/payment';
+import Success from 'components/homeComponents/steps/success';
 
 class PartnerWizardStep extends React.Component {
   

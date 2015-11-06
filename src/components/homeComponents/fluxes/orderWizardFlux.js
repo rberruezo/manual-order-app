@@ -1,5 +1,5 @@
 import React from 'react';
-import OrderWizardStep from 'components/homeComponents/steps/orderWizardStep';
+import OrderWizardStep from 'components/homeComponents/steps/general/orderWizardStep';
 
 class OrderWizardFlux extends React.Component {
 
