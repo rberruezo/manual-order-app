@@ -1,6 +1,6 @@
 import React from 'react';
-import Buttonpad from 'components/homeComponents/orderWizardComponents/resources/buttonpad';
-import {CANCEL, BACK, CONTINUE, SUBMIT_CHANGES, CLOSE} from 'constants/orderWizardStepsButtons';
+import Buttonpad from 'components/homeComponents/resources/buttonpad';
+import {CANCEL, BACK, CONTINUE, SUBMIT_CHANGES, CLOSE} from 'constants/stepButtonLabels';
 
 class PartnerWizardFluxButtonpad extends React.Component {
 

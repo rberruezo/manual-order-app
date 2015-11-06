@@ -3,7 +3,8 @@ import connectToStores from 'alt/utils/connectToStores';
 import OrdersStore from 'stores/ordersStore';
 import OrdersActions from 'actions/ordersActions';
 import Utilities from 'utilities/utilities';
-import OrderWizardFlux from 'components/homeComponents/orderWizardComponents/orderWizardFlux';
+import OrderWizardFlux from 'components/homeComponents/fluxes/orderWizardFlux';
+import 'styles/simpleForm.styl';
 
 var originalOrder = {};
 
@@ -31,8 +32,7 @@ class OrderWizard extends React.Component {
     return (
       <OrderWizardFlux order={order}
       								 cancelChanges={this.cancelChanges}
-                       closeWizard={this.closeWizard}
-      								 submitChanges={this.submitChanges} />
+                       closeWizard={this.closeWizard} />
     );
   }
 
@@ -43,10 +43,6 @@ class OrderWizard extends React.Component {
 
   closeWizard = evt => {
     OrdersActions.deselectOrder();
-  }
-
-  submitChanges = evt => {
-    OrdersActions.submitOrder(this.props.dequeuedOrder);
   }
 
   handleChange = evt => {

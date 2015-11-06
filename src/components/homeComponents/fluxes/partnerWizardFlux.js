@@ -1,6 +1,6 @@
 import React from 'react';
-import PartnerWizardStep from 'components/homeComponents/orderWizardComponents/parts/partnerWizardStep';
-import PartnerWizardFluxButtonpad from 'components/homeComponents/orderWizardComponents/parts/partnerWizardFluxButtonpad';
+import PartnerWizardStep from 'components/homeComponents/steps/partnerWizardStep';
+import PartnerWizardFluxButtonpad from 'components/homeComponents/buttonpads/partnerWizardFluxButtonpad';
 
 class PartnerWizardFlux extends React.Component {
 
@@ -23,20 +23,6 @@ class PartnerWizardFlux extends React.Component {
     })
   }
 
-  submitChanges = evt => {
-    //TODO: call to submitchanges
-  	console.log('submitChanges');
-  	this.nextStep();
-  }
-
-  closeWizard = evt => {
-  	console.log('closeWizard');
-    this.setState({
-      step : 1
-    })
-  	this.props.callbacks.nextStep();
-  }
-
   getButtonpadCallbacks() {
     return {
       previousStep: this.previousStep,
@@ -47,10 +33,20 @@ class PartnerWizardFlux extends React.Component {
     };
   }
 
+  submitChanges = evt => {
+    //TODO: call to submitchanges
+    console.log('submitChanges');
+    this.nextStep();
+  }
+
+  closeWizard = evt => {
+    this.setState({
+      step : 1
+    })
+    this.props.callbacks.nextStep();
+  }
+
 	render() {
-		console.log('PartnerWizardFlux');
-		console.log(this.state.step);
-		console.log(this.props);
     return (
       <div>
         <h2>Partner Wizard</h2>
@@ -60,8 +56,8 @@ class PartnerWizardFlux extends React.Component {
                         	 billingAddress={this.props.billingAddress}
                         	 payment={this.props.payment} />
 				<PartnerWizardFluxButtonpad step={this.state.step}
-                                  	callbacks={this.getButtonpadCallbacks()}
-                                  	items={this.props.items} />
+                                  	items={this.props.items}
+                                    callbacks={this.getButtonpadCallbacks()} />
       </div>
     )
   }

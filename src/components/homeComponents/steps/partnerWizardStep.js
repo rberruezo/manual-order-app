@@ -1,9 +1,8 @@
 import React from 'react';
-import {CART_ITEMS, SHIPPING_AND_BILLING, PAYMENT, CONSUMER, ORDER_REVIEW, SUCCESS} from 'constants/orderWizardSteps';
-import Item from 'components/homeComponents/orderWizardComponents/resources/item';
-import ShippingAndBilling from 'components/homeComponents/orderWizardComponents/steps/shippingAndBilling';
-import Payment from 'components/homeComponents/orderWizardComponents/steps/payment';
-import Success from 'components/homeComponents/orderWizardComponents/steps/success';
+import Item from 'components/homeComponents/resources/item';
+import ShippingAndBilling from 'components/homeComponents/resources/shippingAndBilling';
+import Payment from 'components/homeComponents/resources/payment';
+import Success from 'components/homeComponents/resources/success';
 
 class PartnerWizardStep extends React.Component {
   

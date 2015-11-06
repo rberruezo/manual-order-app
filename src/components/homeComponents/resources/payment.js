@@ -1,12 +1,12 @@
 import React from 'react';
-import {PAYMENT_TITLE} from 'constants/orderWizardSteps';
+import {PAYMENT} from 'constants/stepTitles';
 
 class Payment extends React.Component {
   render() {
     var payment = this.props.payment;
     return (
       <div className="simple-form">
-        <h2>{PAYMENT_TITLE}</h2>
+        <h2>{PAYMENT}</h2>
         <div>
           <label for="type">Type:</label>
           <input id="type" name="type" type="text" value={payment.type} onChange={this.handleChange} placeholder="Type" required="" />
