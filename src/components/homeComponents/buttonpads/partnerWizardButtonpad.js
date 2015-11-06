@@ -2,7 +2,7 @@ import React from 'react';
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
 import {CANCEL, BACK, CONTINUE, SUBMIT_CHANGES, CLOSE} from 'constants/stepButtonLabels';
 
-class PartnerWizardFluxButtonpad extends React.Component {
+class PartnerWizardButtonpad extends React.Component {
 
   getStepButtons() {
     var callbacks = this.props.callbacks;
@@ -41,4 +41,4 @@ class PartnerWizardFluxButtonpad extends React.Component {
   }
 }
 
-export default PartnerWizardFluxButtonpad;
+export default PartnerWizardButtonpad;

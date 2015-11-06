@@ -1,6 +1,6 @@
 import React from 'react';
 import PartnerWizardStep from 'components/homeComponents/steps/general/partnerWizardStep';
-import PartnerWizardFluxButtonpad from 'components/homeComponents/buttonpads/partnerWizardFluxButtonpad';
+import PartnerWizardButtonpad from 'components/homeComponents/buttonpads/partnerWizardButtonpad';
 
 class PartnerWizardFlux extends React.Component {
 
@@ -56,7 +56,7 @@ class PartnerWizardFlux extends React.Component {
                         	 shippingAddress={this.props.shippingAddress}
                         	 billingAddress={this.props.billingAddress}
                         	 payment={this.props.payment} />
-				<PartnerWizardFluxButtonpad step={this.state.step}
+				<PartnerWizardButtonpad step={this.state.step}
                                   	items={this.props.items}
                                     callbacks={this.getButtonpadCallbacks()} />
       </div>
