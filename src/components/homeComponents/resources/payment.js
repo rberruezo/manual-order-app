@@ -9,35 +9,42 @@ class Payment extends React.Component {
         <h2>{PAYMENT}</h2>
         <div>
           <label for="type">Type:</label>
-          <input id="type" name="type" type="text" value={payment.type} onChange={this.handleChange} placeholder="Type" required="" />
+          <div id="type" name="type" type="text" readonly>
+            {payment.type}
+          </div>
         </div>
         <div>
           <label for="number">Number:</label>
-          <input id="number" name="number" type="text" value={payment.number} onChange={this.handleChange} placeholder="Number" required="" />
+          <div id="number" name="number" type="text" readonly>
+            {payment.number}
+          </div>
         </div>
         <div>
           <label for="expirationMonth">Expiration Month:</label>
-          <input id="expirationMonth" name="expirationMonth" type="number" value={payment.expirationMonth} onChange={this.handleChange} placeholder="Expiration Month" required="" />
+          <div id="expirationMonth" name="expirationMonth" type="number" readonly>
+            {payment.expirationMonth}
+          </div>
         </div>
         <div>
           <label for="expirationYear">Expiration Year:</label>
-          <input id="expirationYear" name="expirationYear" type="number" value={payment.expirationYear} onChange={this.handleChange} placeholder="Expiration Year" required="" />
+          <div id="expirationYear" name="expirationYear" type="number" readonly>
+            {payment.expirationYear}
+          </div>
         </div>
         <div>
           <label for="name">Name:</label>
-          <input id="name" name="name" type="text" value={payment.name} onChange={this.handleChange} placeholder="Name" required="" />
+          <div id="name" name="name" type="text" readonly>
+            {payment.name}
+          </div>
         </div>
         <div>
           <label for="cvv">CVV:</label>
-          <input id="cvv" name="cvv" type="text" value={payment.cvv} onChange={this.handleChange} placeholder="CVV" required="" />
+          <div id="cvv" name="cvv" type="text" readonly>
+            {payment.cvv}
+          </div>
         </div>
       </div>
     )
-  }
-
-  handleChange = evt => {
-    this.props.order.paymentData[evt.target.name] = evt.target.value;
-    this.setState(this.props.order.paymentData);
   }
 }
 
