@@ -4,7 +4,7 @@ class Item extends React.Component {
   render() {
     var item = this.props.item;
     return (
-      <div>
+      <div className="simple-form">
         <h2>Item</h2>
         <div>
           <label for="quantity">Quantity</label>

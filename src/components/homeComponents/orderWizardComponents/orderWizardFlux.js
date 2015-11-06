@@ -1,8 +1,7 @@
 import React from 'react';
-import OrderWizardStepbar from 'components/homeComponents/orderWizardComponents/parts/orderWizardStepbar';
-import OrderWizardStep from 'components/homeComponents/orderWizardComponents/parts/orderWizardStep';
-import OrderWizardFluxButtonpad from 'components/homeComponents/orderWizardComponents/parts/orderWizardFluxButtonpad';
-import {SUCCESS} from 'constants/orderWizardSteps';
+import PartnerWizardFlux from 'components/homeComponents/orderWizardComponents/steps/partnerWizardFlux';
+import OrderReview from 'components/homeComponents/orderWizardComponents/steps/orderReview';
+import Buttonpad from 'components/homeComponents/orderWizardComponents/resources/buttonpad';
 import 'styles/simpleForm.styl';
 
 class OrderWizardFlux extends React.Component {
@@ -15,6 +14,7 @@ class OrderWizardFlux extends React.Component {
   }
 
   nextStep = evt => {
+    console.log(this.state.step);
     this.setState({
       step : this.state.step + 1
     })
@@ -28,9 +28,10 @@ class OrderWizardFlux extends React.Component {
 
   submitChanges = evt => {
     this.props.submitChanges();
-    this.setState({
-      step : SUCCESS
-    })
+    console.log(this.state.step);
+    // this.setState({
+    //   step : SUCCESS
+    // })
   }
 
   goToStep = evt => {
@@ -49,15 +50,32 @@ class OrderWizardFlux extends React.Component {
     };
   }
 
+  getView() {
+    var view;
+    if (this.state.step <= this.props.order.partners.length) {
+      view = (
+        <PartnerWizardFlux items={this.props.order.partners[this.state.step-1].items}
+                           shippingAddress={this.props.order.shippingAddress}
+                           billingAddress={this.props.order.billingAddress}
+                           payment={this.props.order.paymentData}
+                           callbacks={this.getButtonpadCallbacks()} />
+        )
+    } else {
+      view = (
+        <div>
+          <OrderReview />
+          <Buttonpad buttons={[{callback: this.props.closeWizard, text: 'Close'} ]} />
+        </div>  
+        )
+    }
+    return view;
+  }
+
   render() {
+    console.log(this.state.step,this.props.order.partners[this.state.step-1]);
     return (
       <main>
-        <OrderWizardStepbar step={this.state.step}
-                            goToStep={this.goToStep} />
-        <OrderWizardStep step={this.state.step}
-                         order={this.props.order} />
-        <OrderWizardFluxButtonpad step={this.state.step}
-                                  callbacks={this.getButtonpadCallbacks()} />
+        {this.getView()}
       </main>
     )
   }

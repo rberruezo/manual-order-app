@@ -3,7 +3,7 @@ import {PAYMENT_TITLE} from 'constants/orderWizardSteps';
 
 class Payment extends React.Component {
   render() {
-    var payment = this.props.order.paymentData;
+    var payment = this.props.payment;
     return (
       <div className="simple-form">
         <h2>{PAYMENT_TITLE}</h2>
