@@ -1,4 +1,5 @@
 import React from 'react';
+import ItemStatus from 'components/homeComponents/resources/itemStatus';
 
 class Item extends React.Component {
   render() {
@@ -31,12 +32,6 @@ class Item extends React.Component {
           </div>
         </div>
         <div>
-          <label for="status">Status</label>
-          <div id="status" name="status" type="number" readonly>
-            {item.status}
-          </div>
-        </div>
-        <div>
           <label for="name">Name</label>
           <div id="name" name="name" type="text" readonly>
             {item.name}
@@ -54,6 +49,7 @@ class Item extends React.Component {
             {item.size}
           </div>
         </div>
+        <ItemStatus status={item.status} />
       </div>
     )
   }
