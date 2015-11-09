@@ -24,3 +24,6 @@ Source: https://viget.com/extend/building-a-multi-step-registration-form-with-re
 
 ### create simple horizontal navigation menu
 Source: http://css-plus.com/2010/03/how-to-create-a-simple-horizontal-navigation-menu-from-scratch/
+
+### React-radio-group
+Source: https://github.com/chenglou/react-radio-group

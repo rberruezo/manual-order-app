@@ -1,4 +1,5 @@
 import React from 'react';
+import OrdersActions from 'actions/ordersActions';
 import OrderWizardStep from 'components/homeComponents/steps/general/orderWizardStep';
 
 class OrderWizardFlux extends React.Component {
@@ -22,12 +23,17 @@ class OrderWizardFlux extends React.Component {
     })
   }
 
+  submitChanges = evt => {
+    OrdersActions.submitOrder(this.props.order);
+  }
+
   getButtonpadCallbacks() {
     return {
       previousStep: this.previousStep,
       nextStep: this.nextStep,
       closeWizard: this.props.closeWizard,
-      cancelChanges: this.props.cancelChanges
+      cancelChanges: this.props.cancelChanges,
+      submitChanges: this.submitChanges
     };
   }
 

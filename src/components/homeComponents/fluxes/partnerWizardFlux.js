@@ -36,6 +36,7 @@ class PartnerWizardFlux extends React.Component {
   submitChanges = evt => {
     //TODO: call to submitchanges
     console.log('submitChanges');
+    this.props.callbacks.submitChanges();
     this.nextStep();
   }
 

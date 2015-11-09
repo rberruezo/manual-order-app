@@ -49,13 +49,13 @@ class Item extends React.Component {
             {item.size}
           </div>
         </div>
-        <ItemStatus status={item.status} />
+        <ItemStatus selectedValue={item.status} onChange={this.handleStatusChange} />
       </div>
     )
   }
 
-  handleChange = evt => {
-    this.props.item[evt.target.name] = evt.target.value;
+  handleStatusChange = value => {
+    this.props.item.status = value;
     this.setState(this.props.item);
   }
 }
