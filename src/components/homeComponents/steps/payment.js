@@ -8,38 +8,38 @@ class Payment extends React.Component {
       <div className="simple-form">
         <h2>{PAYMENT}</h2>
         <div>
-          <label for="type">Type:</label>
-          <div id="type" name="type" type="text" readonly>
+          <label>Type:</label>
+          <div id="type" name="type" type="text" readOnly>
             {payment.type}
           </div>
         </div>
         <div>
-          <label for="number">Number:</label>
-          <div id="number" name="number" type="text" readonly>
+          <label>Number:</label>
+          <div id="number" name="number" type="text" readOnly>
             {payment.number}
           </div>
         </div>
         <div>
-          <label for="expirationMonth">Expiration Month:</label>
-          <div id="expirationMonth" name="expirationMonth" type="number" readonly>
+          <label>Expiration Month:</label>
+          <div id="expirationMonth" name="expirationMonth" type="number" readOnly>
             {payment.expirationMonth}
           </div>
         </div>
         <div>
-          <label for="expirationYear">Expiration Year:</label>
-          <div id="expirationYear" name="expirationYear" type="number" readonly>
+          <label>Expiration Year:</label>
+          <div id="expirationYear" name="expirationYear" type="number" readOnly>
             {payment.expirationYear}
           </div>
         </div>
         <div>
-          <label for="name">Name:</label>
-          <div id="name" name="name" type="text" readonly>
+          <label>Name:</label>
+          <div id="name" name="name" type="text" readOnly>
             {payment.name}
           </div>
         </div>
         <div>
-          <label for="cvv">CVV:</label>
-          <div id="cvv" name="cvv" type="text" readonly>
+          <label>CVV:</label>
+          <div id="cvv" name="cvv" type="text" readOnly>
             {payment.cvv}
           </div>
         </div>

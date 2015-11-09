@@ -6,44 +6,44 @@ class Address extends React.Component {
     return (
       <div>
         <div>
-          <label for="address1">Address 1:</label>
-          <div id="address1" name="address1" type="text" readonly>
+          <label>Address 1:</label>
+          <div id="address1" name="address1" type="text" readOnly>
             {address.address1}
           </div>
         </div>
         <div>
-          <label for="address2">Address 2:</label>
-          <div id="address2" name="address2" type="text" readonly>
+          <label>Address 2:</label>
+          <div id="address2" name="address2" type="text" readOnly>
             {address.address2}
           </div>
         </div>
         <div>
-          <label for="city">City:</label>
-          <div id="city" name="city" type="text" readonly>
+          <label>City:</label>
+          <div id="city" name="city" type="text" readOnly>
             {address.city}
           </div>
         </div>
         <div>
-          <label for="state">State:</label>
-          <div id="state" name="state" type="text" readonly>
+          <label>State:</label>
+          <div id="state" name="state" type="text" readOnly>
             {address.state}
           </div>
         </div>
         <div>
-          <label for="zip">Zip:</label>
-          <div id="zip" name="zip" type="text" readonly>
+          <label>Zip:</label>
+          <div id="zip" name="zip" type="text" readOnly>
             {address.zip}
           </div>
         </div>
         <div>
-          <label for="status">Status:</label>
-          <div id="status" name="status" type="number" readonly>
+          <label>Status:</label>
+          <div id="status" name="status" type="number" readOnly>
             {address.status}
           </div>
         </div>
         <div>
-          <label for="addressType">Address Type:</label>
-          <div id="addressType" name="addressType" type="number" readonly>
+          <label>Address Type:</label>
+          <div id="addressType" name="addressType" type="number" readOnly>
             {address.addressType}
           </div>
         </div>
