@@ -1,5 +1,5 @@
 import React from 'react';
-import Buttonpad from 'components/homeComponents/resources/buttonpad';
+import Buttonpad from 'components/homeComponents/buttonpads/general/buttonpad';
 import {CANCEL, BACK, CONTINUE, SUBMIT_CHANGES, CLOSE} from 'constants/stepButtonLabels';
 
 class PartnerWizardButtonpad extends React.Component {
