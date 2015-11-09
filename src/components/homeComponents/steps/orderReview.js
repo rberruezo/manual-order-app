@@ -1,5 +1,6 @@
 import React from 'react';
 import Buttonpad from 'components/homeComponents/buttonpads/general/buttonpad';
+import StatusDescription from 'components/homeComponents/resources/statusDescription';
 import {ORDER_REVIEW} from 'constants/stepTitles';
 import {CLOSE} from 'constants/stepButtonLabels';
 import Griddle from 'griddle-react';
@@ -30,7 +31,7 @@ class OrderReview extends React.Component {
 		  {columnName: "quantity", order: 3, locked: false, visible: true, displayName: "Quantity"},
 		  {columnName: "color", order: 4, locked: false, visible: true, displayName: "Color"},
 		  {columnName: "size", order: 5, locked: false, visible: true, displayName: "Size"},
-		  {columnName: "status", order: 6, locked: false, visible: true, displayName: "Status"}
+		  {columnName: "status", order: 6, locked: false, visible: true, displayName: "Status", customComponent: StatusDescription}
 		];
 	}
 
@@ -40,6 +41,8 @@ class OrderReview extends React.Component {
     return (
     	<div>
         <h2>{ORDER_REVIEW}</h2>
+        Status
+        <StatusDescription data={this.props.order.status} />
 	    	<div>
 					<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
 					<script src="//fb.me/react-0.13.2.js"></script>
