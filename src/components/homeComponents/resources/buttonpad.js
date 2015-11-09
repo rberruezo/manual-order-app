@@ -9,10 +9,11 @@ the onClick event
 
 class Buttonpad extends React.Component {
   render() {
+  	var key = 1;
     return (
       <div className="button">
 				{this.props.buttons.map(function(button){
-		   		return <button onClick={button.callback}>{button.text}</button>;
+		   		return <button key={key++} onClick={button.callback}>{button.text}</button>;
 				})}
 			</div>
     )
