@@ -40,10 +40,13 @@ class PartnerWizardFlux extends React.Component {
     this.nextStep();
   }
 
-  closeWizard = evt => {
+  componentWillReceiveProps(nextProps) {
     this.setState({
       step : 1
-    })
+    });
+  }
+
+  closeWizard = evt => {
     this.props.callbacks.nextStep();
   }
 
