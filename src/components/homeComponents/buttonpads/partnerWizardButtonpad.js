@@ -1,6 +1,6 @@
 import React from 'react';
 import Buttonpad from 'components/homeComponents/buttonpads/general/buttonpad';
-import {CANCEL, BACK, CONTINUE, SUBMIT_CHANGES, CLOSE} from 'constants/stepButtonLabels';
+import {CANCEL, BACK, CONTINUE, SUBMIT_ITEM_STATUS, OK} from 'constants/stepButtonLabels';
 
 class PartnerWizardButtonpad extends React.Component {
 
@@ -17,12 +17,12 @@ class PartnerWizardButtonpad extends React.Component {
       case (this.props.items.length+2):
         buttons = [
                     {callback: callbacks.previousStep, text: BACK},
-                    {callback: callbacks.submitChanges, text: SUBMIT_CHANGES}
+                    {callback: callbacks.submitItemsStatus, text: SUBMIT_ITEM_STATUS}
                   ];
         break;
       case (this.props.items.length+3):
         buttons = [
-                    {callback: callbacks.closeWizard, text: CLOSE}
+                    {callback: callbacks.closeWizard, text: OK}
                   ];
         break;                  
       default:

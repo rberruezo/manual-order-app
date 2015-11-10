@@ -23,8 +23,9 @@ class OrderWizardFlux extends React.Component {
     })
   }
 
-  submitChanges = evt => {
-    OrdersActions.submitOrder(this.props.order);
+  submitOrderStatus = evt => {
+    OrdersActions.submitOrderStatus(this.props.order);
+    this.props.closeWizard();
   }
 
   getButtonpadCallbacks() {
@@ -33,7 +34,7 @@ class OrderWizardFlux extends React.Component {
       nextStep: this.nextStep,
       closeWizard: this.props.closeWizard,
       cancelChanges: this.props.cancelChanges,
-      submitChanges: this.submitChanges
+      submitOrderStatus: this.submitOrderStatus
     };
   }
 

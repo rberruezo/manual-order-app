@@ -1,6 +1,7 @@
 import flux from 'control';
 import {createActions} from 'alt/utils/decorators';
 import OrdersService from 'services/ordersService';
+import Utilities from 'utilities/utilities';
 
 @createActions(flux)
 class OrdersActions {
@@ -64,6 +65,35 @@ class OrdersActions {
     OrdersService.submitOrder(request)
       .then((response) => {
         this.dispatch(response.order);
+      })
+      .catch((errorMessage) => {
+        alert(errorMessage);
+      });
+  }
+
+  submitItemsStatus(items) {
+    var request = {
+      itemsStatus: items.map(function(item) {
+        return {id: item.id, status: item.status};
+      })
+    };
+    OrdersService.submitItemsStatus(request)
+      .then((response) => {
+        this.dispatch(response.order);
+      })
+      .catch((errorMessage) => {
+        alert(errorMessage);
+      });
+  }
+
+  submitOrderStatus(order) {
+    var request = {
+      id: order.id,
+      status: Utilities.calculateOrderStatus(order)
+    };
+    OrdersService.submitOrderStatus(request)
+      .then((response) => {
+        this.dispatch(request);
       })
       .catch((errorMessage) => {
         alert(errorMessage);

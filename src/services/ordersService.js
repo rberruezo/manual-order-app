@@ -113,6 +113,42 @@ var ordersService = {
     });
   },
 
+  submitItemsStatus: function (requestData) {
+  	requestData.userToken = ordersService.getUserToken();
+  	console.log('submitItemsStatus');
+  	console.log(requestData);
+    return new Promise(function (resolve, reject) {
+    	request
+				.post(API_GET_ORDER_URL)
+  			.send(requestData)
+				.end(function (err, res) {
+					if (res.status === 404) {
+						reject('Service not found');
+					} else {
+            resolve(res);
+					}
+			});
+    });
+  },
+
+  submitOrderStatus: function (requestData) {
+  	requestData.userToken = ordersService.getUserToken();
+  	console.log('submitOrderStatus');
+  	console.log(requestData);
+    return new Promise(function (resolve, reject) {
+    	request
+				.post(API_GET_ORDER_URL)
+  			.send(requestData)
+				.end(function (err, res) {
+					if (res.status === 404) {
+						reject('Service not found');
+					} else {
+            resolve(res);
+					}
+			});
+    });
+  },
+
 	getUserToken: function() {
 		return LoginStore.getState().user.token;
 	}

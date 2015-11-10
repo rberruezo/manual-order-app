@@ -21,7 +21,7 @@ var mockedOrders = {
 };
 
 function addDataToOrder(order) {
-	order["id"] = 1;
+	order["id"] = order.orderId;
 	order["shippingCents"] = 999;
 	order["taxCents"] = 875;
 	order["orderTotalCents"] = 10000;

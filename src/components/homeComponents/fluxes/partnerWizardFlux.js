@@ -1,4 +1,5 @@
 import React from 'react';
+import OrdersActions from 'actions/ordersActions';
 import PartnerWizardStep from 'components/homeComponents/steps/general/partnerWizardStep';
 import PartnerWizardButtonpad from 'components/homeComponents/buttonpads/partnerWizardButtonpad';
 
@@ -27,16 +28,14 @@ class PartnerWizardFlux extends React.Component {
     return {
       previousStep: this.previousStep,
       nextStep: this.nextStep,
-      submitChanges: this.submitChanges,
+      submitItemsStatus: this.submitItemsStatus,
       closeWizard: this.closeWizard,
       cancelChanges: this.props.callbacks.cancelChanges
     };
   }
 
-  submitChanges = evt => {
-    //TODO: call to submitchanges
-    console.log('submitChanges');
-    this.props.callbacks.submitChanges();
+  submitItemsStatus = evt => {
+    OrdersActions.submitItemsStatus(this.props.items);
     this.nextStep();
   }
 

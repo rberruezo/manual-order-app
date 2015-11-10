@@ -30,6 +30,14 @@ class OrdersStore {
     delete this.dequeuedOrder;
   }
 
+  @bind(OrdersActions.submitOrderStatus)
+  submitOrderStatus(response) {
+    console.log('submitOrderStatus');
+    console.log(this.orders);
+    console.log(response);
+    this.orders[response.id].status = response.status;
+  }
+
 }
 
 export default OrdersStore;

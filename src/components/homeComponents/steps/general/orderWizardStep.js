@@ -7,7 +7,7 @@ class OrderWizardStep extends React.Component {
   render() {
     if (this.props.step > this.props.order.partners.length) {
       return <OrderReview order={this.props.order}
-                          callback={this.props.callbacks.closeWizard} />
+                          callback={this.props.callbacks.submitOrderStatus} />
     }
     return <PartnerWizardFlux items={this.props.order.partners[this.props.step-1].items}
                               name={this.props.order.partners[this.props.step-1].name}

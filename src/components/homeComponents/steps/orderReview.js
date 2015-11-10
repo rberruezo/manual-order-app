@@ -2,8 +2,9 @@ import React from 'react';
 import Buttonpad from 'components/homeComponents/buttonpads/general/buttonpad';
 import StatusDescription from 'components/homeComponents/resources/statusDescription';
 import {ORDER_REVIEW} from 'constants/stepTitles';
-import {CLOSE} from 'constants/stepButtonLabels';
+import {SUBMIT_ORDER_STATUS} from 'constants/stepButtonLabels';
 import Griddle from 'griddle-react';
+import Utilities from 'utilities/utilities';
 
 class OrderReview extends React.Component {
   
@@ -42,7 +43,7 @@ class OrderReview extends React.Component {
     	<div>
         <h2>{ORDER_REVIEW}</h2>
         Status
-        <StatusDescription data={this.props.order.status} />
+        <StatusDescription data={Utilities.calculateOrderStatus(this.props.order)} />
 	    	<div>
 					<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
 					<script src="//fb.me/react-0.13.2.js"></script>
@@ -60,7 +61,7 @@ class OrderReview extends React.Component {
 					/>
 				</div>
 	      <div className="simple-form">
-	        <Buttonpad buttons={[{callback: this.props.callback, text: CLOSE}]} />
+	        <Buttonpad buttons={[{callback: this.props.callback, text: SUBMIT_ORDER_STATUS}]} />
 	      </div>
 	    </div>
     )
