@@ -38,7 +38,7 @@ class OrderWizard extends React.Component {
 
   cancelChanges = evt => {
   	Utilities.copyObjectAttributes(this.props.dequeuedOrder, originalOrder);
-    OrdersActions.deselectOrder();
+    this.closeWizard();
   }
 
   closeWizard = evt => {

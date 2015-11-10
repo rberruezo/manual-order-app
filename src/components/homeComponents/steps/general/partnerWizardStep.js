@@ -7,9 +7,6 @@ import Success from 'components/homeComponents/steps/success';
 class PartnerWizardStep extends React.Component {
   
   render() {
-    if (this.props.step <= this.props.items.length) {
-      return <Item item={this.props.items[this.props.step-1]} />
-    }
     switch(this.props.step-this.props.items.length) {
       case 1:
         return <ShippingAndBilling shippingAddress={this.props.shippingAddress}
@@ -19,7 +16,7 @@ class PartnerWizardStep extends React.Component {
       case 3:
         return <Success />
       default:
-        return <div />
+        return <Item item={this.props.items[this.props.step-1]} />
     }
   }
 

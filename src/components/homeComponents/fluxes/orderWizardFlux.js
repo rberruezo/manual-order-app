@@ -25,7 +25,7 @@ class OrderWizardFlux extends React.Component {
 
   submitOrderStatus = evt => {
     OrdersActions.submitOrderStatus(this.props.order);
-    this.props.closeWizard();
+    this.nextStep();
   }
 
   getButtonpadCallbacks() {
