@@ -1,5 +1,5 @@
 import React from 'react';
-import Buttonpad from 'components/homeComponents/buttonpads/general/buttonpad';
+import Buttonpad from 'components/homeComponents/resources/buttonpad';
 import {CLOSE} from 'constants/stepButtonLabels';
 
 class Message extends React.Component {

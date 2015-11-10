@@ -1,5 +1,5 @@
 import React from 'react';
-import Buttonpad from 'components/homeComponents/buttonpads/general/buttonpad';
+import Buttonpad from 'components/homeComponents/resources/buttonpad';
 import StatusDescription from 'components/homeComponents/resources/statusDescription';
 import {ORDER_REVIEW} from 'constants/stepTitles';
 import {SUBMIT_ORDER_STATUS} from 'constants/stepButtonLabels';

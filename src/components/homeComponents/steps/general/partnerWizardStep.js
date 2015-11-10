@@ -3,7 +3,7 @@ import Item from 'components/homeComponents/steps/item';
 import ShippingAndBilling from 'components/homeComponents/steps/shippingAndBilling';
 import Payment from 'components/homeComponents/steps/payment';
 import Success from 'components/homeComponents/steps/success';
-import Buttonpad from 'components/homeComponents/buttonpads/general/buttonpad';
+import Buttonpad from 'components/homeComponents/resources/buttonpad';
 import {CANCEL, BACK, CONTINUE, SUBMIT_ITEM_STATUS, OK} from 'constants/stepButtonLabels';
 
 class PartnerWizardStep extends React.Component {
