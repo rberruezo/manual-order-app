@@ -2,7 +2,7 @@ import React from 'react';
 import Item from 'components/homeComponents/steps/item';
 import ShippingAndBilling from 'components/homeComponents/steps/shippingAndBilling';
 import Payment from 'components/homeComponents/steps/payment';
-import Success from 'components/homeComponents/steps/success';
+import Message from 'components/homeComponents/steps/message';
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
 import {CANCEL, BACK, CONTINUE, SUBMIT_ITEM_STATUS, OK} from 'constants/stepButtonLabels';
 
@@ -46,7 +46,7 @@ class PartnerWizardStep extends React.Component {
       case 2:
         return <Payment payment={this.props.payment} />
       case 3:
-        return <Success />
+        return <Message text='Items Status changed successfully' />
       default:
         return <Item item={this.props.items[this.props.step-1]} />
     }

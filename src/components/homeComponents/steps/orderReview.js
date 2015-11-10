@@ -1,8 +1,6 @@
 import React from 'react';
-import Buttonpad from 'components/homeComponents/resources/buttonpad';
 import StatusDescription from 'components/homeComponents/resources/statusDescription';
 import {ORDER_REVIEW} from 'constants/stepTitles';
-import {SUBMIT_ORDER_STATUS} from 'constants/stepButtonLabels';
 import Griddle from 'griddle-react';
 import Utilities from 'utilities/utilities';
 
@@ -60,12 +58,10 @@ class OrderReview extends React.Component {
 						sortAscendingComponent=' ^'
 					/>
 				</div>
-	      <div className="simple-form">
-	        <Buttonpad buttons={[{callback: this.props.callback, text: SUBMIT_ORDER_STATUS}]} />
-	      </div>
 	    </div>
     )
   }
+
 }
 
 export default OrderReview;
