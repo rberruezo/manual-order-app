@@ -10,3 +10,13 @@ Make sure you have installed NodeJS and NPM first and that you can run them from
 ## Commands
 * `npm run build` - Build the project
 * `npm run watch` - Start the Webpack dev server
+
+## Documentation
+
+### Components Flow Interaction
+
+![UIFlow](docs/ComponentsFlowInteraction.png)
+
+### UI Flow
+
+![UIFlow](docs/UIFlow.png)
