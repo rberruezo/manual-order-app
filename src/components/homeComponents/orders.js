@@ -3,6 +3,7 @@ import Mocks from 'mocks/mocks';
 import connectToStores from 'alt/utils/connectToStores';
 import OrdersStore from 'stores/ordersStore';
 import OrdersActions from 'actions/ordersActions';
+import StatusDescription from 'components/homeComponents/resources/statusDescription';
 import Griddle from 'griddle-react';
 
 class CompleteNameComponent extends React.Component{
@@ -30,7 +31,7 @@ class Orders extends React.Component {
   }
 
 	getColumnsNames() {
-		return ["createdAt", "orderId", "user", "itemCount"];
+		return ["createdAt", "orderId", "user", "itemCount", "status"];
 	}
 
 	getColumnsMetadata() {
@@ -38,7 +39,8 @@ class Orders extends React.Component {
 			{columnName: "createdAt", order: 4, locked: false, visible: true, displayName: "Created At"},
 		  {columnName: "orderId", order: 1, locked: false, visible: true, displayName: "ID"},
 		  {columnName: "user", order: 2, locked: false, visible: true, displayName: "Consumer", customComponent: CompleteNameComponent},
-		  {columnName: "itemCount", order: 3, locked: false, visible: true, displayName: "Item Count"}
+		  {columnName: "itemCount", order: 3, locked: false, visible: true, displayName: "Item Count"},
+		  {columnName: "status", order: 5, locked: false, visible: true, displayName: "Status", customComponent: StatusDescription}
 		];
 	}
 

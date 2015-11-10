@@ -11,8 +11,8 @@ var mockedUsers = [
 var mockedOrders = {
 	701: {"createdAt": 1410231218, "orderId": 701, "user": {"firstName": "Victoria", "lastName": "Sarappa"}, "itemCount": 3, "status": 11 },
 	702: {"createdAt": 1510231105, "orderId": 702, "user": {"firstName": "Juan", "lastName": "Rojo"}, "itemCount": 5, "status": 11 },
-	703: {"createdAt": 1306231749, "orderId": 703, "user": {"firstName": "Clara", "lastName": "Orchow"}, "itemCount": 2, "status": 11 },
-	704: {"createdAt": 1508181228, "orderId": 704, "user": {"firstName": "Alan", "lastName": "Pieroni"}, "itemCount": 1, "status": 11 },
+	703: {"createdAt": 1306231749, "orderId": 703, "user": {"firstName": "Clara", "lastName": "Orchow"}, "itemCount": 2, "status": 8 },
+	704: {"createdAt": 1508181228, "orderId": 704, "user": {"firstName": "Alan", "lastName": "Pieroni"}, "itemCount": 1, "status": 9 },
 	705: {"createdAt": 1511051238, "orderId": 705, "user": {"firstName": "Ivan", "lastName": "Levin"}, "itemCount": 9, "status": 11 },
 	706: {"createdAt": 1503150753, "orderId": 706, "user": {"firstName": "Matias", "lastName": "Camacho"}, "itemCount": 4, "status": 11 },
 	707: {"createdAt": 1511182302, "orderId": 707, "user": {"firstName": "Marcia", "lastName": "Perdomo"}, "itemCount": 8, "status": 11 },
