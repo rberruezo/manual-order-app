@@ -15,11 +15,6 @@ class OrdersStore {
     this.orders = orders;
   }
 
-  @bind(OrdersActions.removeOrder)
-  removeOrder(order_id) {
-		delete this.orders[order_id];
-  }
-
   @bind(OrdersActions.dequeueOrder)
   dequeueOrder(order) {
     this.dequeuedOrder = order;

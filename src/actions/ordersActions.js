@@ -19,19 +19,6 @@ class OrdersActions {
 	    });
   }
 
-  removeOrder(order_id) {
-  	var request = {
-  		orderId: order_id
-  	};
-	  OrdersService.removeOrder(request)
-	    .then((response) => {
-  			this.dispatch(order_id);
-	    })
-	    .catch((errorMessage) => {
-	      alert(errorMessage);
-	    });
-  }
-
   selectOrder(order_id) {
     var request = {
       orderId: order_id

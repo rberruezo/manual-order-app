@@ -172,11 +172,6 @@ var mocks = {
   	};
 	},
 
-	removeOrder: function(order_id, user_token) {
-		delete mockedOrders[order_id];
-		return {status: 200};
-	},
-
 	getOrder: function(order_id, user_token) {
 		var order = mockedOrders[order_id];
 		return {
