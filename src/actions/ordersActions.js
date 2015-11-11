@@ -32,21 +32,6 @@ class OrdersActions {
       });
   }
 
-  submitItemsStatus(items) {
-    var request = {
-      itemsStatus: items.map(function(item) {
-        return {id: item.id, status: item.status};
-      })
-    };
-    OrdersService.submitItemsStatus(request)
-      .then((response) => {
-        this.dispatch(response.order);
-      })
-      .catch((errorMessage) => {
-        alert(errorMessage);
-      });
-  }
-
   submitOrderStatus(order) {
     var request = {
       id: order.id,
@@ -60,7 +45,6 @@ class OrdersActions {
         alert(errorMessage);
       });
   }
-
 }
 
 export default OrdersActions;

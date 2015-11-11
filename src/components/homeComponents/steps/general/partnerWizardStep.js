@@ -25,9 +25,17 @@ class PartnerWizardStep extends React.Component {
                   ];
         break;
       case (this.props.items.length+3):
-        buttons = [
-                    {callback: callbacks.closeWizard, text: OK}
-                  ];
+        if (this.props.result) {
+          buttons = [
+                      {callback: callbacks.closeWizard, text: OK}
+                    ];
+        } else {
+          buttons = [
+                      {callback: callbacks.cancelChanges, text: 'Cancel'},
+                      {callback: callbacks.tryAgainToSubmitItemsStatus, text: 'Try Again'},
+                      {callback: callbacks.closeWizard, text: 'Continue Anyway'}
+                    ];
+        }
         break;                  
       default:
         buttons = [
@@ -46,7 +54,11 @@ class PartnerWizardStep extends React.Component {
       case 2:
         return <Payment payment={this.props.payment} />
       case 3:
-        return <Message text='Items Status changed successfully' />
+        if (this.props.result) {
+          return <Message text='Items Status changed successfully' />
+        } else {
+          return <Message text='Failed to update Items Status!' />
+        }
       default:
         return <Item item={this.props.items[this.props.step-1]} />
     }
