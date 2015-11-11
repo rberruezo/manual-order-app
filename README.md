@@ -15,8 +15,12 @@ Make sure you have installed NodeJS and NPM first and that you can run them from
 
 ### Components Flow Interaction
 
-![UIFlow](docs/ComponentsFlowInteraction.png)
+![ComponentsFlowInteraction](docs/ComponentsFlowInteraction.png)
 
 ### UI Flow
 
 ![UIFlow](docs/UIFlow.png)
+
+### Order Wizard Flow
+
+![OrderWizardFlow](docs/OrderWizardFlow.png)
