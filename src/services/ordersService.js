@@ -71,27 +71,6 @@ var ordersService = {
     });
   },
 
-  submitOrder: function (requestData) {
-  	requestData.userToken = ordersService.getUserToken();
-    return new Promise(function (resolve, reject) {
-    	request
-				.post(API_GET_ORDER_URL)
-  			.send(requestData)
-				.end(function (err, res) {
-					if (res.status === 404) {
-						reject('Service not found');
-					} else {
-						var response = Mocks.submitOrder(requestData.order, requestData.userToken);
-						if (response.status == 200) {
-	            resolve(response);
-	          } else {
-	          	reject('Error: Invalid user or password');
-	          }
-					}
-			});
-    });
-  },
-
   submitItemsStatus: function (requestData) {
   	requestData.userToken = ordersService.getUserToken();
   	console.log('submitItemsStatus');
