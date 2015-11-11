@@ -19,19 +19,6 @@ class OrdersActions {
 	    });
   }
 
-  selectOrder(order_id) {
-    var request = {
-      orderId: order_id
-    };
-    OrdersService.getOrder(request)
-      .then((response) => {
-        this.dispatch(response.order);
-      })
-      .catch((errorMessage) => {
-        alert(errorMessage);
-      });
-  }
-
   dequeueOrder(order_id) {
     var request = {
       orderId: order_id
