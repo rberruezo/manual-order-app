@@ -97,11 +97,10 @@ var ordersService = {
 				.post(API_GET_ORDER_URL)
   			.send(requestData)
 				.end(function (err, res) {
-					if (res.status === 404) {
-						reject('Service not found');
-					} else {
-            resolve(res);
+					if (res.status !== 404) {
+						res.errorMessage = 'Service not found';
 					}
+          resolve(res);
 			});
     });
   },

@@ -19,14 +19,26 @@ class OrderWizardStep extends React.Component {
           </div>
           )
       case 2:
-        return (
-          <div>
-            <Message text='Order Status changed successfully' />
-            <Buttonpad buttons={[
-              {callback: this.props.callbacks.closeWizard, text: CLOSE}
-            ]} />
-          </div>
-          )
+        if (this.props.result) {
+          return (
+            <div>
+              <Message text='Order Status changed successfully' />
+              <Buttonpad buttons={[
+                {callback: this.props.callbacks.closeWizard, text: CLOSE}
+              ]} />
+            </div>
+            )
+        } else {
+          return (
+            <div>
+              <Message text='Failed to update Order Status!' />
+              <Buttonpad buttons={[
+                        {callback: this.props.callbacks.tryAgainToSubmitOrderStatus, text: 'Try Again'},
+                        {callback: this.props.callbacks.closeWizard, text: CLOSE}
+              ]} />
+            </div>
+            )
+        }
       default:
         return <PartnerWizardFlux items={this.props.order.partners[this.props.step-1].items}
                                   name={this.props.order.partners[this.props.step-1].name}

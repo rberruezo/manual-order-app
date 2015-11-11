@@ -1,6 +1,7 @@
 import flux from 'control';
 import {createStore, bind} from 'alt/utils/decorators';
 import OrdersActions from 'actions/ordersActions';
+import OrderWizardActions from 'actions/orderWizardActions';
 import Mocks from 'mocks/mocks';
 
 @createStore(flux)
@@ -25,9 +26,9 @@ class OrdersStore {
     delete this.dequeuedOrder;
   }
 
-  @bind(OrdersActions.submitOrderStatus)
+  @bind(OrderWizardActions.submitOrderStatus)
   submitOrderStatus(response) {
-    this.orders[response.id].status = response.status;
+    this.orders[response.order.id].status = response.order.status;
   }
 
 }

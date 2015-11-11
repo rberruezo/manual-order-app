@@ -35,8 +35,6 @@ class OrderReview extends React.Component {
 	}
 
   render() {
-		console.log('OrderReview');
-		console.log(this.props.order);
     return (
     	<div>
         <h2>{ORDER_REVIEW}</h2>

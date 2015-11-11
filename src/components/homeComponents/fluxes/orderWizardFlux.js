@@ -1,48 +1,73 @@
 import React from 'react';
-import OrdersActions from 'actions/ordersActions';
+import OrderWizardActions from 'actions/orderWizardActions';
 import OrderWizardStep from 'components/homeComponents/steps/general/orderWizardStep';
+import connectToStores from 'alt/utils/connectToStores';
+import OrderWizardStore from 'stores/orderWizardStore';
 
+@connectToStores
 class OrderWizardFlux extends React.Component {
 
-	constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
-      step : 1
+      step : props.step,
+      result: props.result
     };
   }
 
+  static getStores(props) {
+    return [OrderWizardStore];
+  }
+
+  static getPropsFromStores(props) {
+    return OrderWizardStore.getState();
+  }
+
   nextStep = evt => {
-    this.setState({
-      step : this.state.step + 1
-    })
+    this.handleStepChange(this.props.step+1);
   }
 
   previousStep = evt => {
-    this.setState({
-      step : this.state.step - 1
-    })
-  }
-
-  submitOrderStatus = evt => {
-    OrdersActions.submitOrderStatus(this.props.order);
-    this.nextStep();
+    this.handleStepChange(this.props.step-1);
   }
 
   getButtonpadCallbacks() {
     return {
       previousStep: this.previousStep,
       nextStep: this.nextStep,
-      closeWizard: this.props.closeWizard,
+      closeWizard: this.closeWizard,
       cancelChanges: this.props.cancelChanges,
-      submitOrderStatus: this.submitOrderStatus
+      submitOrderStatus: this.submitOrderStatus,
+      tryAgainToSubmitOrderStatus: this.tryAgainToSubmitOrderStatus,
     };
+  }
+
+  submitOrderStatus = evt => {
+    OrderWizardActions.submitOrderStatus(this.props.order);
+  }
+  
+  tryAgainToSubmitOrderStatus = evt => {
+    this.previousStep();
+    this.submitOrderStatus();
+  }
+
+  closeWizard = evt => {
+    this.handleStepChange(1);
+    this.props.closeWizard();
+  }
+
+  handleStepChange(newStep) {
+    this.props.step = newStep;
+    this.setState(this.props);
+    OrderWizardActions.updateStep(this.props.step);
   }
 
   render() {
     return (
       <div>
         <h1>Order Wizard</h1>
-        <OrderWizardStep step={this.state.step}
+        <OrderWizardStep step={OrderWizardStore.getState().step}
+                         result={OrderWizardStore.getState().result}
                          order={this.props.order}
                          callbacks={this.getButtonpadCallbacks()} />
       </div>
