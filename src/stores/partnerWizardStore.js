@@ -13,7 +13,7 @@ class PartnerWizardStore {
   @bind(PartnerWizardActions.submitItemsStatus)
   submitItemsStatus(response) {
     this.result = !("errorMessage" in response);
-    this.step = this.step + 1;
+    this.updateStep(this.step+1);
   }
 
   @bind(PartnerWizardActions.updateStep)

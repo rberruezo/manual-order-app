@@ -13,7 +13,7 @@ class OrderWizardStore {
   @bind(OrderWizardActions.submitOrderStatus)
   submitOrderStatus(response) {
     this.result = !("errorMessage" in response);
-    this.step = this.step + 1;
+    this.updateStep(this.step+1);
   }
 
   @bind(OrderWizardActions.updateStep)
