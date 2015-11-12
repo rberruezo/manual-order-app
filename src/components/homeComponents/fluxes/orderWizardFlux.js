@@ -3,6 +3,7 @@ import OrderWizardActions from 'actions/orderWizardActions';
 import OrderWizardStep from 'components/homeComponents/steps/general/orderWizardStep';
 import connectToStores from 'alt/utils/connectToStores';
 import OrderWizardStore from 'stores/orderWizardStore';
+import {SUBMITING} from 'constants/apiCallStatus';
 
 @connectToStores
 class OrderWizardFlux extends React.Component {
@@ -11,7 +12,8 @@ class OrderWizardFlux extends React.Component {
     super(props);
     this.state = {
       step : props.step,
-      result: props.result
+      result: props.result,
+      stepCount: props.order.partners.length+2
     };
   }
 
@@ -37,18 +39,14 @@ class OrderWizardFlux extends React.Component {
       nextStep: this.nextStep,
       closeWizard: this.closeWizard,
       cancelChanges: this.props.cancelChanges,
-      submitOrderStatus: this.submitOrderStatus,
-      tryAgainToSubmitOrderStatus: this.tryAgainToSubmitOrderStatus,
+      submitOrderStatus: this.submitOrderStatus
     };
   }
 
   submitOrderStatus = evt => {
+    this.props.result = SUBMITING;
+    this.handleStepChange(this.props.order.partners.length+2); //Go directly to Last Step = Q(partners) + Order Review + Result Message
     OrderWizardActions.submitOrderStatus(this.props.order);
-  }
-  
-  tryAgainToSubmitOrderStatus = evt => {
-    this.previousStep();
-    this.submitOrderStatus();
   }
 
   closeWizard = evt => {

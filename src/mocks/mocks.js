@@ -183,9 +183,7 @@ var mocks = {
 	dequeueOrder: function(order_id, user_token) {
 		mockedOrders[order_id].status = PENDING_ORDER_IS_BEING_PLACED;
 		var order = mockedOrders[order_id];
-		console.log(order);
 		addDataToOrder(order);
-		console.log(order);
 		return {
 			order: order,
 			status: 200
