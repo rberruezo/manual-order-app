@@ -3,6 +3,7 @@ import PartnerWizardActions from 'actions/partnerWizardActions';
 import PartnerWizardStep from 'components/homeComponents/steps/general/partnerWizardStep';
 import connectToStores from 'alt/utils/connectToStores';
 import PartnerWizardStore from 'stores/partnerWizardStore';
+import {SUBMITING} from 'constants/apiCallStatus';
 
 @connectToStores
 class PartnerWizardFlux extends React.Component {
@@ -35,20 +36,16 @@ class PartnerWizardFlux extends React.Component {
     return {
       previousStep: this.previousStep,
       nextStep: this.nextStep,
-      submitItemsStatus: this.submitItemsStatus,
-      tryAgainToSubmitItemsStatus: this.tryAgainToSubmitItemsStatus,
       closeWizard: this.closeWizard,
-      cancelChanges: this.props.callbacks.cancelChanges
+      cancelChanges: this.props.callbacks.cancelChanges,
+      submitItemsStatus: this.submitItemsStatus
     };
   }
 
   submitItemsStatus = evt => {
+    this.props.result = SUBMITING;
+    this.handleStepChange(this.props.items.length+3); //Go directly to Last Step = Q(items) + S&B + Payment + Result Message
     PartnerWizardActions.submitItemsStatus(this.props.items);
-  }
-
-  tryAgainToSubmitItemsStatus = evt => {
-    this.previousStep();
-    this.submitItemsStatus();
   }
 
   closeWizard = evt => {

@@ -3,6 +3,7 @@ import Item from 'components/homeComponents/steps/item';
 import ShippingAndBilling from 'components/homeComponents/steps/shippingAndBilling';
 import Payment from 'components/homeComponents/steps/payment';
 import Message from 'components/homeComponents/steps/message';
+import PartnerWizardResult from 'components/homeComponents/steps/partnerWizardResult';
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
 import {CANCEL, BACK, CONTINUE, SUBMIT_ITEM_STATUS, OK} from 'constants/stepButtonLabels';
 
@@ -24,19 +25,6 @@ class PartnerWizardStep extends React.Component {
                     {callback: callbacks.submitItemsStatus, text: SUBMIT_ITEM_STATUS}
                   ];
         break;
-      case (this.props.items.length+3):
-        if (this.props.result) {
-          buttons = [
-                      {callback: callbacks.closeWizard, text: OK}
-                    ];
-        } else {
-          buttons = [
-                      {callback: callbacks.cancelChanges, text: 'Cancel'},
-                      {callback: callbacks.tryAgainToSubmitItemsStatus, text: 'Try Again'},
-                      {callback: callbacks.closeWizard, text: 'Continue Anyway'}
-                    ];
-        }
-        break;                  
       default:
         buttons = [
                     {callback: callbacks.previousStep, text: BACK},
@@ -46,33 +34,35 @@ class PartnerWizardStep extends React.Component {
     return buttons;
   }
 
-  getStepView() {
+  render() {
     switch(this.props.step-this.props.items.length) {
       case 1:
-        return <ShippingAndBilling shippingAddress={this.props.shippingAddress}
-                                   billingAddress={this.props.billingAddress} />
+        return (
+          <div>
+            <ShippingAndBilling shippingAddress={this.props.shippingAddress}
+                                billingAddress={this.props.billingAddress} />
+            <Buttonpad buttons={this.getStepButtons()} />
+          </div>
+        )
       case 2:
-        return <Payment payment={this.props.payment} />
+        return (
+          <div>
+            <Payment payment={this.props.payment} />
+            <Buttonpad buttons={this.getStepButtons()} />
+          </div>
+        )
       case 3:
-        if (this.props.result) {
-          return <Message text='Items Status changed successfully' />
-        } else {
-          return <Message text='Failed to update Items Status!' />
-        }
+        return <PartnerWizardResult result={this.props.result}
+                                    callbacks={this.props.callbacks} />
       default:
-        return <Item item={this.props.items[this.props.step-1]} />
+        return (
+          <div>
+            <Item item={this.props.items[this.props.step-1]} />
+            <Buttonpad buttons={this.getStepButtons()} />
+          </div>
+        )
     }
   }
-
-  render() {
-    return (
-      <div>
-        {this.getStepView()}
-        <Buttonpad buttons={this.getStepButtons()} />
-      </div>
-    )
-  }
-
 }
 
 export default PartnerWizardStep;

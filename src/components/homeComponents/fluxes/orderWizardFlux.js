@@ -12,8 +12,7 @@ class OrderWizardFlux extends React.Component {
     super(props);
     this.state = {
       step : props.step,
-      result: props.result,
-      stepCount: props.order.partners.length+2
+      result: props.result
     };
   }
 
