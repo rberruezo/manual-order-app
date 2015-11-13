@@ -24,7 +24,7 @@ class OrdersActions {
     };
     OrdersService.dequeueOrder(request)
       .then((response) => {
-        this.dispatch(response.order);
+        this.dispatch(response);
       })
       .catch((errorMessage) => {
         alert(errorMessage);

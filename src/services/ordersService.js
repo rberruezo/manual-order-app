@@ -61,11 +61,11 @@ var ordersService = {
 						reject('Service not found');
 					} else {
 						var response = Mocks.dequeueOrder(requestData.orderId, requestData.userToken);
-						if (response.status == 200) {
-	            resolve(response);
-	          } else {
-	          	reject('Error: Invalid user or password');
-	          }
+						if (response.status === 404) {
+							response.errorMessage = 'Service not found';
+							alert(response.errorMessage);
+						}
+						resolve(response);
 					}
 			});
     });
@@ -80,7 +80,7 @@ var ordersService = {
 				.post(API_GET_ORDER_URL)
   			.send(requestData)
 				.end(function (err, res) {
-					if (res.status !== 404) {
+					if (res.status === 404) {
 						res.errorMessage = 'Service not found';
 					}
           resolve(res);

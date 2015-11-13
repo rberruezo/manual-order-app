@@ -17,8 +17,11 @@ class OrdersStore {
   }
 
   @bind(OrdersActions.dequeueOrder)
-  dequeueOrder(order) {
-    this.dequeuedOrder = order;
+  dequeueOrder(response) {
+    console.log(response);
+    if (!("errorMessage" in response)) {
+      this.dequeuedOrder = response.order;
+    }
   }
 
   @bind(OrdersActions.deselectOrder)
