@@ -1,3 +1,7 @@
+/******************************************************************************
+Abstract class to manage the flux of the wizard steps
+******************************************************************************/
+
 import React from 'react';
 import {SUBMITING} from 'constants/apiCallStatus';
 

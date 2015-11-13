@@ -1,11 +1,11 @@
-import React from 'react';
-
 /******************************************************************************
 PRECOND: this.props.buttons should have an array of objects with the following
 structure: {callback: this.nextStep, text: 'Continue'}
 POSCOND: render returns the specified buttons with the associated callback on
 the onClick event
 ******************************************************************************/
+
+import React from 'react';
 
 class Buttonpad extends React.Component {
   render() {

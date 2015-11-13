@@ -1,5 +1,3 @@
-import React from 'react';
-
 /******************************************************************************
 Abstract class.
 All the childs should have the following methods defined:
@@ -11,6 +9,7 @@ All the childs should have the following methods defined:
   * getFailureMessage: returns the text to show on a Failed Result Message.
 ******************************************************************************/
 
+import React from 'react';
 import Message from 'components/homeComponents/resources/message';
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
 import {SUCCESS, FAIL} from 'constants/apiCallStatus';
