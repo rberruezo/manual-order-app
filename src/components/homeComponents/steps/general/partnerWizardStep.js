@@ -2,7 +2,6 @@ import React from 'react';
 import Item from 'components/homeComponents/steps/item';
 import ShippingAndBilling from 'components/homeComponents/steps/shippingAndBilling';
 import Payment from 'components/homeComponents/steps/payment';
-import Message from 'components/homeComponents/steps/message';
 import PartnerWizardResult from 'components/homeComponents/steps/partnerWizardResult';
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
 import {CANCEL, BACK, CONTINUE, SUBMIT_ITEM_STATUS, OK} from 'constants/stepButtonLabels';
