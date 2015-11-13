@@ -2,7 +2,8 @@ import React from 'react';
 import Message from 'components/homeComponents/steps/message';
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
 import {SUCCESS, FAIL} from 'constants/apiCallStatus';
-import {CLOSE} from 'constants/stepButtonLabels';
+import {CLOSE, TRY_AGAIN} from 'constants/stepButtonLabels';
+import {ORDER_STATUS_SUBMISSION_SUCCESS, ORDER_STATUS_SUBMISSION_FAILURE, SUBMITING} from 'constants/messages';
 
 class OrderWizardResult extends React.Component {
   render() {
@@ -10,7 +11,7 @@ class OrderWizardResult extends React.Component {
       case SUCCESS:
         return (
           <div>
-            <Message text='Order Status changed successfully' />
+            <Message text={ORDER_STATUS_SUBMISSION_SUCCESS} />
             <Buttonpad buttons={[
               {callback: this.props.callbacks.closeWizard, text: CLOSE}
             ]} />
@@ -19,17 +20,17 @@ class OrderWizardResult extends React.Component {
       case FAIL:
         return (
           <div>
-            <Message text='Failed to update Order Status!' />
+            <Message text={ORDER_STATUS_SUBMISSION_FAILURE} />
             <Buttonpad buttons={[
-                      {callback: this.props.callbacks.submitOrderStatus, text: 'Try Again'},
-                      {callback: this.props.callbacks.closeWizard, text: CLOSE}
+              {callback: this.props.callbacks.submitOrderStatus, text: TRY_AGAIN},
+              {callback: this.props.callbacks.closeWizard, text: CLOSE}
             ]} />
           </div>
           )
       default:
         return (
           <div>
-            <Message text='Submiting' />
+            <Message text={SUBMITING} />
           </div>
           )
     }

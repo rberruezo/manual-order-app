@@ -2,7 +2,8 @@ import React from 'react';
 import Message from 'components/homeComponents/steps/message';
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
 import {SUCCESS, FAIL} from 'constants/apiCallStatus';
-import {CLOSE} from 'constants/stepButtonLabels';
+import {CANCEL, CLOSE, CONTINUE_ANYWAY, OK, TRY_AGAIN} from 'constants/stepButtonLabels';
+import {ITEM_STATUS_SUBMISSION_SUCCESS, ITEM_STATUS_SUBMISSION_FAILURE, SUBMITING} from 'constants/messages';
 
 class PartnerWizardResult extends React.Component {
   render() {
@@ -10,27 +11,27 @@ class PartnerWizardResult extends React.Component {
       case SUCCESS:
         return (
           <div>
-            <Message text='Items Status changed successfully' />
+            <Message text={ITEM_STATUS_SUBMISSION_SUCCESS} />
             <Buttonpad buttons ={[
-              {callback: this.props.callbacks.closeWizard, text: 'Ok'}
+              {callback: this.props.callbacks.closeWizard, text: OK}
             ]} />
           </div>
           )
       case FAIL:
         return (
           <div>
-            <Message text='Failed to update Items Status!' />
+            <Message text={ITEM_STATUS_SUBMISSION_FAILURE} />
             <Buttonpad buttons={[
-              {callback: this.props.callbacks.cancelChanges, text: 'Cancel'},
-              {callback: this.props.callbacks.submitItemsStatus, text: 'Try Again'},
-              {callback: this.props.callbacks.closeWizard, text: 'Continue Anyway'}
+              {callback: this.props.callbacks.cancelChanges, text: CANCEL},
+              {callback: this.props.callbacks.submitItemsStatus, text: TRY_AGAIN},
+              {callback: this.props.callbacks.closeWizard, text: CONTINUE_ANYWAY}
             ]} />
           </div>
           )
       default:
         return (
           <div>
-            <Message text='Submiting' />
+            <Message text={SUBMITING} />
           </div>
           )
     }
