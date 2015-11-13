@@ -4,9 +4,17 @@ import OrderWizardActions from 'actions/orderWizardActions';
 import OrderWizardStep from 'components/homeComponents/steps/general/orderWizardStep';
 import connectToStores from 'alt/utils/connectToStores';
 import OrderWizardStore from 'stores/orderWizardStore';
+import Utilities from 'utilities/utilities';
+
+var originalOrder = {};
 
 @connectToStores
 class OrderWizardFlux extends WizardFlux {
+  constructor(props) {
+    super(props);
+    Utilities.copyObjectAttributes(originalOrder, props.order);
+  }
+
   static getStores(props) {
     return [OrderWizardStore];
   }
@@ -17,7 +25,7 @@ class OrderWizardFlux extends WizardFlux {
 
   getButtonpadCallbacks() {
     var buttonpadCallbacks = this.getBasicButtonpadCallbacks();
-    buttonpadCallbacks.cancelChanges = this.props.cancelChanges;
+    buttonpadCallbacks.cancelChanges = this.cancelChanges;
     buttonpadCallbacks.submitOrderStatus = this.submitOrderStatus;
     return buttonpadCallbacks;
   }
@@ -26,6 +34,11 @@ class OrderWizardFlux extends WizardFlux {
      //Go directly to Last Step = Q(partners) + Order Review + Result Message
     this.submitStatus(this.props.order.partners.length+2);
     OrderWizardActions.submitOrderStatus(this.props.order);
+  }
+
+  cancelChanges = evt => {
+    Utilities.copyObjectAttributes(this.props.order, originalOrder);
+    this.closeWizard();
   }
 
   closeWizard = evt => {
