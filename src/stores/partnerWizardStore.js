@@ -1,24 +1,23 @@
 import flux from 'control';
 import {createStore, bind} from 'alt/utils/decorators';
+import WizardStore from 'stores/wizardStore';
 import PartnerWizardActions from 'actions/partnerWizardActions';
-import {NONE, SUCCESS, FAIL} from 'constants/apiCallStatus';
 
 @createStore(flux)
-class PartnerWizardStore {
+class PartnerWizardStore extends WizardStore {
 
   constructor() {
-    this.step = 1;
-    this.result = NONE;
+    super();
   }
 
   @bind(PartnerWizardActions.submitItemsStatus)
   submitItemsStatus(response) {
-    this.result = ("errorMessage" in response) ? FAIL : SUCCESS;
+    this.submitStatus(response);
   }
 
   @bind(PartnerWizardActions.updateStep)
   updateStep(step) {
-    this.step = step;
+    this.setStep(step);
   }
 
 }
