@@ -1,21 +1,12 @@
 import React from 'react';
+import WizardFlux from 'components/homeComponents/fluxes/wizardFlux';
 import PartnerWizardActions from 'actions/partnerWizardActions';
 import PartnerWizardStep from 'components/homeComponents/steps/general/partnerWizardStep';
 import connectToStores from 'alt/utils/connectToStores';
 import PartnerWizardStore from 'stores/partnerWizardStore';
-import {SUBMITING} from 'constants/apiCallStatus';
 
 @connectToStores
-class PartnerWizardFlux extends React.Component {
-
-	constructor(props) {
-    super(props);
-    this.state = {
-      step : props.step,
-      result: props.result
-    };
-  }
-
+class PartnerWizardFlux extends WizardFlux {
   static getStores(props) {
     return [PartnerWizardStore];
   }
@@ -24,27 +15,16 @@ class PartnerWizardFlux extends React.Component {
     return PartnerWizardStore.getState();
   }
 
-  nextStep = evt => {
-    this.handleStepChange(this.props.step+1);
-  }
-
-  previousStep = evt => {
-    this.handleStepChange(this.props.step-1);
-  }
-
   getButtonpadCallbacks() {
-    return {
-      previousStep: this.previousStep,
-      nextStep: this.nextStep,
-      closeWizard: this.closeWizard,
-      cancelChanges: this.props.callbacks.cancelChanges,
-      submitItemsStatus: this.submitItemsStatus
-    };
+    var buttonpadCallbacks = this.getBasicButtonpadCallbacks();
+    buttonpadCallbacks.cancelChanges = this.props.callbacks.cancelChanges;
+    buttonpadCallbacks.submitItemsStatus = this.submitItemsStatus;
+    return buttonpadCallbacks;
   }
 
   submitItemsStatus = evt => {
-    this.props.result = SUBMITING;
-    this.handleStepChange(this.props.items.length+3); //Go directly to Last Step = Q(items) + S&B + Payment + Result Message
+    //Go directly to Last Step = Q(items) + S&B + Payment + Result Message
+    this.submitStatus(this.props.items.length+3);
     PartnerWizardActions.submitItemsStatus(this.props.items);
   }
 
@@ -54,8 +34,7 @@ class PartnerWizardFlux extends React.Component {
   }
 
   handleStepChange(newStep) {
-    this.props.step = newStep;
-    this.setState(this.props);
+    this.setStepChange(newStep);
     PartnerWizardActions.updateStep(this.props.step);
   }
 
@@ -74,7 +53,6 @@ class PartnerWizardFlux extends React.Component {
       </div>
     )
   }
-
 }
 
 export default PartnerWizardFlux;

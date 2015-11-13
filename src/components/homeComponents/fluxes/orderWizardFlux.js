@@ -1,21 +1,12 @@
 import React from 'react';
+import WizardFlux from 'components/homeComponents/fluxes/wizardFlux';
 import OrderWizardActions from 'actions/orderWizardActions';
 import OrderWizardStep from 'components/homeComponents/steps/general/orderWizardStep';
 import connectToStores from 'alt/utils/connectToStores';
 import OrderWizardStore from 'stores/orderWizardStore';
-import {SUBMITING} from 'constants/apiCallStatus';
 
 @connectToStores
-class OrderWizardFlux extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      step : props.step,
-      result: props.result
-    };
-  }
-
+class OrderWizardFlux extends WizardFlux {
   static getStores(props) {
     return [OrderWizardStore];
   }
@@ -24,27 +15,16 @@ class OrderWizardFlux extends React.Component {
     return OrderWizardStore.getState();
   }
 
-  nextStep = evt => {
-    this.handleStepChange(this.props.step+1);
-  }
-
-  previousStep = evt => {
-    this.handleStepChange(this.props.step-1);
-  }
-
   getButtonpadCallbacks() {
-    return {
-      previousStep: this.previousStep,
-      nextStep: this.nextStep,
-      closeWizard: this.closeWizard,
-      cancelChanges: this.props.cancelChanges,
-      submitOrderStatus: this.submitOrderStatus
-    };
+    var buttonpadCallbacks = this.getBasicButtonpadCallbacks();
+    buttonpadCallbacks.cancelChanges = this.props.cancelChanges;
+    buttonpadCallbacks.submitOrderStatus = this.submitOrderStatus;
+    return buttonpadCallbacks;
   }
 
   submitOrderStatus = evt => {
-    this.props.result = SUBMITING;
-    this.handleStepChange(this.props.order.partners.length+2); //Go directly to Last Step = Q(partners) + Order Review + Result Message
+     //Go directly to Last Step = Q(partners) + Order Review + Result Message
+    this.submitStatus(this.props.order.partners.length+2);
     OrderWizardActions.submitOrderStatus(this.props.order);
   }
 
@@ -54,8 +34,7 @@ class OrderWizardFlux extends React.Component {
   }
 
   handleStepChange(newStep) {
-    this.props.step = newStep;
-    this.setState(this.props);
+    this.setStepChange(newStep);
     OrderWizardActions.updateStep(this.props.step);
   }
 
@@ -70,7 +49,6 @@ class OrderWizardFlux extends React.Component {
       </div>
     )
   }
-
 }
 
 export default OrderWizardFlux;
