@@ -16,8 +16,8 @@ class OrderWizardResult extends WizardResult {
 
   getFailureButtons() {
     return [
-        {callback: this.props.callbacks.cancelChanges, text: CANCEL},
-        {callback: this.props.callbacks.submitOrderStatus, text: TRY_AGAIN}
+        {callback: this.props.callbacks.submitOrderStatus, text: TRY_AGAIN},
+        {callback: this.props.callbacks.cancelChanges, text: CANCEL}
       ];
   }
 

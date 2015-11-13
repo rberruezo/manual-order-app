@@ -14,7 +14,6 @@ class PartnerWizardStep extends React.Component {
     switch(this.props.step) {
       case 1:
         buttons = [
-                    {callback: callbacks.cancelChanges, text: CANCEL},
                     {callback: callbacks.nextStep, text: CONTINUE}
                   ];
         break;

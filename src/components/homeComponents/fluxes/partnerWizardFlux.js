@@ -4,9 +4,17 @@ import PartnerWizardActions from 'actions/partnerWizardActions';
 import PartnerWizardStep from 'components/homeComponents/steps/general/partnerWizardStep';
 import connectToStores from 'alt/utils/connectToStores';
 import PartnerWizardStore from 'stores/partnerWizardStore';
+import Utilities from 'utilities/utilities';
+
+var originalItems = {};
 
 @connectToStores
 class PartnerWizardFlux extends WizardFlux {
+  constructor(props) {
+    super(props);
+    Utilities.copyObjectAttributes(originalItems, props.items);
+  }
+
   static getStores(props) {
     return [PartnerWizardStore];
   }
@@ -17,7 +25,7 @@ class PartnerWizardFlux extends WizardFlux {
 
   getButtonpadCallbacks() {
     var buttonpadCallbacks = this.getBasicButtonpadCallbacks();
-    buttonpadCallbacks.cancelChanges = this.props.callbacks.cancelChanges;
+    buttonpadCallbacks.cancelChanges = this.cancelChanges;
     buttonpadCallbacks.submitItemsStatus = this.submitItemsStatus;
     return buttonpadCallbacks;
   }
@@ -28,6 +36,12 @@ class PartnerWizardFlux extends WizardFlux {
     PartnerWizardActions.submitItemsStatus(this.props.items);
   }
 
+  cancelChanges = evt => {
+    Utilities.copyObjectAttributes(this.props.items, originalItems);
+    originalItems = {};
+    this.closeWizard();
+  }
+
   closeWizard = evt => {
     this.handleStepChange(1);
     this.props.callbacks.nextStep();
@@ -36,6 +50,12 @@ class PartnerWizardFlux extends WizardFlux {
   handleStepChange(newStep) {
     this.setStepChange(newStep);
     PartnerWizardActions.updateStep(this.props.step);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (Object.keys(originalItems).length === 0) { //if originalItems is empty
+      Utilities.copyObjectAttributes(originalItems, nextProps.items);
+    }
   }
 
 	render() {
