@@ -3,11 +3,15 @@ import WizardResult from 'components/homeComponents/steps/general/wizardResult';
 import {CANCEL, CLOSE, CONTINUE_ANYWAY, OK, TRY_AGAIN} from 'constants/stepButtonLabels';
 import {ITEM_STATUS_SUBMISSION_SUCCESS, ITEM_STATUS_SUBMISSION_FAILURE} from 'constants/messages';
 
-class PartnerWizardResult extends React.Component {
+class PartnerWizardResult extends WizardResult {
   getSuccessButtons() {
     return [
         {callback: this.props.callbacks.closeWizard, text: OK}
       ];
+  }
+
+  getSuccessMessage() {
+    return ITEM_STATUS_SUBMISSION_SUCCESS;
   }
 
   getFailureButtons() {
@@ -18,18 +22,9 @@ class PartnerWizardResult extends React.Component {
       ];
   }
 
-  render() {
-    return <WizardResult result={this.props.result}
-                         success={{
-                           message: ITEM_STATUS_SUBMISSION_SUCCESS,
-                           buttons: this.getSuccessButtons()
-                         }}
-                         failure={{
-                           message: ITEM_STATUS_SUBMISSION_FAILURE,
-                           buttons: this.getFailureButtons()
-                         }} />
+  getFailureMessage() {
+    return ITEM_STATUS_SUBMISSION_FAILURE;
   }
-
 }
 
 export default PartnerWizardResult;

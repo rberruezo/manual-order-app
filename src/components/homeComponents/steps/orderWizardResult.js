@@ -3,11 +3,15 @@ import WizardResult from 'components/homeComponents/steps/general/wizardResult';
 import {CLOSE, TRY_AGAIN} from 'constants/stepButtonLabels';
 import {ORDER_STATUS_SUBMISSION_SUCCESS, ORDER_STATUS_SUBMISSION_FAILURE, SUBMITING} from 'constants/messages';
 
-class OrderWizardResult extends React.Component {
+class OrderWizardResult extends WizardResult {
   getSuccessButtons() {
     return [
         {callback: this.props.callbacks.closeWizard, text: CLOSE}
       ];
+  }
+
+  getSuccessMessage() {
+    return ORDER_STATUS_SUBMISSION_SUCCESS;
   }
 
   getFailureButtons() {
@@ -17,16 +21,8 @@ class OrderWizardResult extends React.Component {
       ];
   }
 
-  render() {
-    return <WizardResult result={this.props.result}
-                         success={{
-                           message: ORDER_STATUS_SUBMISSION_SUCCESS,
-                           buttons: this.getSuccessButtons()
-                         }}
-                         failure={{
-                           message: ORDER_STATUS_SUBMISSION_FAILURE,
-                           buttons: this.getFailureButtons()
-                         }} />
+  getFailureMessage() {
+    return ORDER_STATUS_SUBMISSION_FAILURE;
   }
 }
 
