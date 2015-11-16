@@ -12,37 +12,37 @@ class Item extends React.Component {
         <table className='wizard-table'>
           <tbody className='wizard-tbody'>      
             <tr className='wizard-tr'>
-              <td> <strong className='book-title'>Color</strong> </td>
+              <td> <strong className='label-title'>Color</strong> </td>
               <td>
                 {item.color}
               </td>
             </tr>
             <tr className='wizard-tr'>
-              <td> <strong className='book-title'>Size</strong> </td>
+              <td> <strong className='label-title'>Size</strong> </td>
               <td>
                 {item.size}
               </td>
             </tr>
             <tr className='wizard-tr'>
-              <td> <strong className='book-title'>Quantity</strong> </td>
+              <td> <strong className='label-title'>Quantity</strong> </td>
               <td>
                 {item.quantity}
               </td>
             </tr>
             <tr className='wizard-tr'>
-              <td> <strong className='book-title'>List Price Cents</strong> </td>
+              <td> <strong className='label-title'>List Price Cents</strong> </td>
               <td>
                 {Numeral(item.listPriceCents/100).format('$0,0.00')}
               </td>
             </tr>
             <tr className='wizard-tr'>
-              <td> <strong className='book-title'>Sale Price Cents</strong> </td>
+              <td> <strong className='label-title'>Sale Price Cents</strong> </td>
               <td>
                 {Numeral(item.salePriceCents/100).format('$0,0.00')}
               </td>
             </tr>
             <tr className='wizard-tr'>
-              <td> <strong className='book-title'>Source Url</strong> </td>
+              <td> <strong className='label-title'>Source Url</strong> </td>
               <td>
                 <a target="_blank" href={item.sourceUrl} name="sourceUrl">{item.sourceUrl}</a>
               </td>
