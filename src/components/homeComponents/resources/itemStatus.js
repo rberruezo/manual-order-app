@@ -31,9 +31,8 @@ class ItemStatus extends React.Component {
 		return (
 			<RadioGroup name="selectedValue" selectedValue={this.state.selectedValue} onChange={this.handleChange}>
 			{Radio => (
-
 				<div>
-	        <h4>Status</h4>
+	        <h5>Status</h5>
 	        <table className='wizard-table'>
 	          <tbody className='wizard-tbody'>      
 							<tr className='wizard-tr success'>

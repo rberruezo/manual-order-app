@@ -3,7 +3,7 @@ import connectToStores from 'alt/utils/connectToStores';
 import OrdersStore from 'stores/ordersStore';
 import OrdersActions from 'actions/ordersActions';
 import OrderWizardFlux from 'components/homeComponents/fluxes/orderWizardFlux';
-import 'styles/simpleForm.styl';
+import 'styles/wizard.styl';
 
 @connectToStores
 class OrderWizard extends React.Component {

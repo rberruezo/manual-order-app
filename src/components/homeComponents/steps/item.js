@@ -1,7 +1,6 @@
 import React from 'react';
 import ItemStatus from 'components/homeComponents/resources/itemStatus';
 import Numeral from 'numeral';
-import 'styles/wizard.styl';
 
 class Item extends React.Component {
   render() {
