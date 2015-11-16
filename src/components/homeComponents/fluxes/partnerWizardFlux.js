@@ -61,8 +61,7 @@ class PartnerWizardFlux extends WizardFlux {
 	render() {
     return (
       <div>
-        <h2>Partner Wizard</h2>
-        {this.props.name}
+        <h2>Partner: {this.props.name}</h2>
         <PartnerWizardStep step={PartnerWizardStore.getState().step}
                            result={PartnerWizardStore.getState().result}
         									 items={this.props.items}

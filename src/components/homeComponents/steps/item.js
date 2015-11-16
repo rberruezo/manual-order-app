@@ -8,15 +8,9 @@ class Item extends React.Component {
     var item = this.props.item;
     return (
       <div>
-        <h3>Item</h3>
+        <h3>Product: {item.name}</h3>
         <table className='wizard-table'>
           <tbody className='wizard-tbody'>      
-            <tr className='wizard-tr'>
-              <td> <strong className='book-title'>Name</strong> </td>
-              <td>
-                {item.name}
-              </td>
-            </tr>
             <tr className='wizard-tr'>
               <td> <strong className='book-title'>Color</strong> </td>
               <td>
