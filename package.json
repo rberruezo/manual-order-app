@@ -36,6 +36,7 @@
     "griddle-react": "^0.2.14",
     "html-webpack-plugin": "1.6.0",
     "mathjs": "^2.4.0",
+    "numeral": "^1.5.3",
     "react-radio-group": "^2.1.1",
     "style-loader": "^0.8.2",
     "stylus-loader": "^0.4.0",

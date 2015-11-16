@@ -27,3 +27,6 @@ Source: http://css-plus.com/2010/03/how-to-create-a-simple-horizontal-navigation
 
 ### React-radio-group
 Source: https://github.com/chenglou/react-radio-group
+
+### javascript library for formatting and manipulating numbers
+Source: http://numeraljs.com/

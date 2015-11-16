@@ -1,5 +1,6 @@
 import React from 'react';
 import ItemStatus from 'components/homeComponents/resources/itemStatus';
+import Numeral from 'numeral';
 import 'styles/wizard.styl';
 
 class Item extends React.Component {
@@ -37,13 +38,13 @@ class Item extends React.Component {
             <tr className='wizard-tr'>
               <td> <strong className='book-title'>List Price Cents</strong> </td>
               <td>
-                {item.listPriceCents}
+                {Numeral(item.listPriceCents/100).format('$0,0.00')}
               </td>
             </tr>
             <tr className='wizard-tr'>
               <td> <strong className='book-title'>Sale Price Cents</strong> </td>
               <td>
-                {item.salePriceCents}
+                {Numeral(item.salePriceCents/100).format('$0,0.00')}
               </td>
             </tr>
             <tr className='wizard-tr'>
