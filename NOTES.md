@@ -30,3 +30,6 @@ Source: https://github.com/chenglou/react-radio-group
 
 ### javascript library for formatting and manipulating numbers
 Source: http://numeraljs.com/
+
+### organizing data with tables
+Source: http://learn.shayhowe.com/html-css/organizing-data-with-tables/
