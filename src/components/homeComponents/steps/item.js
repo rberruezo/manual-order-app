@@ -1,54 +1,59 @@
 import React from 'react';
 import ItemStatus from 'components/homeComponents/resources/itemStatus';
+import 'styles/wizard.styl';
 
 class Item extends React.Component {
   render() {
     var item = this.props.item;
     return (
-      <div className="simple-form">
+      <div>
         <h3>Item</h3>
-        <div>
-          <label>Quantity</label>
-          <div id="quantity" name="quantity" type="number" readOnly>
-            {item.quantity}
-          </div>
-        </div>
-        <div>
-          <label>List Price Cents</label>
-          <div id="listPriceCents" name="listPriceCents" type="number" readOnly>
-            {item.listPriceCents}
-          </div>
-        </div>
-        <div>
-          <label>Sale Price Cents</label>
-          <div id="salePriceCents" name="salePriceCents" type="number" readOnly>
-            {item.salePriceCents}
-          </div>
-        </div>
-        <div>
-          <label>Source Url</label>
-          <div id="sourceUrl" name="sourceUrl" type="text" readOnly>
-            <a target="_blank" href={item.sourceUrl} name="sourceUrl">{item.sourceUrl}</a>
-          </div>
-        </div>
-        <div>
-          <label>Name</label>
-          <div id="name" name="name" type="text" readOnly>
-            {item.name}
-          </div>
-        </div>
-        <div>
-          <label>Color</label>
-          <div id="color" name="color" type="text" readOnly>
-            {item.color}
-          </div>
-        </div>
-        <div>
-          <label>Size</label>
-          <div id="size" name="size" type="text" readOnly>
-            {item.size}
-          </div>
-        </div>
+        <table className='wizard-table'>
+          <tbody className='wizard-tbody'>      
+            <tr className='wizard-tr'>
+              <td> <strong className='book-title'>Name</strong> </td>
+              <td>
+                {item.name}
+              </td>
+            </tr>
+            <tr className='wizard-tr'>
+              <td> <strong className='book-title'>Color</strong> </td>
+              <td>
+                {item.color}
+              </td>
+            </tr>
+            <tr className='wizard-tr'>
+              <td> <strong className='book-title'>Size</strong> </td>
+              <td>
+                {item.size}
+              </td>
+            </tr>
+            <tr className='wizard-tr'>
+              <td> <strong className='book-title'>Quantity</strong> </td>
+              <td>
+                {item.quantity}
+              </td>
+            </tr>
+            <tr className='wizard-tr'>
+              <td> <strong className='book-title'>List Price Cents</strong> </td>
+              <td>
+                {item.listPriceCents}
+              </td>
+            </tr>
+            <tr className='wizard-tr'>
+              <td> <strong className='book-title'>Sale Price Cents</strong> </td>
+              <td>
+                {item.salePriceCents}
+              </td>
+            </tr>
+            <tr className='wizard-tr'>
+              <td> <strong className='book-title'>Source Url</strong> </td>
+              <td>
+                <a target="_blank" href={item.sourceUrl} name="sourceUrl">{item.sourceUrl}</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
         <ItemStatus selectedValue={item.status} onChange={this.handleStatusChange} />
       </div>
     )
