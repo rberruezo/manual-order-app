@@ -6,7 +6,7 @@ import {ORDER_STATUS_SUBMISSION_SUCCESS, ORDER_STATUS_SUBMISSION_FAILURE, SUBMIT
 class OrderWizardResult extends WizardResult {
   getSuccessButtons() {
     return [
-        {callback: this.props.callbacks.closeWizard, text: CLOSE}
+        {callback: this.props.callbacks.closeWizard, text: CLOSE, type: 'success'}
       ];
   }
 
@@ -17,7 +17,7 @@ class OrderWizardResult extends WizardResult {
   getFailureButtons() {
     return [
         {callback: this.props.callbacks.submitOrderStatus, text: TRY_AGAIN},
-        {callback: this.props.callbacks.cancelChanges, text: CANCEL}
+        {callback: this.props.callbacks.cancelChanges, text: CANCEL, type: 'error'}
       ];
   }
 

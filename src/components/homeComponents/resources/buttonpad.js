@@ -6,14 +6,18 @@ the onClick event
 ******************************************************************************/
 
 import React from 'react';
+import 'styles/buttons.styl';
 
 class Buttonpad extends React.Component {
   render() {
   	var key = 1;
     return (
-      <div className="button">
+      <div className='buttonpad'>
 				{this.props.buttons.map(function(button){
-		   		return <button key={key++} onClick={button.callback}>{button.text}</button>;
+          if (button.type === undefined) {
+            button.type = 'secondary';
+          }
+		   		return <button className={'button-'+button.type} key={key++} onClick={button.callback}>{button.text}</button>;
 				})}
 			</div>
     )

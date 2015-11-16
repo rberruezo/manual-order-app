@@ -6,7 +6,7 @@ import {ITEM_STATUS_SUBMISSION_SUCCESS, ITEM_STATUS_SUBMISSION_FAILURE} from 'co
 class PartnerWizardResult extends WizardResult {
   getSuccessButtons() {
     return [
-        {callback: this.props.callbacks.closeWizard, text: OK}
+        {callback: this.props.callbacks.closeWizard, text: OK, type: 'success'}
       ];
   }
 
@@ -17,7 +17,7 @@ class PartnerWizardResult extends WizardResult {
   getFailureButtons() {
     return [
         {callback: this.props.callbacks.submitItemsStatus, text: TRY_AGAIN},
-        {callback: this.props.callbacks.cancelChanges, text: CONTINUE_ANYWAY}
+        {callback: this.props.callbacks.cancelChanges, text: CONTINUE_ANYWAY, type: 'error'}
       ];
   }
 
