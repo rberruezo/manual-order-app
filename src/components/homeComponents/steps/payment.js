@@ -6,7 +6,7 @@ class Payment extends React.Component {
     var payment = this.props.payment;
     return (
       <div>
-        <h2>{PAYMENT}</h2>
+        <h3>{PAYMENT}</h3>
         <table className='wizard-table'>
           <tbody className='wizard-tbody'>      
             <tr className='wizard-tr'>

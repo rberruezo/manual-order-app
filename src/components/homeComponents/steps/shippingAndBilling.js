@@ -6,9 +6,9 @@ class ShippingAndBilling extends React.Component {
   render() {
     return (
       <div>
-        <h2>Shipping address</h2>
+        <h3>Shipping address</h3>
         <Address address={this.props.shippingAddress} />
-        <h2>Billing address</h2>
+        <h3>Billing address</h3>
         <Address address={this.props.billingAddress} />
       </div>
     )
