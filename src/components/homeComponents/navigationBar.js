@@ -2,7 +2,8 @@ import React from 'react';
 import connectToStores from 'alt/utils/connectToStores';
 import LoginStore from 'stores/loginStore';
 import LoginActions from 'actions/loginActions';
-import 'styles/navbar.styl';
+import {Grid, Row, Col} from 'react-flexbox-grid';
+import 'styles/navigationBar.styl';
 
 @connectToStores
 class NavigationBar extends React.Component {
@@ -24,16 +25,14 @@ class NavigationBar extends React.Component {
 
   render() {
     return (
-			<nav>
-        <ul>
-	        <li>
-						Hello, {this.state.user.email}
-	        </li>
-	        <div className="logout-button">
-	        	<button className="login-enter" onClick={this.handleLogout}>Log out</button>
-	        </div>
-	      </ul>
-      </nav>
+      <Row className='middle-md navigationBar'>
+        <Col md={6}>
+					<strong> {this.state.user.email} </strong> 
+        </Col>
+        <Col md={1} className='col-md-offset-5'>
+	        <button className="logout-button" onClick={this.handleLogout}>Log out</button>
+        </Col>
+      </Row>
     );
   }
 
