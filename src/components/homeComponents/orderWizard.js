@@ -28,14 +28,10 @@ class OrderWizard extends React.Component {
   render() {
   	var order = this.state.dequeuedOrder;
     return (
-      <Grid>
-        <Row>
-          <Col md-offset={1} md={10} className='wizard'>
-            <OrderWizardFlux order={order}
-                             closeWizard={this.closeWizard} />
-          </Col>
-        </Row>
-      </Grid>
+      <div className='wizard'>
+        <OrderWizardFlux order={order}
+                         closeWizard={this.closeWizard} />
+      </div>
     );
   }
 

@@ -66,15 +66,15 @@ class PartnerWizardFlux extends WizardFlux {
           <Col>
             <h2>Partner: {this.props.name}</h2>
           </Col>
-        </Row>
-        <Row>
-          <PartnerWizardStep step={PartnerWizardStore.getState().step}
-                             result={PartnerWizardStore.getState().result}
-          									 items={this.props.items}
-                          	 shippingAddress={this.props.shippingAddress}
-                          	 billingAddress={this.props.billingAddress}
-                          	 payment={this.props.payment} 
-                             callbacks={this.getButtonpadCallbacks()} />
+          <Col md-offset={1} md={10}>
+            <PartnerWizardStep step={PartnerWizardStore.getState().step}
+                               result={PartnerWizardStore.getState().result}
+            									 items={this.props.items}
+                            	 shippingAddress={this.props.shippingAddress}
+                            	 billingAddress={this.props.billingAddress}
+                            	 payment={this.props.payment} 
+                               callbacks={this.getButtonpadCallbacks()} />
+          </Col>
         </Row>
       </Grid>
     )

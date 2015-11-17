@@ -58,7 +58,7 @@ class OrderWizardFlux extends WizardFlux {
         <Row className='center-sm center-md'>
           <h1>Order Wizard</h1>
         </Row>
-        <Row className='boxed'>
+        <Row>
           <OrderWizardStep step={OrderWizardStore.getState().step}
                            result={OrderWizardStore.getState().result}
                            order={this.props.order}
