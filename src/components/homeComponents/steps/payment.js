@@ -10,7 +10,7 @@ class Payment extends React.Component {
         <h3>{PAYMENT}</h3>
         <Grid className='wizard-tbody'>
           <Row>
-            <Col md={7} className='col-md-offset-1'>
+            <Col md={8} className='col-md-offset-1'>
               <Row className='wizard-tr'>
                 <Col md={2} className='col-md-offset-1'>
                   <strong className='label-title'>Type</strong>
