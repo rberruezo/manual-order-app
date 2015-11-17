@@ -1,54 +1,71 @@
 import React from 'react';
 import ItemStatus from 'components/homeComponents/resources/itemStatus';
 import Numeral from 'numeral';
+import {Grid, Row, Col} from 'react-flexbox-grid';
 
 class Item extends React.Component {
   render() {
     var item = this.props.item;
     return (
-      <div>
-        <h3>Product: {item.name}</h3>
-        <table className='wizard-table'>
-          <tbody className='wizard-tbody'>      
-            <tr className='wizard-tr'>
-              <td> <strong className='label-title'>Color</strong> </td>
-              <td>
-                {item.color}
-              </td>
-            </tr>
-            <tr className='wizard-tr'>
-              <td> <strong className='label-title'>Size</strong> </td>
-              <td>
-                {item.size}
-              </td>
-            </tr>
-            <tr className='wizard-tr'>
-              <td> <strong className='label-title'>Quantity</strong> </td>
-              <td>
-                {item.quantity}
-              </td>
-            </tr>
-            <tr className='wizard-tr'>
-              <td> <strong className='label-title'>List Price Cents</strong> </td>
-              <td>
-                {Numeral(item.listPriceCents/100).format('$0,0.00')}
-              </td>
-            </tr>
-            <tr className='wizard-tr'>
-              <td> <strong className='label-title'>Sale Price Cents</strong> </td>
-              <td>
-                {Numeral(item.salePriceCents/100).format('$0,0.00')}
-              </td>
-            </tr>
-            <tr className='wizard-tr'>
-              <td> <strong className='label-title'>Source Url</strong> </td>
-              <td>
-                <a target="_blank" href={item.sourceUrl} name="sourceUrl">{item.sourceUrl}</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <ItemStatus selectedValue={item.status} onChange={this.handleStatusChange} />
+      <div className='wizard-table'>
+        <Grid className='wizard-tbody'>
+          <Row>
+            <h3>Product: {item.name}</h3>
+          </Row>
+          <Row>
+            <Col md={7} className='col-md-offset-1'>
+              <Row className='wizard-tr'>
+                <Col md={2} className='col-md-offset-1'>
+                   <strong className='label-title'>Color</strong> 
+                </Col>
+                <Col md={8}>
+                   {item.color}
+                </Col>
+              </Row>
+              <Row className='wizard-tr'>
+                <Col md={2} className='col-md-offset-1'>
+                  <strong className='label-title'>Size</strong>
+                </Col>
+                <Col md={8}>
+                  {item.size}
+                </Col>
+              </Row>
+              <Row className='wizard-tr'>
+                <Col md={2} className='col-md-offset-1'>
+                  <strong className='label-title'>Quantity</strong>
+                </Col>
+                <Col md={8}>
+                  {item.quantity}
+                </Col>
+              </Row>
+              <Row className='wizard-tr'>
+                <Col md={2} className='col-md-offset-1'>
+                  <strong className='label-title'>List Price</strong>
+                </Col>
+                <Col md={8}>
+                  {Numeral(item.listPriceCents/100).format('$0,0.00')}
+                </Col>
+              </Row>
+              <Row className='wizard-tr'>
+                <Col md={2} className='col-md-offset-1'>
+                  <strong className='label-title'>Sale Price</strong>
+                </Col>
+                <Col md={8}>
+                  {Numeral(item.salePriceCents/100).format('$0,0.00')}
+                </Col>
+              </Row>
+              <Row className='wizard-tr'>
+                <Col md={2} className='col-md-offset-1'>
+                  <strong className='label-title'>Source Url</strong>
+                </Col>
+                <Col md={8}>
+                  <a target="_blank" href={item.sourceUrl} name="sourceUrl">{item.sourceUrl}</a>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+          <ItemStatus selectedValue={item.status} onChange={this.handleStatusChange} />
+        </Grid>
       </div>
     )
   }

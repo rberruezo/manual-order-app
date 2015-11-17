@@ -5,6 +5,7 @@ import OrderWizardStep from 'components/homeComponents/steps/general/orderWizard
 import connectToStores from 'alt/utils/connectToStores';
 import OrderWizardStore from 'stores/orderWizardStore';
 import Utilities from 'utilities/utilities';
+import {Grid, Row, Col} from 'react-flexbox-grid';
 
 var originalOrder = {};
 
@@ -53,13 +54,17 @@ class OrderWizardFlux extends WizardFlux {
 
   render() {
     return (
-      <div>
-        <h1>Order Wizard</h1>
-        <OrderWizardStep step={OrderWizardStore.getState().step}
-                         result={OrderWizardStore.getState().result}
-                         order={this.props.order}
-                         callbacks={this.getButtonpadCallbacks()} />
-      </div>
+      <Grid>
+        <Row className='center-sm center-md'>
+          <h1>Order Wizard</h1>
+        </Row>
+        <Row className='boxed'>
+          <OrderWizardStep step={OrderWizardStore.getState().step}
+                           result={OrderWizardStore.getState().result}
+                           order={this.props.order}
+                           callbacks={this.getButtonpadCallbacks()} />
+        </Row>
+      </Grid>
     )
   }
 }

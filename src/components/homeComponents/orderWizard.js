@@ -3,6 +3,8 @@ import connectToStores from 'alt/utils/connectToStores';
 import OrdersStore from 'stores/ordersStore';
 import OrdersActions from 'actions/ordersActions';
 import OrderWizardFlux from 'components/homeComponents/fluxes/orderWizardFlux';
+import 'flexboxgrid'
+import {Grid, Row, Col} from 'react-flexbox-grid';
 import 'styles/wizard.styl';
 
 @connectToStores
@@ -26,10 +28,14 @@ class OrderWizard extends React.Component {
   render() {
   	var order = this.state.dequeuedOrder;
     return (
-      <div className='wizard'>
-        <OrderWizardFlux order={order}
-                         closeWizard={this.closeWizard} />
-      </div>
+      <Grid>
+        <Row>
+          <Col md-offset={1} md={10} className='wizard'>
+            <OrderWizardFlux order={order}
+                             closeWizard={this.closeWizard} />
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 

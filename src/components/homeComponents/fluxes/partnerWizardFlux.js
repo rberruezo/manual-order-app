@@ -5,6 +5,7 @@ import PartnerWizardStep from 'components/homeComponents/steps/general/partnerWi
 import connectToStores from 'alt/utils/connectToStores';
 import PartnerWizardStore from 'stores/partnerWizardStore';
 import Utilities from 'utilities/utilities';
+import {Grid, Row, Col} from 'react-flexbox-grid';
 
 var originalItems = {};
 
@@ -60,16 +61,20 @@ class PartnerWizardFlux extends WizardFlux {
 
 	render() {
     return (
-      <div>
-        <h2>Partner: {this.props.name}</h2>
-        <PartnerWizardStep step={PartnerWizardStore.getState().step}
-                           result={PartnerWizardStore.getState().result}
-        									 items={this.props.items}
-                        	 shippingAddress={this.props.shippingAddress}
-                        	 billingAddress={this.props.billingAddress}
-                        	 payment={this.props.payment} 
-                           callbacks={this.getButtonpadCallbacks()} />
-      </div>
+      <Grid>
+        <Row>
+          <h2>Partner: {this.props.name}</h2>
+        </Row>
+        <Row>
+          <PartnerWizardStep step={PartnerWizardStore.getState().step}
+                             result={PartnerWizardStore.getState().result}
+          									 items={this.props.items}
+                          	 shippingAddress={this.props.shippingAddress}
+                          	 billingAddress={this.props.billingAddress}
+                          	 payment={this.props.payment} 
+                             callbacks={this.getButtonpadCallbacks()} />
+        </Row>
+      </Grid>
     )
   }
 }
