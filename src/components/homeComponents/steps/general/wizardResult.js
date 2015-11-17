@@ -21,21 +21,21 @@ class WizardResult extends React.Component {
       case SUCCESS:
         return (
           <div>
-            <Message text={this.getSuccessMessage()} />
+            <Message type='success' text={this.getSuccessMessage()} />
             <Buttonpad buttons={this.getSuccessButtons()} />
           </div>
           )
       case FAIL:
         return (
           <div>
-            <Message text={this.getFailureMessage()} />
+            <Message type='error' text={this.getFailureMessage()} />
             <Buttonpad buttons={this.getFailureButtons()} />
           </div>
           )
       default:
         return (
           <div>
-            <Message text={SUBMITING} />
+            <Message type='notice' text={SUBMITING} />
           </div>
           )
     }
