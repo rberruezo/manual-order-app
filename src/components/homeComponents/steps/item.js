@@ -8,10 +8,8 @@ class Item extends React.Component {
     var item = this.props.item;
     return (
       <div className='wizard-table'>
+        <h3>Product: {item.name}</h3>
         <Grid className='wizard-tbody'>
-          <Row>
-            <h3>Product: {item.name}</h3>
-          </Row>
           <Row>
             <Col md={7} className='col-md-offset-1'>
               <Row className='wizard-tr'>

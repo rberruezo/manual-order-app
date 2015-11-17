@@ -63,7 +63,9 @@ class PartnerWizardFlux extends WizardFlux {
     return (
       <Grid>
         <Row>
-          <h2>Partner: {this.props.name}</h2>
+          <Col>
+            <h2>Partner: {this.props.name}</h2>
+          </Col>
         </Row>
         <Row>
           <PartnerWizardStep step={PartnerWizardStore.getState().step}
