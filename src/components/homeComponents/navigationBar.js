@@ -3,7 +3,6 @@ import connectToStores from 'alt/utils/connectToStores';
 import LoginStore from 'stores/loginStore';
 import LoginActions from 'actions/loginActions';
 import {Grid, Row, Col} from 'react-flexbox-grid';
-import 'styles/navigationBar.styl';
 
 @connectToStores
 class NavigationBar extends React.Component {

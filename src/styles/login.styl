@@ -111,6 +111,7 @@ body
 .in-app-button
   @extends .login-enter
   padding 10px
+  margin-left 5px
 .accept-button
   @extends .in-app-button
   background cl-blue + 30
@@ -138,3 +139,43 @@ body
   &:active    
     background cl-red
     background-image linear-gradient(to top, rgba(#fff,0), cl-red - 20)
+.button-success
+  @extends .in-app-button
+  background rgb(28, 184, 65) + 30
+  &:hover
+    background rgb(28, 184, 65) + 60
+    background-image linear-gradient(to bottom, rgba(#fff,0), rgb(28, 184, 65) + 30)
+  &:active    
+    background cl-blue
+    background-image linear-gradient(to top, rgba(#fff,0), rgb(28, 184, 65) - 20)
+.button-error
+  @extends .in-app-button
+  background rgb(202, 60, 60) + 30
+  &:hover
+    background rgb(202, 60, 60) + 60
+    background-image linear-gradient(to bottom, rgba(#fff,0), rgb(202, 60, 60) + 30)
+  &:active    
+    background cl-blue
+    background-image linear-gradient(to top, rgba(#fff,0), rgb(202, 60, 60) - 20)
+.button-warning
+  @extends .in-app-button
+  background rgb(223, 117, 20) + 30
+  &:hover
+    background rgb(223, 117, 20) + 60
+    background-image linear-gradient(to bottom, rgba(#fff,0), rgb(223, 117, 20) + 30)
+  &:active    
+    background cl-blue
+    background-image linear-gradient(to top, rgba(#fff,0), rgb(223, 117, 20) - 20)
+.button-secondary
+  @extends .in-app-button
+  background rgb(66, 184, 221) + 30
+  &:hover
+    background rgb(66, 184, 221) + 60
+    background-image linear-gradient(to bottom, rgba(#fff,0), rgb(66, 184, 221) + 30)
+  &:active    
+    background cl-blue
+    background-image linear-gradient(to top, rgba(#fff,0), rgb(66, 184, 221) - 20)
+.navigationBar
+  border-radius 10px
+  background-color #dde
+  padding 10px

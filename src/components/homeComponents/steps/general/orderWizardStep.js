@@ -5,6 +5,7 @@ import OrderWizardResult from 'components/homeComponents/steps/orderWizardResult
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
 import {SUBMIT_ORDER_STATUS} from 'constants/stepButtonLabels';
 import {NONE, SUCCESS, FAIL} from 'constants/apiCallStatus';
+import {Grid, Row, Col} from 'react-flexbox-grid';
 
 class OrderWizardStep extends React.Component {
 
@@ -20,8 +21,14 @@ class OrderWizardStep extends React.Component {
           </div>
           )
       case 2:
-        return <OrderWizardResult result={this.props.result}
-                                  callbacks={this.props.callbacks} />
+        return (
+          <Row className='center-md'>
+            <Col>
+              <OrderWizardResult result={this.props.result}
+                                 callbacks={this.props.callbacks} />
+            </Col>
+          </Row>
+          )
       default:
         return <PartnerWizardFlux items={this.props.order.partners[this.props.step-1].items}
                                   name={this.props.order.partners[this.props.step-1].name}

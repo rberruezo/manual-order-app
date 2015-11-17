@@ -5,6 +5,7 @@ import Payment from 'components/homeComponents/steps/payment';
 import PartnerWizardResult from 'components/homeComponents/steps/partnerWizardResult';
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
 import {CANCEL, BACK, CONTINUE, SUBMIT_ITEM_STATUS, OK} from 'constants/stepButtonLabels';
+import {Grid, Row, Col} from 'react-flexbox-grid';
 
 class PartnerWizardStep extends React.Component {
   
@@ -50,8 +51,14 @@ class PartnerWizardStep extends React.Component {
           </div>
         )
       case 3:
-        return <PartnerWizardResult result={this.props.result}
-                                    callbacks={this.props.callbacks} />
+        return (
+          <Row className='center-md'>
+            <Col>
+              <PartnerWizardResult result={this.props.result}
+                                   callbacks={this.props.callbacks} />
+            </Col>
+          </Row>
+        )
       default:
         return (
           <div>

@@ -6,20 +6,26 @@ the onClick event
 ******************************************************************************/
 
 import React from 'react';
-import 'styles/buttons.styl';
+import {Grid, Row, Col} from 'react-flexbox-grid';
 
 class Buttonpad extends React.Component {
   render() {
   	var key = 1;
     return (
-      <div className='buttonpad'>
+      <Row className='end-md'>
 				{this.props.buttons.map(function(button){
           if (button.type === undefined) {
             button.type = 'secondary';
           }
-		   		return <button className={'button-'+button.type} key={key++} onClick={button.callback}>{button.text}</button>;
+		   		return (
+            <Col>
+              <button className={'button-'+button.type} key={key++} onClick={button.callback}>
+                {button.text}
+              </button>
+            </Col>
+          )
 				})}
-			</div>
+			</Row>
     )
   }
 }
