@@ -1,4 +1,4 @@
-import {API_SIGN_IN_URL} from 'constants/constants';
+import {API_SIGN_IN_URL} from 'constants/apiUrls';
 import Mocks from 'mocks/mocks';
 
 var request = require('superagent');

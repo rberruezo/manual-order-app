@@ -1,4 +1,4 @@
-import {API_GET_ORDERS_URL, API_REMOVE_ORDER_URL, API_GET_ORDER_URL} from 'constants/constants';
+import {API_GET_ORDERS_URL, API_REMOVE_ORDER_URL, API_GET_ORDER_URL} from 'constants/apiUrls';
 import LoginStore from 'stores/loginStore';
 import Mocks from 'mocks/mocks';
 
