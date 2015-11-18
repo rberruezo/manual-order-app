@@ -10,16 +10,17 @@ var authService = {
 				.post(API_SIGN_IN_URL)
   			.send(requestData)
 				.end(function (err, res) {
-					if (res.status === 404) {
-						reject('Service not found');
-					} else {
+					var response = JSON.parse(res.text);
+					if (err === null) {
 						delete requestData.app_token;
-						var response = Mocks.login(requestData);
-						if (response.status == 200) {
-	            resolve(response);
-	          } else {
-	          	reject('Error: Invalid user or password');
-	          }
+						/* MOCKED */
+						var mockRes = Mocks.login(requestData);
+						response.user_token = mockRes.user_token;
+						response.status = mockRes.status;
+						/**********/
+	          resolve(response);
+					} else {
+						reject(response.error);
 					}
 			});
     });

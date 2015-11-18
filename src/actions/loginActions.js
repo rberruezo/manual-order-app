@@ -6,7 +6,7 @@ import {APP_TOKEN} from 'constants/constants';
 @createActions(flux)
 class LoginActions {
   constructor() {
-    this.generateActions('updateEmail', 'updatePass', 'loginFailed', 'logoutUser');
+    this.generateActions('updateEmail', 'updatePassword', 'loginFailed', 'logoutUser');
   }
 
   loginUser(user) {

@@ -3,9 +3,10 @@ import {PENDING_ORDER_IS_BEING_PLACED} from 'constants/orderStatus';
 var math = require('mathjs');
 
 var mockedUsers = [
-  { email: 'ramiro.berruezo@graion.com', pass: 'password' },
-  { email: 'un.email@gmail.com', pass: '1235' },
-  { email: 'a@a.com', pass: '1234' }
+  { email: 'ramiro.berruezo@graion.com', password: 'password' },
+  { email: 'un.email@gmail.com', password: '1235' },
+  { email: 'a@a.com', password: '1234' },
+  { email: 'foo@bar.com', password: '12345678' }
 ];
 
 var mockedOrders = {
@@ -155,7 +156,7 @@ var mocks = {
 
 	login: function(user) {
   	for (var i = 0; i < mockedUsers.length; i++) {
-		  if (user.email == mockedUsers[i].email && user.pass == mockedUsers[i].pass) {
+		  if (user.email == mockedUsers[i].email && user.password == mockedUsers[i].password) {
 		    return {
 		      user_token: 'UT-' + math.randomInt(10000, 99999),
 		      status: 200

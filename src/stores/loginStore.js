@@ -15,9 +15,9 @@ class LoginStore {
     this.user.email = email;
   }
 
-  @bind(LoginActions.updatePass)
-  updatePass(pass) {
-    this.user.pass = pass;
+  @bind(LoginActions.updatePassword)
+  updatePassword(password) {
+    this.user.password = password;
   }
 
   @bind(LoginActions.loginUser)

@@ -29,7 +29,7 @@ class Login extends React.Component {
         </header>
         <form className="login-content" onSubmit={this.handleLogin}>
           <input type="mail" value={this.props.user.email} onChange={this.handleEmailChange} placeholder="E-mail Address" className="login-mail"/>
-          <input type="password" value={this.props.user.pass} onChange={this.handlePasswordChange} placeholder="Password" className="login-pass"/>
+          <input type="password" value={this.props.user.password} onChange={this.handlePasswordChange} placeholder="Password" className="login-pass"/>
           <button className="login-enter" type="submit">Log in    </button>
         </form>
       </section>
@@ -43,9 +43,9 @@ class Login extends React.Component {
   }
 
   handlePasswordChange = evt => {
-    this.props.user.pass = evt.target.value;
+    this.props.user.password = evt.target.value;
     this.setState(this.props.user);
-    LoginActions.updatePass(evt.target.value);
+    LoginActions.updatePassword(evt.target.value);
   }
 
   handleLogin = evt => {
