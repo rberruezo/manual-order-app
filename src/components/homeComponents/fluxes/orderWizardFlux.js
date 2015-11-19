@@ -7,13 +7,10 @@ import OrderWizardStore from 'stores/orderWizardStore';
 import Utilities from 'utilities/utilities';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
-var originalOrder = {};
-
 @connectToStores
 class OrderWizardFlux extends WizardFlux {
   constructor(props) {
     super(props);
-    Utilities.copyObjectAttributes(originalOrder, props.order);
   }
 
   static getStores(props) {
@@ -38,7 +35,7 @@ class OrderWizardFlux extends WizardFlux {
   }
 
   cancelChanges = evt => {
-    Utilities.copyObjectAttributes(this.props.order, originalOrder);
+    Utilities.copyObjectAttributes(this.props.order, this.props.originalOrder);
     this.closeWizard();
   }
 

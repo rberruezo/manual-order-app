@@ -1,6 +1,6 @@
 import React from 'react';
 import connectToStores from 'alt/utils/connectToStores';
-import OrdersStore from 'stores/ordersStore';
+import OrderWizardStore from 'stores/orderWizardStore';
 import OrdersActions from 'actions/ordersActions';
 import OrderWizardFlux from 'components/homeComponents/fluxes/orderWizardFlux';
 import 'flexboxgrid'
@@ -13,24 +13,22 @@ class OrderWizard extends React.Component {
 	constructor(props) {
     super(props);
     this.state = {
-      dequeuedOrder: props.dequeuedOrder
+      order: props.order
     };
   }
 
   static getStores(props) {
-    return [OrdersStore];
+    return [OrderWizardStore];
   }
 
   static getPropsFromStores(props) {
-    return OrdersStore.getState();
+    return OrderWizardStore.getState();
   }
 
   render() {
-  	var order = this.state.dequeuedOrder;
     return (
       <div className='wizard'>
-        <OrderWizardFlux order={order}
-                         closeWizard={this.closeWizard} />
+        <OrderWizardFlux closeWizard={this.closeWizard} />
       </div>
     );
   }
@@ -40,8 +38,8 @@ class OrderWizard extends React.Component {
   }
 
   handleChange = evt => {
-  	this.props.dequeuedOrder[evt.target.name] = evt.target.value;
-    this.setState(this.props.dequeuedOrder);
+  	this.props.order[evt.target.name] = evt.target.value;
+    this.setState(this.props.order);
   }
 
 }

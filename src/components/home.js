@@ -1,6 +1,6 @@
 import React from 'react';
 import connectToStores from 'alt/utils/connectToStores';
-import OrdersStore from 'stores/ordersStore';
+import OrderWizardStore from 'stores/orderWizardStore';
 import Orders from 'components/homeComponents/orders';
 import OrderWizard from 'components/homeComponents/orderWizard';
 import NavigationBar from 'components/homeComponents/navigationBar';
@@ -13,15 +13,15 @@ class Home extends React.Component {
   }
 
   static getStores(props) {
-    return [OrdersStore];
+    return [OrderWizardStore];
   }
 
   static getPropsFromStores(props) {
-    return OrdersStore.getState();
+    return OrderWizardStore.getState();
   }
 
   isOrderSelected() {
-  	return OrdersStore.getState().dequeuedOrder != undefined;
+  	return OrderWizardStore.getState().order != undefined;
   }
 
   getOrderView() {
