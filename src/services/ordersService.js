@@ -1,4 +1,4 @@
-import {API_GET_ORDERS_URL, API_REMOVE_ORDER_URL, API_GET_ORDER_URL} from 'constants/api';
+import {API_GET_ORDERS_URN, API_REMOVE_ORDER_URN, API_GET_ORDER_URN} from 'constants/api';
 import LoginStore from 'stores/loginStore';
 import Mocks from 'mocks/mocks';
 
@@ -12,7 +12,7 @@ var ordersService = {
   	}
     return new Promise(function (resolve, reject) {
     	request
-				.post(API_GET_ORDERS_URL)
+				.post(API_GET_ORDERS_URN)
   			.send(requestData)
 				.end(function (err, res) {
 					if (res.status === 404) {
@@ -33,7 +33,7 @@ var ordersService = {
   	requestData.userToken = ordersService.getUserToken();
     return new Promise(function (resolve, reject) {
     	request
-				.post(API_GET_ORDER_URL)
+				.post(API_GET_ORDER_URN)
   			.send(requestData)
 				.end(function (err, res) {
 					if (res.status === 404) {
@@ -54,7 +54,7 @@ var ordersService = {
   	requestData.userToken = ordersService.getUserToken();
     return new Promise(function (resolve, reject) {
     	request
-				.post(API_GET_ORDER_URL)
+				.post(API_GET_ORDER_URN)
   			.send(requestData)
 				.end(function (err, res) {
 					if (res.status === 404) {
@@ -77,7 +77,7 @@ var ordersService = {
   	console.log(requestData);
     return new Promise(function (resolve, reject) {
     	request
-				.post(API_GET_ORDER_URL)
+				.post(API_GET_ORDER_URN)
   			.send(requestData)
 				.end(function (err, res) {
 					if (res.status === 404) {
@@ -94,7 +94,7 @@ var ordersService = {
   	console.log(requestData);
     return new Promise(function (resolve, reject) {
     	request
-				.post(API_GET_ORDER_URL)
+				.post(API_GET_ORDER_URN)
   			.send(requestData)
 				.end(function (err, res) {
 					if (res.status !== 404) {
