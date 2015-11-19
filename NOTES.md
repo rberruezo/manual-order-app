@@ -36,3 +36,6 @@ Source: http://learn.shayhowe.com/html-css/organizing-data-with-tables/
 
 ### react flexbox grid
 Source: https://github.com/roylee0704/react-flexbox-grid
+
+### crypto-js
+Source: https://www.npmjs.com/package/crypto-js
