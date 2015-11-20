@@ -26,7 +26,8 @@ class WizardFlux extends React.Component {
   	return {
   		previousStep: this.previousStep,
       nextStep: this.nextStep,
-      closeWizard: this.closeWizard
+      closeWizard: this.closeWizard,
+      cancelChanges: this.cancelChanges
   	}
   }
 

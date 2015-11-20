@@ -30,7 +30,6 @@ class PartnerWizardFlux extends WizardFlux {
 
   getButtonpadCallbacks() {
     var buttonpadCallbacks = this.getBasicButtonpadCallbacks();
-    buttonpadCallbacks.cancelChanges = this.cancelChanges;
     buttonpadCallbacks.submitItemsStatus = this.submitItemsStatus;
     return buttonpadCallbacks;
   }

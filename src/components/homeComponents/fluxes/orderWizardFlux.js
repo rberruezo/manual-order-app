@@ -28,7 +28,6 @@ class OrderWizardFlux extends WizardFlux {
 
   getButtonpadCallbacks() {
     var buttonpadCallbacks = this.getBasicButtonpadCallbacks();
-    buttonpadCallbacks.cancelChanges = this.cancelChanges;
     buttonpadCallbacks.submitOrderStatus = this.submitOrderStatus;
     return buttonpadCallbacks;
   }
