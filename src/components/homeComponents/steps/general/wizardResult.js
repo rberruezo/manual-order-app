@@ -1,11 +1,11 @@
 /******************************************************************************
 Abstract class.
 All the childs should have the following methods defined:
-	* getSuccessButtons: returns an array of objects {callback: ..., text: ...}
-			as a Buttonpad to show on a Successful Result Message.
+  * getSuccessButtons: returns an array of objects {callback: ..., text: ...}
+      as a Buttonpad to show on a Successful Result Message.
   * getSuccessMessage: returns the text to show on a Successful Result Message.
   * getFailureButtons: returns an array of objects {callback: ..., text: ...}
-			as a Buttonpad to show on a Failed Result Message.
+      as a Buttonpad to show on a Failed Result Message.
   * getFailureMessage: returns the text to show on a Failed Result Message.
 ******************************************************************************/
 

@@ -38,8 +38,7 @@ class OrderWizardStep extends React.Component {
         return (
           <Row className='center-md'>
             <Col>
-              <OrderWizardResult result={OrderWizardStore.getState().result}
-                                 callbacks={this.props.callbacks} />
+              <OrderWizardResult callbacks={this.props.callbacks} />
             </Col>
           </Row>
           )
