@@ -24,7 +24,7 @@ class OrderWizardStep extends React.Component {
   }
 
   render() {
-    switch(OrderWizardStore.getState().step-this.props.order.partners.length) {
+    switch(this.props.step-this.props.order.partners.length) {
       case 1:
         return (
           <div>
@@ -43,8 +43,8 @@ class OrderWizardStep extends React.Component {
           </Row>
           )
       default:
-        return <PartnerWizardFlux items={this.props.order.partners[OrderWizardStore.getState().step-1].items}
-                                  name={this.props.order.partners[OrderWizardStore.getState().step-1].name}
+        return <PartnerWizardFlux items={this.props.order.partners[this.props.step-1].items}
+                                  name={this.props.order.partners[this.props.step-1].name}
                                   shippingAddress={this.props.order.shippingAddress}
                                   billingAddress={this.props.order.billingAddress}
                                   payment={this.props.order.paymentData}
