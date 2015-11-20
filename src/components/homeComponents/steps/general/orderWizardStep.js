@@ -3,14 +3,28 @@ import PartnerWizardFlux from 'components/homeComponents/fluxes/partnerWizardFlu
 import OrderReview from 'components/homeComponents/steps/orderReview';
 import OrderWizardResult from 'components/homeComponents/steps/orderWizardResult';
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
+import connectToStores from 'alt/utils/connectToStores';
+import OrderWizardStore from 'stores/orderWizardStore';
 import {SUBMIT_ORDER_STATUS} from 'constants/stepButtonLabels';
 import {NONE, SUCCESS, FAIL} from 'constants/apiCallStatus';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
+@connectToStores
 class OrderWizardStep extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  static getStores(props) {
+    return [OrderWizardStore];
+  }
+
+  static getPropsFromStores(props) {
+    return OrderWizardStore.getState();
+  }
 
   render() {
-    switch(this.props.step-this.props.order.partners.length) {
+    switch(OrderWizardStore.getState().step-this.props.order.partners.length) {
       case 1:
         return (
           <div>
@@ -24,14 +38,14 @@ class OrderWizardStep extends React.Component {
         return (
           <Row className='center-md'>
             <Col>
-              <OrderWizardResult result={this.props.result}
+              <OrderWizardResult result={OrderWizardStore.getState().result}
                                  callbacks={this.props.callbacks} />
             </Col>
           </Row>
           )
       default:
-        return <PartnerWizardFlux items={this.props.order.partners[this.props.step-1].items}
-                                  name={this.props.order.partners[this.props.step-1].name}
+        return <PartnerWizardFlux items={this.props.order.partners[OrderWizardStore.getState().step-1].items}
+                                  name={this.props.order.partners[OrderWizardStore.getState().step-1].name}
                                   shippingAddress={this.props.order.shippingAddress}
                                   billingAddress={this.props.order.billingAddress}
                                   payment={this.props.order.paymentData}

@@ -55,10 +55,7 @@ class OrderWizardFlux extends WizardFlux {
         <Row className='center-sm center-md'>
           <h1>Order Wizard</h1>
         </Row>
-        <OrderWizardStep step={OrderWizardStore.getState().step}
-                         result={OrderWizardStore.getState().result}
-                         order={this.props.order}
-                         callbacks={this.getButtonpadCallbacks()} />
+        <OrderWizardStep callbacks={this.getButtonpadCallbacks()} />
       </Grid>
     )
   }
