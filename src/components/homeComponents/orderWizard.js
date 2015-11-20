@@ -28,13 +28,9 @@ class OrderWizard extends React.Component {
   render() {
     return (
       <div className='wizard'>
-        <OrderWizardFlux closeWizard={this.closeWizard} />
+        <OrderWizardFlux closeWizard={OrdersActions.deselectOrder} />
       </div>
     );
-  }
-
-  closeWizard = evt => {
-    OrdersActions.deselectOrder();
   }
 
   handleChange = evt => {
