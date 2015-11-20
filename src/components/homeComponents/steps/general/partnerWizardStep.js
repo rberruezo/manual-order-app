@@ -52,15 +52,14 @@ class PartnerWizardStep extends React.Component {
       case 1:
         return (
           <div>
-            <ShippingAndBilling shippingAddress={this.props.order.shippingAddress}
-                                billingAddress={this.props.order.billingAddress} />
+            <ShippingAndBilling  />
             <Buttonpad buttons={this.getStepButtons()} />
           </div>
         )
       case 2:
         return (
           <div>
-            <Payment payment={this.props.order.paymentData} />
+            <Payment />
             <Buttonpad buttons={this.getStepButtons()} />
           </div>
         )
@@ -68,8 +67,7 @@ class PartnerWizardStep extends React.Component {
         return (
           <Row className='center-md'>
             <Col>
-              <PartnerWizardResult result={this.props.result}
-                                   callbacks={this.props.callbacks} />
+              <PartnerWizardResult callbacks={this.props.callbacks} />
             </Col>
           </Row>
         )

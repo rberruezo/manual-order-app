@@ -1,10 +1,25 @@
 import React from 'react';
+import connectToStores from 'alt/utils/connectToStores';
+import OrderWizardStore from 'stores/orderWizardStore';
 import {PAYMENT} from 'constants/stepTitles';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
+@connectToStores
 class Payment extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  static getStores(props) {
+    return [OrderWizardStore];
+  }
+
+  static getPropsFromStores(props) {
+    return OrderWizardStore.getState();
+  }
+
   render() {
-    var payment = this.props.payment;
+    var payment = this.props.order.paymentData;
     return (
       <div className='wizard-table'>
         <h3>{PAYMENT}</h3>
