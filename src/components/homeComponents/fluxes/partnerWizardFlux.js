@@ -13,7 +13,7 @@ var originalItems = {};
 class PartnerWizardFlux extends WizardFlux {
   constructor(props) {
     super(props);
-    Utilities.copyObjectAttributes(originalItems, props.items);
+    Utilities.copyObjectAttributes(originalItems, props.partner.items);
   }
 
   static getStores(props) {
@@ -36,12 +36,12 @@ class PartnerWizardFlux extends WizardFlux {
 
   submitItemsStatus = evt => {
     //Go directly to Last Step = Q(items) + S&B + Payment + Result Message
-    this.submitStatus(this.props.items.length+3);
-    PartnerWizardActions.submitItemsStatus(this.props.items);
+    this.submitStatus(this.props.partner.items.length+3);
+    PartnerWizardActions.submitItemsStatus(this.props.partner.items);
   }
 
   cancelChanges = evt => {
-    Utilities.copyObjectAttributes(this.props.items, originalItems);
+    Utilities.copyObjectAttributes(this.props.partner.items, originalItems);
     originalItems = {};
     this.closeWizard();
   }
@@ -62,15 +62,15 @@ class PartnerWizardFlux extends WizardFlux {
       <Grid>
         <Row>
           <Col>
-            <h2>Partner: {this.props.name}</h2>
+            <h2>Partner: {this.props.partner.name}</h2>
           </Col>
           <Col md-offset={1} md={10}>
             <PartnerWizardStep step={PartnerWizardStore.getState().step}
                                result={PartnerWizardStore.getState().result}
-            									 items={this.props.items}
-                            	 shippingAddress={this.props.shippingAddress}
-                            	 billingAddress={this.props.billingAddress}
-                            	 payment={this.props.payment} 
+            									 items={this.props.partner.items}
+                            	 shippingAddress={this.props.order.shippingAddress}
+                            	 billingAddress={this.props.order.billingAddress}
+                            	 payment={this.props.order.paymentData} 
                                callbacks={this.getButtonpadCallbacks()} />
           </Col>
         </Row>
