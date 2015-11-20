@@ -1,6 +1,7 @@
 import React from 'react';
 import WizardFlux from 'components/homeComponents/fluxes/wizardFlux';
 import OrderWizardActions from 'actions/orderWizardActions';
+import OrdersActions from 'actions/ordersActions';
 import OrderWizardStep from 'components/homeComponents/steps/general/orderWizardStep';
 import connectToStores from 'alt/utils/connectToStores';
 import OrderWizardStore from 'stores/orderWizardStore';
@@ -36,12 +37,12 @@ class OrderWizardFlux extends WizardFlux {
 
   cancelChanges = evt => {
     Utilities.copyObjectAttributes(this.props.order, this.props.originalOrder);
-    this.closeWizard();
+    OrdersActions.deselectOrder();
   }
 
   closeWizard = evt => {
     this.handleStepChange(1);
-    this.props.closeWizard();
+    OrdersActions.deselectOrder();
   }
 
   handleStepChange(newStep) {
