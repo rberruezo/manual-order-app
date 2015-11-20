@@ -66,9 +66,7 @@ class PartnerWizardFlux extends WizardFlux {
           </Col>
           <Col md-offset={1} md={10}>
             <PartnerWizardStep items={this.props.partner.items}
-                            	 shippingAddress={this.props.order.shippingAddress}
-                            	 billingAddress={this.props.order.billingAddress}
-                            	 payment={this.props.order.paymentData} 
+                            	 order={this.props.order} 
                                callbacks={this.getButtonpadCallbacks()} />
           </Col>
         </Row>

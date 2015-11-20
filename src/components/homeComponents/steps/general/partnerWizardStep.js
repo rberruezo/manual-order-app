@@ -52,15 +52,15 @@ class PartnerWizardStep extends React.Component {
       case 1:
         return (
           <div>
-            <ShippingAndBilling shippingAddress={this.props.shippingAddress}
-                                billingAddress={this.props.billingAddress} />
+            <ShippingAndBilling shippingAddress={this.props.order.shippingAddress}
+                                billingAddress={this.props.order.billingAddress} />
             <Buttonpad buttons={this.getStepButtons()} />
           </div>
         )
       case 2:
         return (
           <div>
-            <Payment payment={this.props.payment} />
+            <Payment payment={this.props.order.paymentData} />
             <Buttonpad buttons={this.getStepButtons()} />
           </div>
         )
