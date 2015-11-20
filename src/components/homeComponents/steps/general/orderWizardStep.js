@@ -28,7 +28,7 @@ class OrderWizardStep extends React.Component {
       case 1:
         return (
           <div>
-            <OrderReview order={this.props.order} />
+            <OrderReview />
             <Buttonpad buttons={[
               {callback: this.props.callbacks.submitOrderStatus, text: SUBMIT_ORDER_STATUS}
             ]} />

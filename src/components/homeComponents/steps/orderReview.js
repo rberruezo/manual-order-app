@@ -1,10 +1,24 @@
 import React from 'react';
 import StatusDescription from 'components/homeComponents/resources/statusDescription';
+import connectToStores from 'alt/utils/connectToStores';
+import OrderWizardStore from 'stores/orderWizardStore';
 import {ORDER_REVIEW} from 'constants/stepTitles';
 import Griddle from 'griddle-react';
 import Utilities from 'utilities/utilities';
 
+@connectToStores
 class OrderReview extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  static getStores(props) {
+    return [OrderWizardStore];
+  }
+
+  static getPropsFromStores(props) {
+    return OrderWizardStore.getState();
+  }
   
 	getItemsData() {
 		var itemsData = [];
