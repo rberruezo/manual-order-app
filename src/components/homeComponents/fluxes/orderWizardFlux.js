@@ -40,7 +40,7 @@ class OrderWizardFlux extends WizardFlux {
 
   cancelChanges = evt => {
     Utilities.copyObjectAttributes(this.props.order, this.props.originalOrder);
-    OrdersActions.deselectOrder();
+    this.closeWizard();
   }
 
   closeWizard = evt => {
