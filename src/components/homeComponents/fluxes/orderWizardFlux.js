@@ -22,6 +22,10 @@ class OrderWizardFlux extends WizardFlux {
     return OrderWizardStore.getState();
   }
 
+  getWizardActions() {
+    return OrderWizardActions;
+  }
+
   getButtonpadCallbacks() {
     var buttonpadCallbacks = this.getBasicButtonpadCallbacks();
     buttonpadCallbacks.cancelChanges = this.cancelChanges;
@@ -41,13 +45,8 @@ class OrderWizardFlux extends WizardFlux {
   }
 
   closeWizard = evt => {
-    this.handleStepChange(1);
+    OrderWizardActions.updateStep(1);
     OrdersActions.deselectOrder();
-  }
-
-  handleStepChange(newStep) {
-    this.setStepChange(newStep);
-    OrderWizardActions.updateStep(this.props.step);
   }
 
   render() {

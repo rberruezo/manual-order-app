@@ -24,6 +24,10 @@ class PartnerWizardFlux extends WizardFlux {
     return PartnerWizardStore.getState();
   }
 
+  getWizardActions() {
+    return PartnerWizardActions;
+  }
+
   getButtonpadCallbacks() {
     var buttonpadCallbacks = this.getBasicButtonpadCallbacks();
     buttonpadCallbacks.cancelChanges = this.cancelChanges;
@@ -44,13 +48,8 @@ class PartnerWizardFlux extends WizardFlux {
   }
 
   closeWizard = evt => {
-    this.handleStepChange(1);
+    PartnerWizardActions.updateStep(1);
     this.props.callbacks.nextStep();
-  }
-
-  handleStepChange(newStep) {
-    this.setStepChange(newStep);
-    PartnerWizardActions.updateStep(this.props.step);
   }
 
   componentWillReceiveProps(nextProps) {

@@ -14,12 +14,12 @@ class WizardFlux extends React.Component {
     };
   }
 
-  nextStep = evt => {
-    this.handleStepChange(this.props.step+1);
+  previousStep = evt => {
+    this.getWizardActions().updateStep(this.props.step-1);
   }
 
-  previousStep = evt => {
-    this.handleStepChange(this.props.step-1);
+  nextStep = evt => {
+    this.getWizardActions().updateStep(this.props.step+1);
   }
 
   getBasicButtonpadCallbacks() {
@@ -32,7 +32,7 @@ class WizardFlux extends React.Component {
 
   submitStatus(lastStep) {
     this.props.result = SUBMITING;
-    this.handleStepChange(lastStep);
+    this.getWizardActions().updateStep(lastStep);
   }
 
   setStepChange(newStep) {
