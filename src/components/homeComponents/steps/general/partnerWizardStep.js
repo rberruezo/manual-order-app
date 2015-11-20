@@ -4,11 +4,25 @@ import ShippingAndBilling from 'components/homeComponents/steps/shippingAndBilli
 import Payment from 'components/homeComponents/steps/payment';
 import PartnerWizardResult from 'components/homeComponents/steps/partnerWizardResult';
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
+import connectToStores from 'alt/utils/connectToStores';
+import PartnerWizardStore from 'stores/partnerWizardStore';
 import {CANCEL, BACK, CONTINUE, SUBMIT_ITEM_STATUS, OK} from 'constants/stepButtonLabels';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
+@connectToStores
 class PartnerWizardStep extends React.Component {
-  
+  constructor(props) {
+    super(props);
+  }
+
+  static getStores(props) {
+    return [PartnerWizardStore];
+  }
+
+  static getPropsFromStores(props) {
+    return PartnerWizardStore.getState();
+  }
+
   getStepButtons() {
     var callbacks = this.props.callbacks;
     var buttons = [];
