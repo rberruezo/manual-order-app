@@ -65,8 +65,8 @@ class PartnerWizardFlux extends WizardFlux {
             <h2>Partner: {this.props.partner.name}</h2>
           </Col>
           <Col md-offset={1} md={10}>
-            <PartnerWizardStep step={PartnerWizardStore.getState().step}
-                               result={PartnerWizardStore.getState().result}
+            <PartnerWizardStep step={this.props.step}
+                               result={this.props.result}
             									 items={this.props.partner.items}
                             	 shippingAddress={this.props.order.shippingAddress}
                             	 billingAddress={this.props.order.billingAddress}
