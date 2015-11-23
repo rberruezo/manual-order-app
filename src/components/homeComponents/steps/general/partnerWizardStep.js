@@ -6,6 +6,7 @@ import PartnerWizardResult from 'components/homeComponents/steps/partnerWizardRe
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
 import connectToStores from 'alt/utils/connectToStores';
 import PartnerWizardStore from 'stores/partnerWizardStore';
+import OrderWizardStore from 'stores/orderWizardStore';
 import {CANCEL, BACK, CONTINUE, SUBMIT_ITEM_STATUS, OK} from 'constants/stepButtonLabels';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
@@ -16,11 +17,13 @@ class PartnerWizardStep extends React.Component {
   }
 
   static getStores(props) {
-    return [PartnerWizardStore];
+    return [PartnerWizardStore, OrderWizardStore];
   }
 
   static getPropsFromStores(props) {
-    return PartnerWizardStore.getState();
+    var state = PartnerWizardStore.getState();
+    state.orderWizard = OrderWizardStore.getState();
+    return state;
   }
 
   getStepButtons() {
@@ -32,7 +35,7 @@ class PartnerWizardStep extends React.Component {
                     {callback: callbacks.nextStep, text: CONTINUE}
                   ];
         break;
-      case (this.props.items.length+2):
+      case (this.getPartner().items.length+2):
         buttons = [
                     {callback: callbacks.previousStep, text: BACK},
                     {callback: callbacks.submitItemsStatus, text: SUBMIT_ITEM_STATUS}
@@ -47,8 +50,12 @@ class PartnerWizardStep extends React.Component {
     return buttons;
   }
 
+  getPartner() {
+    return this.props.orderWizard.order.partners[this.props.orderWizard.step-1];
+  }
+
   render() {
-    switch(this.props.step-this.props.items.length) {
+    switch(this.props.step-this.getPartner().items.length) {
       case 1:
         return (
           <div>
@@ -74,7 +81,7 @@ class PartnerWizardStep extends React.Component {
       default:
         return (
           <div>
-            <Item item={this.props.items[this.props.step-1]} />
+            <Item item={this.getPartner().items[this.props.step-1]} />
             <Buttonpad buttons={this.getStepButtons()} />
           </div>
         )

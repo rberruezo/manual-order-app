@@ -72,9 +72,7 @@ class PartnerWizardFlux extends WizardFlux {
             <h2>Partner: {this.getPartner().name}</h2>
           </Col>
           <Col md-offset={1} md={10}>
-            <PartnerWizardStep items={this.getPartner().items}
-                            	 order={this.props.orderWizard.order} 
-                               callbacks={this.getButtonpadCallbacks()} />
+            <PartnerWizardStep callbacks={this.getButtonpadCallbacks()} />
           </Col>
         </Row>
       </Grid>
