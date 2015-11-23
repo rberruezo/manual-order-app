@@ -18,7 +18,7 @@ var authService = {
 						}
 	          resolve(response);
 					} else {
-						reject(response.error);
+						reject(JSON.parse(res.text).error);
 					}
 			});
     });
