@@ -49,7 +49,7 @@ class OrderWizardStep extends React.Component {
         return (
           <Row className='center-md'>
             <Col>
-              <OrderWizardResult callbacks={this.getButtonpadCallbacks()} />
+              <OrderWizardResult />
             </Col>
           </Row>
           )

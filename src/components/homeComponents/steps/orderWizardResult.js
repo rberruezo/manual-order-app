@@ -2,6 +2,7 @@ import React from 'react';
 import WizardResult from 'components/homeComponents/steps/general/wizardResult';
 import connectToStores from 'alt/utils/connectToStores';
 import OrderWizardStore from 'stores/orderWizardStore';
+import OrderWizardActions from 'actions/orderWizardActions';
 import {CANCEL, CLOSE, TRY_AGAIN} from 'constants/stepButtonLabels';
 import {ORDER_STATUS_SUBMISSION_SUCCESS, ORDER_STATUS_SUBMISSION_FAILURE, SUBMITING} from 'constants/messages';
 
@@ -21,7 +22,7 @@ class OrderWizardResult extends WizardResult {
 
   getSuccessButtons() {
     return [
-        {callback: this.props.callbacks.closeWizard, text: CLOSE, type: 'success'}
+        {callback: OrderWizardActions.closeWizard, text: CLOSE, type: 'success'}
       ];
   }
 
@@ -31,8 +32,8 @@ class OrderWizardResult extends WizardResult {
 
   getFailureButtons() {
     return [
-        {callback: this.props.callbacks.submitOrderStatus, text: TRY_AGAIN},
-        {callback: this.props.callbacks.cancelChanges, text: CANCEL, type: 'error'}
+        {callback: OrderWizardActions.submitStatus.bind(OrderWizardActions, this.props.order), text: TRY_AGAIN},
+        {callback: OrderWizardActions.cancelChanges, text: CANCEL, type: 'error'}
       ];
   }
 
