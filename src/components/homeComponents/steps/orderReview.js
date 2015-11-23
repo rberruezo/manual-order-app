@@ -5,6 +5,9 @@ import OrderWizardStore from 'stores/orderWizardStore';
 import {ORDER_REVIEW} from 'constants/stepTitles';
 import Griddle from 'griddle-react';
 import Utilities from 'utilities/utilities';
+import OrderWizardActions from 'actions/orderWizardActions';
+import Buttonpad from 'components/homeComponents/resources/buttonpad';
+import {SUBMIT_ORDER_STATUS} from 'constants/stepButtonLabels';
 
 @connectToStores
 class OrderReview extends React.Component {
@@ -50,27 +53,32 @@ class OrderReview extends React.Component {
 
   render() {
     return (
-    	<div>
-        <h2>{ORDER_REVIEW}</h2>
-        Status
-        <StatusDescription data={Utilities.calculateOrderStatus(this.props.order)} />
+      <div>
 	    	<div>
-					<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
-					<script src="//fb.me/react-0.13.2.js"></script>
-					<script src="//fb.me/JSXTransformer-0.13.2.js"></script>
-					<script type="text/javascript" src="scripts/griddle.js"></script>
-					<Griddle
-						results={this.getItemsData()}
-						tableClassName="table"
-						showFilter={false}
-						showSettings={false}
-						columnMetadata={this.getColumnsMetadata()}
-						noDataMessage={"No data could be found."}
-						sortDescendingComponent=' v'
-						sortAscendingComponent=' ^'
-					/>
-				</div>
-	    </div>
+	        <h2>{ORDER_REVIEW}</h2>
+	        Status
+	        <StatusDescription data={Utilities.calculateOrderStatus(this.props.order)} />
+		    	<div>
+						<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+						<script src="//fb.me/react-0.13.2.js"></script>
+						<script src="//fb.me/JSXTransformer-0.13.2.js"></script>
+						<script type="text/javascript" src="scripts/griddle.js"></script>
+						<Griddle
+							results={this.getItemsData()}
+							tableClassName="table"
+							showFilter={false}
+							showSettings={false}
+							columnMetadata={this.getColumnsMetadata()}
+							noDataMessage={"No data could be found."}
+							sortDescendingComponent=' v'
+							sortAscendingComponent=' ^'
+						/>
+					</div>
+		    </div>
+        <Buttonpad buttons={[
+          {callback: OrderWizardActions.submitStatus.bind(OrderWizardActions, this.props.order), text: SUBMIT_ORDER_STATUS}
+        ]} />
+      </div>
     )
   }
 
