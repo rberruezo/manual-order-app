@@ -23,17 +23,6 @@ class OrderWizardStep extends React.Component {
     return OrderWizardStore.getState();
   }
 
-  getButtonpadCallbacks() {
-    var _that = this;
-    return {
-      previousStep: OrderWizardActions.previousStep,
-      nextStep: OrderWizardActions.nextStep,
-      closeWizard: OrderWizardActions.closeWizard,
-      cancelChanges: OrderWizardActions.cancelChanges,
-      submitOrderStatus: OrderWizardActions.submitStatus.bind(OrderWizardActions, _that.props.order)
-    }
-  }
-
   render() {
     switch(this.props.step-this.props.order.partners.length) {
       case 1:
@@ -41,7 +30,7 @@ class OrderWizardStep extends React.Component {
           <div>
             <OrderReview />
             <Buttonpad buttons={[
-              {callback: this.getButtonpadCallbacks().submitOrderStatus, text: SUBMIT_ORDER_STATUS}
+              {callback: OrderWizardActions.submitStatus.bind(OrderWizardActions, this.props.order), text: SUBMIT_ORDER_STATUS}
             ]} />
           </div>
           )
@@ -54,7 +43,7 @@ class OrderWizardStep extends React.Component {
           </Row>
           )
       default:
-        return <PartnerWizardFlux callbacks={this.getButtonpadCallbacks()} />
+        return <PartnerWizardFlux />
     }
   }
 

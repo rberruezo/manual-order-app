@@ -1,6 +1,7 @@
 import React from 'react';
 import WizardFlux from 'components/homeComponents/fluxes/wizardFlux';
 import PartnerWizardActions from 'actions/partnerWizardActions';
+import OrderWizardActions from 'actions/orderWizardActions';
 import PartnerWizardStep from 'components/homeComponents/steps/general/partnerWizardStep';
 import connectToStores from 'alt/utils/connectToStores';
 import PartnerWizardStore from 'stores/partnerWizardStore';
@@ -51,7 +52,7 @@ class PartnerWizardFlux extends WizardFlux {
 
   closeWizard = evt => {
     PartnerWizardActions.updateStep(1);
-    this.props.callbacks.nextStep();
+    OrderWizardActions.nextStep();
   }
 
   componentWillReceiveProps(nextProps) {
