@@ -7,6 +7,7 @@ import connectToStores from 'alt/utils/connectToStores';
 import OrderWizardStore from 'stores/orderWizardStore';
 import Utilities from 'utilities/utilities';
 import {Grid, Row, Col} from 'react-flexbox-grid';
+import {SUBMITING} from 'constants/apiCallStatus';
 
 @connectToStores
 class OrderWizardFlux extends WizardFlux {
@@ -22,30 +23,18 @@ class OrderWizardFlux extends WizardFlux {
     return OrderWizardStore.getState();
   }
 
-  getWizardActions() {
-    return OrderWizardActions;
-  }
-
   getButtonpadCallbacks() {
-    var buttonpadCallbacks = this.getBasicButtonpadCallbacks();
-    buttonpadCallbacks.submitOrderStatus = this.submitOrderStatus;
-    return buttonpadCallbacks;
+    return {
+      previousStep: OrderWizardActions.previousStep,
+      nextStep: OrderWizardActions.nextStep,
+      closeWizard: OrderWizardActions.closeWizard,
+      cancelChanges: OrderWizardActions.cancelChanges,
+      submitOrderStatus: this.submitOrderStatus
+    }
   }
 
   submitOrderStatus = evt => {
-     //Go directly to Last Step = Q(partners) + Order Review + Result Message
-    this.submitStatus(this.props.order.partners.length+2);
-    OrderWizardActions.submitOrderStatus(this.props.order);
-  }
-
-  cancelChanges = evt => {
-    Utilities.copyObjectAttributes(this.props.order, this.props.originalOrder);
-    this.closeWizard();
-  }
-
-  closeWizard = evt => {
-    OrderWizardActions.updateStep(1);
-    OrdersActions.deselectOrder();
+    OrderWizardActions.submitStatus(this.props.order);
   }
 
   render() {
