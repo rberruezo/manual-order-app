@@ -1,11 +1,33 @@
 import React from 'react';
+import connectToStores from 'alt/utils/connectToStores';
+import PartnerWizardStore from 'stores/partnerWizardStore';
+import OrderWizardStore from 'stores/orderWizardStore';
 import ItemStatus from 'components/homeComponents/resources/itemStatus';
 import Numeral from 'numeral';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
+@connectToStores
 class Item extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  static getStores(props) {
+    return [PartnerWizardStore, OrderWizardStore];
+  }
+
+  static getPropsFromStores(props) {
+    var state = PartnerWizardStore.getState();
+    state.orderWizard = OrderWizardStore.getState();
+    return state;
+  }
+
+  getItem() {
+    return this.props.orderWizard.order.partners[this.props.orderWizard.step-1].items[this.props.step-1];
+  }
+
   render() {
-    var item = this.props.item;
+    var item = this.getItem();
     return (
       <div className='wizard-table'>
         <h3>Product: {item.name}</h3>
@@ -69,8 +91,8 @@ class Item extends React.Component {
   }
 
   handleStatusChange = value => {
-    this.props.item.status = value;
-    this.setState(this.props.item);
+    this.getItem().status = value;
+    this.setState(this.getItem());
   }
 }
 

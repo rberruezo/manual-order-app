@@ -81,7 +81,7 @@ class PartnerWizardStep extends React.Component {
       default:
         return (
           <div>
-            <Item item={this.getPartner().items[this.props.step-1]} />
+            <Item />
             <Buttonpad buttons={this.getStepButtons()} />
           </div>
         )
