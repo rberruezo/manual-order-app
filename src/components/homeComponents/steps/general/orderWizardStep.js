@@ -43,9 +43,7 @@ class OrderWizardStep extends React.Component {
           </Row>
           )
       default:
-        return <PartnerWizardFlux partner={this.props.order.partners[this.props.step-1]}
-                                  order={this.props.order}
-                                  callbacks={this.props.callbacks} />
+        return <PartnerWizardFlux callbacks={this.props.callbacks} />
     }
   }
 

@@ -4,6 +4,7 @@ import PartnerWizardActions from 'actions/partnerWizardActions';
 import PartnerWizardStep from 'components/homeComponents/steps/general/partnerWizardStep';
 import connectToStores from 'alt/utils/connectToStores';
 import PartnerWizardStore from 'stores/partnerWizardStore';
+import OrderWizardStore from 'stores/orderWizardStore';
 import Utilities from 'utilities/utilities';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
@@ -13,15 +14,17 @@ var originalItems = {};
 class PartnerWizardFlux extends WizardFlux {
   constructor(props) {
     super(props);
-    Utilities.copyObjectAttributes(originalItems, props.partner.items);
+    Utilities.copyObjectAttributes(originalItems, this.getPartner().items);
   }
 
   static getStores(props) {
-    return [PartnerWizardStore];
+    return [PartnerWizardStore, OrderWizardStore];
   }
 
   static getPropsFromStores(props) {
-    return PartnerWizardStore.getState();
+    var state = PartnerWizardStore.getState();
+    state.orderWizard = OrderWizardStore.getState();
+    return state;
   }
 
   getWizardActions() {
@@ -36,12 +39,12 @@ class PartnerWizardFlux extends WizardFlux {
 
   submitItemsStatus = evt => {
     //Go directly to Last Step = Q(items) + S&B + Payment + Result Message
-    this.submitStatus(this.props.partner.items.length+3);
-    PartnerWizardActions.submitItemsStatus(this.props.partner.items);
+    this.submitStatus(this.getPartner().items.length+3);
+    PartnerWizardActions.submitItemsStatus(this.getPartner().items);
   }
 
   cancelChanges = evt => {
-    Utilities.copyObjectAttributes(this.props.partner.items, originalItems);
+    Utilities.copyObjectAttributes(this.getPartner().items, originalItems);
     originalItems = {};
     this.closeWizard();
   }
@@ -57,16 +60,20 @@ class PartnerWizardFlux extends WizardFlux {
     }
   }
 
+  getPartner() {
+    return this.props.orderWizard.order.partners[this.props.orderWizard.step-1];
+  }
+
 	render() {
     return (
       <Grid>
         <Row>
           <Col>
-            <h2>Partner: {this.props.partner.name}</h2>
+            <h2>Partner: {this.getPartner().name}</h2>
           </Col>
           <Col md-offset={1} md={10}>
-            <PartnerWizardStep items={this.props.partner.items}
-                            	 order={this.props.order} 
+            <PartnerWizardStep items={this.getPartner().items}
+                            	 order={this.props.orderWizard.order} 
                                callbacks={this.getButtonpadCallbacks()} />
           </Col>
         </Row>
