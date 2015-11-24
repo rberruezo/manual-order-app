@@ -2,22 +2,10 @@ import React from 'react';
 import WizardFlux from 'components/homeComponents/fluxes/wizardFlux';
 import PartnerWizardStep from 'components/homeComponents/steps/general/partnerWizardStep';
 import connectToStores from 'alt/utils/connectToStores';
-import OrderWizardStore from 'stores/orderWizardStore';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
 @connectToStores
 class PartnerWizardFlux extends WizardFlux {
-  constructor(props) {
-    super(props);
-  }
-
-  static getStores(props) {
-    return [OrderWizardStore];
-  }
-
-  static getPropsFromStores(props) {
-    return OrderWizardStore.getState();
-  }
 
   getPartner() {
     return this.props.order.partners[this.props.step-1];
@@ -37,6 +25,7 @@ class PartnerWizardFlux extends WizardFlux {
       </Grid>
     )
   }
+
 }
 
 export default PartnerWizardFlux;

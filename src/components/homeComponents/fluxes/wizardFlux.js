@@ -3,21 +3,22 @@ Abstract class to manage the flux of the wizard steps
 ******************************************************************************/
 
 import React from 'react';
-import {SUBMITING} from 'constants/apiCallStatus';
+import OrderWizardStore from 'stores/orderWizardStore';
 
 class WizardFlux extends React.Component {
-	constructor(props) {
+  
+  constructor(props) {
     super(props);
-    this.state = {
-      step : props.step,
-      result: props.result
-    };
   }
 
-  setStepChange(newStep) {
-    this.props.step = newStep;
-    this.setState(this.props);
+  static getStores(props) {
+    return [OrderWizardStore];
   }
+
+  static getPropsFromStores(props) {
+    return OrderWizardStore.getState();
+  }
+
 }
 
 export default WizardFlux;
