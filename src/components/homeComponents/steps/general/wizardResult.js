@@ -14,9 +14,11 @@ import Message from 'components/homeComponents/resources/message';
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
 import {SUCCESS, FAIL} from 'constants/apiCallStatus';
 import {SUBMITING} from 'constants/messages';
+import {Grid, Row, Col} from 'react-flexbox-grid';
 
 class WizardResult extends React.Component {
-  render() {
+
+  getResult() {
 		switch(this.props.result) {
       case SUCCESS:
         return (
@@ -40,6 +42,17 @@ class WizardResult extends React.Component {
           )
     }
   }
+
+  render() {
+    return (
+      <Row className='center-md'>
+        <Col>
+          {this.getResult()}
+        </Col>
+      </Row>
+      )
+  }
+
 }
 
 export default WizardResult;

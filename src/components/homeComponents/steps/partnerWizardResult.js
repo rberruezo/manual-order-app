@@ -25,7 +25,7 @@ class PartnerWizardResult extends WizardResult {
 
   getPartner() {
     return this.props.orderWizard.order.partners[this.props.orderWizard.step-1];
-  }  
+  }
 
   getSuccessButtons() {
     return [

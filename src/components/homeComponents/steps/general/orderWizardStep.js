@@ -4,7 +4,6 @@ import OrderReview from 'components/homeComponents/steps/orderReview';
 import OrderWizardResult from 'components/homeComponents/steps/orderWizardResult';
 import connectToStores from 'alt/utils/connectToStores';
 import OrderWizardStore from 'stores/orderWizardStore';
-import {Grid, Row, Col} from 'react-flexbox-grid';
 
 @connectToStores
 class OrderWizardStep extends React.Component {
@@ -25,13 +24,7 @@ class OrderWizardStep extends React.Component {
       case 1:
         return <OrderReview />
       case 2:
-        return (
-          <Row className='center-md'>
-            <Col>
-              <OrderWizardResult />
-            </Col>
-          </Row>
-          )
+        return <OrderWizardResult />
       default:
         return <PartnerWizardFlux />
     }
