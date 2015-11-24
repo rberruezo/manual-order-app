@@ -52,52 +52,52 @@ class Item extends React.Component {
       <div>
         <div className='wizard-table'>
           <h3>Product: {item.name}</h3>
-          <Grid className='wizard-tbody'>
+          <Grid className='wizard-table-body'>
             <Row>
               <Col md={7} className='col-md-offset-1'>
-                <Row className='wizard-tr'>
+                <Row className='wizard-table-row'>
                   <Col md={2} className='col-md-offset-1'>
-                     <strong className='label-title'>Color</strong> 
+                     <strong className='wizard-label-title'>Color</strong> 
                   </Col>
                   <Col md={8}>
                      {item.color}
                   </Col>
                 </Row>
-                <Row className='wizard-tr'>
+                <Row className='wizard-table-row'>
                   <Col md={2} className='col-md-offset-1'>
-                    <strong className='label-title'>Size</strong>
+                    <strong className='wizard-label-title'>Size</strong>
                   </Col>
                   <Col md={8}>
                     {item.size}
                   </Col>
                 </Row>
-                <Row className='wizard-tr'>
+                <Row className='wizard-table-row'>
                   <Col md={2} className='col-md-offset-1'>
-                    <strong className='label-title'>Quantity</strong>
+                    <strong className='wizard-label-title'>Quantity</strong>
                   </Col>
                   <Col md={8}>
                     {item.quantity}
                   </Col>
                 </Row>
-                <Row className='wizard-tr'>
+                <Row className='wizard-table-row'>
                   <Col md={2} className='col-md-offset-1'>
-                    <strong className='label-title'>List Price</strong>
+                    <strong className='wizard-label-title'>List Price</strong>
                   </Col>
                   <Col md={8}>
                     {Numeral(item.listPriceCents/100).format('$0,0.00')}
                   </Col>
                 </Row>
-                <Row className='wizard-tr'>
+                <Row className='wizard-table-row'>
                   <Col md={2} className='col-md-offset-1'>
-                    <strong className='label-title'>Sale Price</strong>
+                    <strong className='wizard-label-title'>Sale Price</strong>
                   </Col>
                   <Col md={8}>
                     {Numeral(item.salePriceCents/100).format('$0,0.00')}
                   </Col>
                 </Row>
-                <Row className='wizard-tr'>
+                <Row className='wizard-table-row'>
                   <Col md={2} className='col-md-offset-1'>
-                    <strong className='label-title'>Source Url</strong>
+                    <strong className='wizard-label-title'>Source Url</strong>
                   </Col>
                   <Col md={8}>
                     <a target="_blank" href={item.sourceUrl} name="sourceUrl">{item.sourceUrl}</a>

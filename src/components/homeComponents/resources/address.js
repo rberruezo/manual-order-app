@@ -6,60 +6,60 @@ class Address extends React.Component {
     var address = this.props.address;
     return (
       <div className='wizard-table'>
-        <Grid className='wizard-tbody'>
+        <Grid className='wizard-table-body'>
           <Row>
             <Col md={7} className='col-md-offset-1'>
-              <Row className='wizard-tr'>
+              <Row className='wizard-table-row'>
                 <Col md={2} className='col-md-offset-1'>
-                  <strong className='label-title'>Address 1:</strong>
+                  <strong className='wizard-label-title'>Address 1:</strong>
                 </Col>
                 <Col md={8}>
                   {address.address1}
                 </Col>
               </Row>
-              <Row className='wizard-tr'>
+              <Row className='wizard-table-row'>
                 <Col md={2} className='col-md-offset-1'>
-                  <strong className='label-title'>Address 2:</strong>
+                  <strong className='wizard-label-title'>Address 2:</strong>
                 </Col>
                 <Col md={8}>
                   {address.address2}
                 </Col>
               </Row>
-              <Row className='wizard-tr'>
+              <Row className='wizard-table-row'>
                 <Col md={2} className='col-md-offset-1'>
-                  <strong className='label-title'>City:</strong>
+                  <strong className='wizard-label-title'>City:</strong>
                 </Col>
                 <Col md={8}>
                   {address.city}
                 </Col>
               </Row>
-              <Row className='wizard-tr'>
+              <Row className='wizard-table-row'>
                 <Col md={2} className='col-md-offset-1'>
-                  <strong className='label-title'>State:</strong>
+                  <strong className='wizard-label-title'>State:</strong>
                 </Col>
                 <Col md={8}>
                   {address.state}
                 </Col>
               </Row>
-              <Row className='wizard-tr'>
+              <Row className='wizard-table-row'>
                 <Col md={2} className='col-md-offset-1'>
-                  <strong className='label-title'>Zip:</strong>
+                  <strong className='wizard-label-title'>Zip:</strong>
                 </Col>
                 <Col md={8}>
                   {address.zip}
                 </Col>
               </Row>
-              <Row className='wizard-tr'>
+              <Row className='wizard-table-row'>
                 <Col md={2} className='col-md-offset-1'>
-                  <strong className='label-title'>Status:</strong>
+                  <strong className='wizard-label-title'>Status:</strong>
                 </Col>
                 <Col md={8}>
                   {address.status}
                 </Col>
               </Row>
-              <Row className='wizard-tr'>
+              <Row className='wizard-table-row'>
                 <Col md={2} className='col-md-offset-1'>
-                  <strong className='label-title'>Address Type:</strong>
+                  <strong className='wizard-label-title'>Address Type:</strong>
                 </Col>
                 <Col md={8}>
                   {address.addressType}

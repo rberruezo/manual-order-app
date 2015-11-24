@@ -32,38 +32,38 @@ class ItemStatus extends React.Component {
 		return (
 			<RadioGroup name="selectedValue" selectedValue={this.state.selectedValue} onChange={this.handleChange}>
 			{Radio => (
-        <Grid className='wizard-tbody'>
+        <Grid className='wizard-table-body'>
           <Row>
             <Col md={7} className='col-md-offset-1'>
 		          <Row>
 		            <h5>Status</h5>
 		          </Row>
-              <Row className='wizard-tr'>
-                <Col md={6} className='col-md-offset-1 wizard-tr status-success'>
+              <Row className='wizard-table-row'>
+                <Col md={6} className='col-md-offset-1 wizard-table-row status-success'>
                    <strong>{ORDER_ITEM_PROCESSED_SUCCESSFULLY_TITLE}</strong>
                 </Col>
                 <Col md={1}>
                    <Radio value={ORDER_ITEM_PROCESSED_SUCCESSFULLY} />
                 </Col>
               </Row>
-              <Row className='wizard-tr'>
-                <Col md={6} className='col-md-offset-1 wizard-tr status-error'>
+              <Row className='wizard-table-row'>
+                <Col md={6} className='col-md-offset-1 wizard-table-row status-error'>
                    <strong>{ITEM_OUT_OF_STOCK_TITLE}</strong>
                 </Col>
                 <Col md={1}>
                    <Radio value={ITEM_OUT_OF_STOCK} />
                 </Col>
               </Row>
-              <Row className='wizard-tr'>
-                <Col md={6} className='col-md-offset-1 wizard-tr status-error'>
+              <Row className='wizard-table-row'>
+                <Col md={6} className='col-md-offset-1 wizard-table-row status-error'>
                    <strong>{ORDER_ITEM_NOT_PROCESSED_DUE_SITE_FAILURE_TITLE}</strong>
                 </Col>
                 <Col md={1}>
                    <Radio value={ORDER_ITEM_NOT_PROCESSED_DUE_SITE_FAILURE} />
                 </Col>
               </Row>
-              <Row className='wizard-tr'>
-                <Col md={6} className='col-md-offset-1 wizard-tr status-error'>
+              <Row className='wizard-table-row'>
+                <Col md={6} className='col-md-offset-1 wizard-table-row status-error'>
                    <strong>{ORDER_ITEM_NOT_PROCESSED_DUE_ORDER_FAILURE_TITLE}</strong>
                 </Col>
                 <Col md={1}>
