@@ -1,9 +1,7 @@
 import React from 'react';
 import WizardFlux from 'components/homeComponents/fluxes/wizardFlux';
-import PartnerWizardActions from 'actions/partnerWizardActions';
 import PartnerWizardStep from 'components/homeComponents/steps/general/partnerWizardStep';
 import connectToStores from 'alt/utils/connectToStores';
-import PartnerWizardStore from 'stores/partnerWizardStore';
 import OrderWizardStore from 'stores/orderWizardStore';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
@@ -14,27 +12,15 @@ class PartnerWizardFlux extends WizardFlux {
   }
 
   static getStores(props) {
-    return [PartnerWizardStore, OrderWizardStore];
+    return [OrderWizardStore];
   }
 
   static getPropsFromStores(props) {
-    var state = PartnerWizardStore.getState();
-    state.orderWizard = OrderWizardStore.getState();
-    return state;
-  }
-
-  getButtonpadCallbacks() {
-    return {
-      previousStep: PartnerWizardActions.previousStep,
-      nextStep: PartnerWizardActions.nextStep,
-      closeWizard: PartnerWizardActions.closeWizard,
-      cancelChanges: PartnerWizardActions.cancelChanges.bind(PartnerWizardActions, this.props.orderWizard.step-1),
-      submitItemsStatus: PartnerWizardActions.submitStatus.bind(PartnerWizardActions, this.getPartner().items)
-    }
+    return OrderWizardStore.getState();
   }
 
   getPartner() {
-    return this.props.orderWizard.order.partners[this.props.orderWizard.step-1];
+    return this.props.order.partners[this.props.step-1];
   }
 
 	render() {
@@ -45,7 +31,7 @@ class PartnerWizardFlux extends WizardFlux {
             <h2>Partner: {this.getPartner().name}</h2>
           </Col>
           <Col md-offset={1} md={10}>
-            <PartnerWizardStep callbacks={this.getButtonpadCallbacks()} />
+            <PartnerWizardStep />
           </Col>
         </Row>
       </Grid>

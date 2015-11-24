@@ -2,6 +2,8 @@ import React from 'react';
 import WizardResult from 'components/homeComponents/steps/general/wizardResult';
 import connectToStores from 'alt/utils/connectToStores';
 import PartnerWizardStore from 'stores/partnerWizardStore';
+import OrderWizardStore from 'stores/orderWizardStore';
+import PartnerWizardActions from 'actions/partnerWizardActions';
 import {CLOSE, CONTINUE_ANYWAY, OK, TRY_AGAIN} from 'constants/stepButtonLabels';
 import {ITEM_STATUS_SUBMISSION_SUCCESS, ITEM_STATUS_SUBMISSION_FAILURE} from 'constants/messages';
 
@@ -12,16 +14,22 @@ class PartnerWizardResult extends WizardResult {
   }
 
   static getStores(props) {
-    return [PartnerWizardStore];
+    return [PartnerWizardStore, OrderWizardStore];
   }
 
   static getPropsFromStores(props) {
-    return PartnerWizardStore.getState();
+    var state = PartnerWizardStore.getState();
+    state.orderWizard = OrderWizardStore.getState();
+    return state;
   }
+
+  getPartner() {
+    return this.props.orderWizard.order.partners[this.props.orderWizard.step-1];
+  }  
 
   getSuccessButtons() {
     return [
-        {callback: this.props.callbacks.closeWizard, text: OK, type: 'success'}
+        {callback: PartnerWizardActions.closeWizard, text: OK, type: 'success'}
       ];
   }
 
@@ -31,14 +39,15 @@ class PartnerWizardResult extends WizardResult {
 
   getFailureButtons() {
     return [
-        {callback: this.props.callbacks.submitItemsStatus, text: TRY_AGAIN},
-        {callback: this.props.callbacks.cancelChanges, text: CONTINUE_ANYWAY, type: 'error'}
+        {callback: PartnerWizardActions.submitStatus.bind(PartnerWizardActions, this.getPartner().items), text: TRY_AGAIN},
+        {callback: PartnerWizardActions.cancelChanges.bind(PartnerWizardActions, this.props.step-1), text: CONTINUE_ANYWAY, type: 'error'}
       ];
   }
 
   getFailureMessage() {
     return ITEM_STATUS_SUBMISSION_FAILURE;
   }
+
 }
 
 export default PartnerWizardResult;

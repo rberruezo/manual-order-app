@@ -5,8 +5,9 @@ import Payment from 'components/homeComponents/steps/payment';
 import PartnerWizardResult from 'components/homeComponents/steps/partnerWizardResult';
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
 import connectToStores from 'alt/utils/connectToStores';
-import PartnerWizardStore from 'stores/partnerWizardStore';
 import OrderWizardStore from 'stores/orderWizardStore';
+import PartnerWizardStore from 'stores/partnerWizardStore';
+import PartnerWizardActions from 'actions/partnerWizardActions';
 import {CANCEL, BACK, CONTINUE, SUBMIT_ITEM_STATUS, OK} from 'constants/stepButtonLabels';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
@@ -26,32 +27,32 @@ class PartnerWizardStep extends React.Component {
     return state;
   }
 
+  getPartner() {
+    return this.props.orderWizard.order.partners[this.props.orderWizard.step-1];
+  }  
+
   getStepButtons() {
     var callbacks = this.props.callbacks;
     var buttons = [];
     switch(this.props.step) {
       case 1:
         buttons = [
-                    {callback: callbacks.nextStep, text: CONTINUE}
+                    {callback: PartnerWizardActions.nextStep, text: CONTINUE}
                   ];
         break;
       case (this.getPartner().items.length+2):
         buttons = [
-                    {callback: callbacks.previousStep, text: BACK},
-                    {callback: callbacks.submitItemsStatus, text: SUBMIT_ITEM_STATUS}
+                    {callback: PartnerWizardActions.previousStep, text: BACK},
+                    {callback: PartnerWizardActions.submitStatus.bind(PartnerWizardActions, this.getPartner().items), text: SUBMIT_ITEM_STATUS}
                   ];
         break;
       default:
         buttons = [
-                    {callback: callbacks.previousStep, text: BACK},
-                    {callback: callbacks.nextStep, text: CONTINUE}
+                    {callback: PartnerWizardActions.previousStep, text: BACK},
+                    {callback: PartnerWizardActions.nextStep, text: CONTINUE}
                   ];
     }
     return buttons;
-  }
-
-  getPartner() {
-    return this.props.orderWizard.order.partners[this.props.orderWizard.step-1];
   }
 
   render() {
@@ -74,7 +75,7 @@ class PartnerWizardStep extends React.Component {
         return (
           <Row className='center-md'>
             <Col>
-              <PartnerWizardResult callbacks={this.props.callbacks} />
+              <PartnerWizardResult />
             </Col>
           </Row>
         )
