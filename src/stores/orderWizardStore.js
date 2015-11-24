@@ -5,7 +5,6 @@ import OrdersActions from 'actions/ordersActions';
 import OrderWizardActions from 'actions/orderWizardActions';
 import PartnerWizardActions from 'actions/partnerWizardActions';
 import Utilities from 'utilities/utilities';
-import {SUBMITING} from 'constants/apiCallStatus';
 
 @createStore(flux)
 class OrderWizardStore extends WizardStore {
@@ -15,24 +14,20 @@ class OrderWizardStore extends WizardStore {
     this.originalOrder = {};
   }
 
+  getActions() {
+    return OrderWizardActions;
+  }
+
+  @bind(OrderWizardActions.cancelChanges)
+  cancelChanges() {
+    Utilities.copyObjectAttributes(this.order, this.originalOrder);
+    this.originalOrder = {};
+    this.closeWizard();
+  }
+
   @bind(OrderWizardActions.submitOrderStatus)
   submitOrderStatus(response) {
     this.submitStatus(response);
-  }
-
-  @bind(OrderWizardActions.updateStep)
-  updateStep(step) {
-    this.setStep(step);
-  }
-
-  @bind(OrderWizardActions.previousStep)
-  previousStep() {
-    this.updateStep(this.step-1);
-  }
-
-  @bind(OrderWizardActions.nextStep)
-  nextStep() {
-    this.updateStep(this.step+1);
   }
 
   @bind(OrdersActions.dequeueOrder)
@@ -47,23 +42,6 @@ class OrderWizardStore extends WizardStore {
   deselectOrder() {
     delete this.order;
     this.originalOrder = {};
-  }
-
-  @bind(OrderWizardActions.cancelChanges)
-  cancelChanges() {
-    Utilities.copyObjectAttributes(this.order, this.originalOrder);
-    this.originalOrder = {};
-    this.closeWizard();
-  }
-
-  @bind(OrderWizardActions.closeWizard)
-  closeWizard() {
-    this.updateStep(1);
-  }
-
-  @bind(OrderWizardActions.resetResult)
-  resetResult() {
-    this.result = SUBMITING;
   }
 
   @bind(OrderWizardActions.lastStep)

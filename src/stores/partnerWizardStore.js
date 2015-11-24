@@ -2,7 +2,6 @@ import flux from 'control';
 import {createStore, bind} from 'alt/utils/decorators';
 import WizardStore from 'stores/wizardStore';
 import PartnerWizardActions from 'actions/partnerWizardActions';
-import {SUBMITING} from 'constants/apiCallStatus';
 
 @createStore(flux)
 class PartnerWizardStore extends WizardStore {
@@ -11,24 +10,8 @@ class PartnerWizardStore extends WizardStore {
     super();
   }
 
-  @bind(PartnerWizardActions.submitItemsStatus)
-  submitItemsStatus(response) {
-    this.submitStatus(response);
-  }
-
-  @bind(PartnerWizardActions.updateStep)
-  updateStep(step) {
-    this.setStep(step);
-  }
-
-  @bind(PartnerWizardActions.previousStep)
-  previousStep() {
-    this.updateStep(this.step-1);
-  }
-
-  @bind(PartnerWizardActions.nextStep)
-  nextStep() {
-    this.updateStep(this.step+1);
+  getActions() {
+    return PartnerWizardActions;
   }
 
   @bind(PartnerWizardActions.cancelChanges)
@@ -36,14 +19,9 @@ class PartnerWizardStore extends WizardStore {
     this.closeWizard();
   }
 
-  @bind(PartnerWizardActions.closeWizard)
-  closeWizard() {
-    this.updateStep(1);
-  }
-
-  @bind(PartnerWizardActions.resetResult)
-  resetResult() {
-    this.result = SUBMITING;
+  @bind(PartnerWizardActions.submitItemsStatus)
+  submitItemsStatus(response) {
+    this.submitStatus(response);
   }
 
 }
