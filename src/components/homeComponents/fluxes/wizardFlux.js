@@ -14,11 +14,6 @@ class WizardFlux extends React.Component {
     };
   }
 
-  submitStatus(lastStep) {
-    this.props.result = SUBMITING;
-    this.getWizardActions().updateStep(lastStep);
-  }
-
   setStepChange(newStep) {
     this.props.step = newStep;
     this.setState(this.props);

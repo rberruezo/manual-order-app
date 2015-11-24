@@ -1,13 +1,11 @@
 import flux from 'control';
 import {createActions} from 'alt/utils/decorators';
 import OrdersService from 'services/ordersService';
-import Utilities from 'utilities/utilities';
-// import OrderWizardActions from 'actions/orderWizardActions';
 
 @createActions(flux)
 class PartnerWizardActions {
   constructor() {
-    this.generateActions('updateStep', 'previousStep', 'nextStep', 'resetResult', 'lastStep');
+    this.generateActions('updateStep', 'previousStep', 'nextStep', 'resetResult', 'lastStep', 'closeWizard', 'cancelChanges');
   }
 
   submitItemsStatus(items) {
@@ -25,20 +23,11 @@ class PartnerWizardActions {
       });
   }
 
-  cancelChanges(partner_index) {
-    // OrderWizardActions.nextStep();
-    this.dispatch(partner_index);
+  submitStatus(items) {
+    PartnerWizardActions.resetResult();
+    PartnerWizardActions.updateStep(items.length+3);
+    PartnerWizardActions.submitItemsStatus(items);
   }
-
-  closeWizard() {
-    this.dispatch();
-  }
-
-  // submitStatus(order) {
-  //   OrderWizardActions.resetResult();
-  //   OrderWizardActions.lastStep();
-  //   OrderWizardActions.submitOrderStatus(order);
-  // }
 }
 
 export default PartnerWizardActions;
