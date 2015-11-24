@@ -1,11 +1,11 @@
 import React from 'react';
-import Buttonpad from 'components/homeComponents/resources/buttonpad';
+import PartnerWizardActions from 'actions/partnerWizardActions';
 import connectToStores from 'alt/utils/connectToStores';
 import OrderWizardStore from 'stores/orderWizardStore';
 import PartnerWizardStore from 'stores/partnerWizardStore';
-import PartnerWizardActions from 'actions/partnerWizardActions';
-import {PAYMENT} from 'constants/stepTitles';
+import Buttonpad from 'components/homeComponents/resources/buttonpad';
 import {BACK, SUBMIT_ITEM_STATUS} from 'constants/stepButtonLabels';
+import {PAYMENT} from 'constants/stepTitles';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
 @connectToStores

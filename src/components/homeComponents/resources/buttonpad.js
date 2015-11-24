@@ -6,7 +6,7 @@ the onClick event
 ******************************************************************************/
 
 import React from 'react';
-import {Grid, Row, Col} from 'react-flexbox-grid';
+import {Row, Col} from 'react-flexbox-grid';
 
 class Buttonpad extends React.Component {
   render() {

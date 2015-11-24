@@ -1,11 +1,11 @@
 import React from 'react';
+import PartnerWizardActions from 'actions/partnerWizardActions';
 import connectToStores from 'alt/utils/connectToStores';
 import OrderWizardStore from 'stores/orderWizardStore';
 import Address from 'components/homeComponents/resources/address';
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
-import PartnerWizardActions from 'actions/partnerWizardActions';
-import {SHIPPING_AND_BILLING} from 'constants/stepTitles';
 import {BACK, CONTINUE} from 'constants/stepButtonLabels';
+import {SHIPPING_AND_BILLING} from 'constants/stepTitles';
 
 @connectToStores
 class ShippingAndBilling extends React.Component {

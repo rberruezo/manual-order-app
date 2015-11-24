@@ -1,8 +1,8 @@
 import React from 'react';
+import LoginActions from 'actions/loginActions';
 import connectToStores from 'alt/utils/connectToStores';
 import LoginStore from 'stores/loginStore';
-import LoginActions from 'actions/loginActions';
-import {Grid, Row, Col} from 'react-flexbox-grid';
+import {Row, Col} from 'react-flexbox-grid';
 
 @connectToStores
 class NavigationBar extends React.Component {

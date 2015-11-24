@@ -1,9 +1,9 @@
 import React from 'react';
-import PartnerWizardFlux from 'components/homeComponents/fluxes/partnerWizardFlux';
-import OrderReview from 'components/homeComponents/steps/orderReview';
-import OrderWizardResult from 'components/homeComponents/steps/orderWizardResult';
 import connectToStores from 'alt/utils/connectToStores';
 import OrderWizardStore from 'stores/orderWizardStore';
+import OrderReview from 'components/homeComponents/steps/orderReview';
+import OrderWizardResult from 'components/homeComponents/steps/orderWizardResult';
+import PartnerWizardFlux from 'components/homeComponents/fluxes/partnerWizardFlux';
 
 @connectToStores
 class OrderWizardStep extends React.Component {

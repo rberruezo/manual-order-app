@@ -1,10 +1,10 @@
 import React from 'react';
-import Mocks from 'mocks/mocks';
+import OrdersActions from 'actions/ordersActions';
 import connectToStores from 'alt/utils/connectToStores';
 import OrdersStore from 'stores/ordersStore';
-import OrdersActions from 'actions/ordersActions';
 import StatusDescription from 'components/homeComponents/resources/statusDescription';
 import Griddle from 'griddle-react';
+import Mocks from 'mocks/mocks';
 
 class CompleteNameComponent extends React.Component{
   render() {

@@ -1,10 +1,10 @@
 import React from 'react';
-import connectToStores from 'alt/utils/connectToStores';
-import PartnerWizardStore from 'stores/partnerWizardStore';
-import OrderWizardStore from 'stores/orderWizardStore';
 import PartnerWizardActions from 'actions/partnerWizardActions';
-import ItemStatus from 'components/homeComponents/resources/itemStatus';
+import connectToStores from 'alt/utils/connectToStores';
+import OrderWizardStore from 'stores/orderWizardStore';
+import PartnerWizardStore from 'stores/partnerWizardStore';
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
+import ItemStatus from 'components/homeComponents/resources/itemStatus';
 import Numeral from 'numeral';
 import {BACK, CONTINUE} from 'constants/stepButtonLabels';
 import {Grid, Row, Col} from 'react-flexbox-grid';

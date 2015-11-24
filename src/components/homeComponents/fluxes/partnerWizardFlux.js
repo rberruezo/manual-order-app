@@ -1,7 +1,7 @@
 import React from 'react';
+import connectToStores from 'alt/utils/connectToStores';
 import WizardFlux from 'components/homeComponents/fluxes/wizardFlux';
 import PartnerWizardStep from 'components/homeComponents/steps/general/partnerWizardStep';
-import connectToStores from 'alt/utils/connectToStores';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
 @connectToStores

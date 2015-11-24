@@ -1,13 +1,13 @@
 import React from 'react';
-import StatusDescription from 'components/homeComponents/resources/statusDescription';
+import OrderWizardActions from 'actions/orderWizardActions';
 import connectToStores from 'alt/utils/connectToStores';
 import OrderWizardStore from 'stores/orderWizardStore';
-import {ORDER_REVIEW} from 'constants/stepTitles';
-import Griddle from 'griddle-react';
-import Utilities from 'utilities/utilities';
-import OrderWizardActions from 'actions/orderWizardActions';
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
+import StatusDescription from 'components/homeComponents/resources/statusDescription';
+import Utilities from 'utilities/utilities';
+import {ORDER_REVIEW} from 'constants/stepTitles';
 import {SUBMIT_ORDER_STATUS} from 'constants/stepButtonLabels';
+import Griddle from 'griddle-react';
 
 @connectToStores
 class OrderReview extends React.Component {

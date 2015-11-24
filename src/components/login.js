@@ -1,7 +1,7 @@
 import React from 'react';
+import LoginActions from 'actions/loginActions';
 import connectToStores from 'alt/utils/connectToStores';
 import LoginStore from 'stores/loginStore';
-import LoginActions from 'actions/loginActions';
 import 'styles/main.styl';
 
 @connectToStores

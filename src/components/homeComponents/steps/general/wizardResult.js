@@ -10,11 +10,11 @@ All the childs should have the following methods defined:
 ******************************************************************************/
 
 import React from 'react';
-import Message from 'components/homeComponents/resources/message';
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
+import Message from 'components/homeComponents/resources/message';
 import {SUCCESS, FAIL} from 'constants/apiCallStatus';
 import {SUBMITING} from 'constants/messages';
-import {Grid, Row, Col} from 'react-flexbox-grid';
+import {Row, Col} from 'react-flexbox-grid';
 
 class WizardResult extends React.Component {
 

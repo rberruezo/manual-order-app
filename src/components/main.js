@@ -2,8 +2,8 @@ import React from 'react';
 import {RouteHandler} from 'react-router';
 import connectToStores from 'alt/utils/connectToStores';
 import LoginStore from 'stores/loginStore';
-import Login from 'components/login';
 import Home from 'components/home';
+import Login from 'components/login';
 
 @connectToStores
 class Main extends React.Component {

@@ -1,8 +1,8 @@
 import React from 'react';
-import WizardResult from 'components/homeComponents/steps/general/wizardResult';
+import OrderWizardActions from 'actions/orderWizardActions';
 import connectToStores from 'alt/utils/connectToStores';
 import OrderWizardStore from 'stores/orderWizardStore';
-import OrderWizardActions from 'actions/orderWizardActions';
+import WizardResult from 'components/homeComponents/steps/general/wizardResult';
 import {CANCEL, CLOSE, TRY_AGAIN} from 'constants/stepButtonLabels';
 import {ORDER_STATUS_SUBMISSION_SUCCESS, ORDER_STATUS_SUBMISSION_FAILURE, SUBMITING} from 'constants/messages';
 

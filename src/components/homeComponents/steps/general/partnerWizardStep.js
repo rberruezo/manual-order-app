@@ -1,12 +1,12 @@
 import React from 'react';
-import Item from 'components/homeComponents/steps/item';
-import ShippingAndBilling from 'components/homeComponents/steps/shippingAndBilling';
-import Payment from 'components/homeComponents/steps/payment';
-import PartnerWizardResult from 'components/homeComponents/steps/partnerWizardResult';
+import PartnerWizardActions from 'actions/partnerWizardActions';
 import connectToStores from 'alt/utils/connectToStores';
 import OrderWizardStore from 'stores/orderWizardStore';
 import PartnerWizardStore from 'stores/partnerWizardStore';
-import PartnerWizardActions from 'actions/partnerWizardActions';
+import Item from 'components/homeComponents/steps/item';
+import PartnerWizardResult from 'components/homeComponents/steps/partnerWizardResult';
+import Payment from 'components/homeComponents/steps/payment';
+import ShippingAndBilling from 'components/homeComponents/steps/shippingAndBilling';
 
 @connectToStores
 class PartnerWizardStep extends React.Component {
