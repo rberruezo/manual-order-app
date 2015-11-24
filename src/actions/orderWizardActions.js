@@ -40,7 +40,6 @@ class OrderWizardActions {
     OrderWizardActions.lastStep();
     OrderWizardActions.submitOrderStatus(order);
   }
-
 }
 
 export default OrderWizardActions;

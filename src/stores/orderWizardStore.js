@@ -3,6 +3,7 @@ import {createStore, bind} from 'alt/utils/decorators';
 import WizardStore from 'stores/wizardStore';
 import OrdersActions from 'actions/ordersActions';
 import OrderWizardActions from 'actions/orderWizardActions';
+import PartnerWizardActions from 'actions/partnerWizardActions';
 import Utilities from 'utilities/utilities';
 import {SUBMITING} from 'constants/apiCallStatus';
 
@@ -68,6 +69,17 @@ class OrderWizardStore extends WizardStore {
   @bind(OrderWizardActions.lastStep)
   lastStep() {
     this.updateStep(this.order.partners.length+2);
+  }
+
+  @bind(PartnerWizardActions.cancelChanges)
+  cancelPartnerChanges(partner_index) {
+    Utilities.copyObjectAttributes(this.order.partners[partner_index], this.originalOrder.partners[partner_index]);
+    this.closeWizard();
+  }
+
+  @bind(PartnerWizardActions.closeWizard)
+  closePartnerWizard() {
+    this.nextStep();
   }
 
 }

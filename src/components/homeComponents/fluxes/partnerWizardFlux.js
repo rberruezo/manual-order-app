@@ -9,13 +9,10 @@ import OrderWizardStore from 'stores/orderWizardStore';
 import Utilities from 'utilities/utilities';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
-var originalItems = {};
-
 @connectToStores
 class PartnerWizardFlux extends WizardFlux {
   constructor(props) {
     super(props);
-    Utilities.copyObjectAttributes(originalItems, this.getPartner().items);
   }
 
   static getStores(props) {
@@ -33,32 +30,19 @@ class PartnerWizardFlux extends WizardFlux {
   }
 
   getButtonpadCallbacks() {
-    var buttonpadCallbacks = this.getBasicButtonpadCallbacks();
-    buttonpadCallbacks.submitItemsStatus = this.submitItemsStatus;
-    return buttonpadCallbacks;
+    return {
+      previousStep: PartnerWizardActions.previousStep,
+      nextStep: PartnerWizardActions.nextStep,
+      closeWizard: PartnerWizardActions.closeWizard,
+      cancelChanges: PartnerWizardActions.cancelChanges.bind(PartnerWizardActions, this.props.orderWizard.step-1),
+      submitItemsStatus: this.submitItemsStatus
+    }
   }
 
   submitItemsStatus = evt => {
     //Go directly to Last Step = Q(items) + S&B + Payment + Result Message
     this.submitStatus(this.getPartner().items.length+3);
     PartnerWizardActions.submitItemsStatus(this.getPartner().items);
-  }
-
-  cancelChanges = evt => {
-    Utilities.copyObjectAttributes(this.getPartner().items, originalItems);
-    originalItems = {};
-    this.closeWizard();
-  }
-
-  closeWizard = evt => {
-    PartnerWizardActions.updateStep(1);
-    OrderWizardActions.nextStep();
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (Object.keys(originalItems).length === 0) { //if originalItems is empty
-      Utilities.copyObjectAttributes(originalItems, nextProps.items);
-    }
   }
 
   getPartner() {

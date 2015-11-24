@@ -20,6 +20,31 @@ class PartnerWizardStore extends WizardStore {
     this.setStep(step);
   }
 
+  @bind(PartnerWizardActions.previousStep)
+  previousStep() {
+    this.updateStep(this.step-1);
+  }
+
+  @bind(PartnerWizardActions.nextStep)
+  nextStep() {
+    this.updateStep(this.step+1);
+  }
+
+  @bind(PartnerWizardActions.cancelChanges)
+  cancelChanges() {
+    this.closeWizard();
+  }
+
+  @bind(PartnerWizardActions.closeWizard)
+  closeWizard() {
+    this.updateStep(1);
+  }
+
+  @bind(PartnerWizardActions.resetResult)
+  resetResult() {
+    this.result = SUBMITING;
+  }
+
 }
 
 export default PartnerWizardStore;
