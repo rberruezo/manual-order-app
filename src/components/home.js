@@ -24,21 +24,16 @@ class Home extends React.Component {
   	return OrderWizardStore.getState().order != undefined;
   }
 
-  getOrderView() {
-		if (this.isOrderSelected()) {
-			return (<OrderWizard />)
-		} else {
-			return (<Orders />)
-		}
-  }
-
   render() {
+    if (this.isOrderSelected()) {
+      return <OrderWizard />
+    }
     return (
-    	<div>
-				<NavigationBar/>
-				{this.getOrderView()}
-			</div>
-    );
+      <div>
+        <NavigationBar/>
+        <Orders />
+      </div>
+    )
   }
 
 }
