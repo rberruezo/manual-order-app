@@ -5,8 +5,8 @@ class Address extends React.Component {
   render() {
     var address = this.props.address;
     return (
-      <div className='wizard-table'>
-        <Grid className='wizard-table-body'>
+      <section className="wizard-subbox">
+        <Grid className='wizard-content'>
           <Row>
             <Col md={7} className='col-md-offset-1'>
               <Row className='wizard-table-row'>
@@ -68,7 +68,7 @@ class Address extends React.Component {
             </Col>
           </Row>
         </Grid>
-      </div>
+      </section>
     )
   }
 }

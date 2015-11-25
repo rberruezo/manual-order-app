@@ -23,18 +23,20 @@ class ShippingAndBilling extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <section className="wizard-subbox">
+        <header className="wizard-subheader">
           <h3>Shipping address</h3>
-          <Address address={this.props.order.shippingAddress} />
+        </header>
+        <Address className='wizard-content' address={this.props.order.shippingAddress} />
+        <header className="wizard-subheader">
           <h3>Billing address</h3>
-          <Address address={this.props.order.billingAddress} />
-        </div>
+        </header>
+        <Address className='wizard-content' address={this.props.order.billingAddress} />
         <Buttonpad buttons={[
                     {callback: PartnerWizardActions.previousStep, text: BACK},
                     {callback: PartnerWizardActions.nextStep, text: CONTINUE}
                   ]} />
-      </div>
+      </section>
     )
   }
 }
