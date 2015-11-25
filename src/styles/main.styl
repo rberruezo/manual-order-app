@@ -181,13 +181,12 @@ body
   background-color #dde
   padding 10px
 
-
 .wizard-box
   position relative
   top 15%
   left 50%
   width 960px
-  margin 0 auto
+  margin 40px auto
   margin-left -480px
   background rgba(#fff, .8)
   border-radius 12px
@@ -200,15 +199,6 @@ body
     box-shadow 0 20px 80px rgba(#000, .3)
   *
     box-sizing border-box
-.wizard-subbox
-  position relative
-  top 15%
-  left 50%
-  width 960px
-  margin 0 auto
-  margin-left -480px
-  background rgba(#fff, .8)
-  overflow hidden
 .wizard-header
   background cl-primary
   padding 5px
@@ -219,22 +209,26 @@ body
   h1
     font-size 2em
     margin-bottom .5em
+.wizard-subbox
+  position relative
+  top 15%
+  left 50%
+  width 960px
+  margin 0 auto
+  margin-left -480px
+  background rgba(#fff, .8)
+  overflow hidden
 .wizard-subheader
   background cl-primary
   padding 1px
   text-align left
+  text-indent 5px
   color #fff
   text-shadow 0 2px 2px rgba(#000,.2)
   box-shadow inset 0 -1px rgba(#fff, .8), 0 4px rgba(#000, .06), inset 0 4px rgba(#fff, .2), inset 0 2px 2px rgba(#fff, .2)
   h1
     font-size 2em
     margin-bottom .5em
-.wizard-content
-  padding 20px
-  background-color cl-quaternary
-  input, button, a
-    width 100%
-    display inline-block
 .wizard-footbox
   position relative
   top 15%
@@ -247,6 +241,12 @@ body
 .wizard-foot
   padding 20px
   background-color cl-grey
+  input, button, a
+    width 100%
+    display inline-block
+.wizard-content
+  padding 20px
+  background-color cl-quaternary
   input, button, a
     width 100%
     display inline-block
