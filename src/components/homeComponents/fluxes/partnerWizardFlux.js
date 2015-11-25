@@ -2,7 +2,6 @@ import React from 'react';
 import connectToStores from 'alt/utils/connectToStores';
 import WizardFlux from 'components/homeComponents/fluxes/wizardFlux';
 import PartnerWizardStep from 'components/homeComponents/steps/general/partnerWizardStep';
-import {Grid, Row, Col} from 'react-flexbox-grid';
 
 @connectToStores
 class PartnerWizardFlux extends WizardFlux {
@@ -13,16 +12,12 @@ class PartnerWizardFlux extends WizardFlux {
 
 	render() {
     return (
-      <Grid>
-        <Row>
-          <Col>
-            <h2>Partner: {this.getPartner().name}</h2>
-          </Col>
-          <Col md-offset={1} md={10}>
-            <PartnerWizardStep />
-          </Col>
-        </Row>
-      </Grid>
+      <section className="wizard-subbox">
+        <header className="wizard-subheader">
+          <h2>Partner: {this.getPartner().name}</h2>
+        </header>
+        <PartnerWizardStep />
+      </section>
     )
   }
 

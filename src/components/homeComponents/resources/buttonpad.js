@@ -12,20 +12,22 @@ class Buttonpad extends React.Component {
   render() {
   	var key = 1;
     return (
-      <Row className='end-md'>
-				{this.props.buttons.map(function(button){
-          if (button.type === undefined) {
-            button.type = 'secondary';
-          }
-		   		return (
-            <Col>
-              <button className={'button-'+button.type} key={key++} onClick={button.callback}>
-                {button.text}
-              </button>
-            </Col>
-          )
-				})}
-			</Row>
+      <section className="wizard-footbox">
+        <Row className='center-md wizard-foot'>
+  				{this.props.buttons.map(function(button){
+            if (button.type === undefined) {
+              button.type = 'secondary';
+            }
+  		   		return (
+              <Col>
+                <button className={'button-'+button.type} key={key++} onClick={button.callback}>
+                  {button.text}
+                </button>
+              </Col>
+            )
+  				})}
+  			</Row>
+      </section>
     )
   }
 }

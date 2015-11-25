@@ -49,67 +49,67 @@ class Item extends React.Component {
   render() {
     var item = this.getItem();
     return (
-      <div>
-        <div className='wizard-table'>
+      <section className="wizard-subbox">
+        <header className="wizard-subheader">
           <h3>Product: {item.name}</h3>
-          <Grid className='wizard-table-body'>
-            <Row>
-              <Col md={7} className='col-md-offset-1'>
-                <Row className='wizard-table-row'>
-                  <Col md={2} className='col-md-offset-1'>
-                     <strong className='wizard-label-title'>Color</strong> 
-                  </Col>
-                  <Col md={8}>
-                     {item.color}
-                  </Col>
-                </Row>
-                <Row className='wizard-table-row'>
-                  <Col md={2} className='col-md-offset-1'>
-                    <strong className='wizard-label-title'>Size</strong>
-                  </Col>
-                  <Col md={8}>
-                    {item.size}
-                  </Col>
-                </Row>
-                <Row className='wizard-table-row'>
-                  <Col md={2} className='col-md-offset-1'>
-                    <strong className='wizard-label-title'>Quantity</strong>
-                  </Col>
-                  <Col md={8}>
-                    {item.quantity}
-                  </Col>
-                </Row>
-                <Row className='wizard-table-row'>
-                  <Col md={2} className='col-md-offset-1'>
-                    <strong className='wizard-label-title'>List Price</strong>
-                  </Col>
-                  <Col md={8}>
-                    {Numeral(item.listPriceCents/100).format('$0,0.00')}
-                  </Col>
-                </Row>
-                <Row className='wizard-table-row'>
-                  <Col md={2} className='col-md-offset-1'>
-                    <strong className='wizard-label-title'>Sale Price</strong>
-                  </Col>
-                  <Col md={8}>
-                    {Numeral(item.salePriceCents/100).format('$0,0.00')}
-                  </Col>
-                </Row>
-                <Row className='wizard-table-row'>
-                  <Col md={2} className='col-md-offset-1'>
-                    <strong className='wizard-label-title'>Source Url</strong>
-                  </Col>
-                  <Col md={8}>
-                    <a target="_blank" href={item.sourceUrl} name="sourceUrl">{item.sourceUrl}</a>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-            <ItemStatus selectedValue={item.status} onChange={this.handleStatusChange} />
-          </Grid>
-        </div>
+        </header>
+        <Grid className='wizard-content'>
+          <Row>
+            <Col md={7} className='col-md-offset-1'>
+              <Row className='wizard-table-row'>
+                <Col md={2} className='col-md-offset-1'>
+                   <strong className='wizard-label-title'>Color</strong> 
+                </Col>
+                <Col md={8}>
+                   {item.color}
+                </Col>
+              </Row>
+              <Row className='wizard-table-row'>
+                <Col md={2} className='col-md-offset-1'>
+                  <strong className='wizard-label-title'>Size</strong>
+                </Col>
+                <Col md={8}>
+                  {item.size}
+                </Col>
+              </Row>
+              <Row className='wizard-table-row'>
+                <Col md={2} className='col-md-offset-1'>
+                  <strong className='wizard-label-title'>Quantity</strong>
+                </Col>
+                <Col md={8}>
+                  {item.quantity}
+                </Col>
+              </Row>
+              <Row className='wizard-table-row'>
+                <Col md={2} className='col-md-offset-1'>
+                  <strong className='wizard-label-title'>List Price</strong>
+                </Col>
+                <Col md={8}>
+                  {Numeral(item.listPriceCents/100).format('$0,0.00')}
+                </Col>
+              </Row>
+              <Row className='wizard-table-row'>
+                <Col md={2} className='col-md-offset-1'>
+                  <strong className='wizard-label-title'>Sale Price</strong>
+                </Col>
+                <Col md={8}>
+                  {Numeral(item.salePriceCents/100).format('$0,0.00')}
+                </Col>
+              </Row>
+              <Row className='wizard-table-row'>
+                <Col md={2} className='col-md-offset-1'>
+                  <strong className='wizard-label-title'>Source Url</strong>
+                </Col>
+                <Col md={8}>
+                  <a target="_blank" href={item.sourceUrl} name="sourceUrl">{item.sourceUrl}</a>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+          <ItemStatus selectedValue={item.status} onChange={this.handleStatusChange} />
+        </Grid>
         <Buttonpad buttons={this.getStepButtons()} />
-      </div>
+      </section>
     )
   }
 

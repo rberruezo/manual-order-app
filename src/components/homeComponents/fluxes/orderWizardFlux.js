@@ -9,12 +9,12 @@ class OrderWizardFlux extends WizardFlux {
 
   render() {
     return (
-      <Grid>
-        <Row className='center-sm center-md'>
+      <section className="wizard-box">
+        <header className="wizard-header">
           <h1>Order Wizard</h1>
-        </Row>
+        </header>
         <OrderWizardStep />
-      </Grid>
+      </section>
     )
   }
 
