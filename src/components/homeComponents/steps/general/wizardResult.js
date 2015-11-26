@@ -45,7 +45,7 @@ class WizardResult extends React.Component {
 
   render() {
     return (
-      <Row className='center-md'>
+      <Row className='center-md wizard-subbox'>
         <Col>
           {this.getResult()}
         </Col>
