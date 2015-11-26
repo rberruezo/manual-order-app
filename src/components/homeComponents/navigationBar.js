@@ -25,10 +25,10 @@ class NavigationBar extends React.Component {
   render() {
     return (
       <Row className='middle-md navigationBar'>
-        <Col md={6}>
+        <Col xs={6} sm={6} md={6}>
 					<strong> {this.state.user.email} </strong> 
         </Col>
-        <Col md={1} className='col-md-offset-5'>
+        <Col xs={3} sm={3} md={1} className='col-xs-offset-3 col-sm-offset-3 col-md-offset-5'>
 	        <button className="logout-button" onClick={this.handleLogout}>Log out</button>
         </Col>
       </Row>

@@ -6,7 +6,7 @@ import PartnerWizardStore from 'stores/partnerWizardStore';
 import Buttonpad from 'components/homeComponents/resources/buttonpad';
 import {BACK, SUBMIT_ITEM_STATUS} from 'constants/stepButtonLabels';
 import {PAYMENT} from 'constants/stepTitles';
-import {Grid, Row, Col} from 'react-flexbox-grid';
+import {Row, Col} from 'react-flexbox-grid';
 
 @connectToStores
 class Payment extends React.Component {
@@ -35,60 +35,58 @@ class Payment extends React.Component {
         <header className="wizard-subheader">
           <h3>{PAYMENT}</h3>
         </header>
-        <Grid className='wizard-content'>
-          <Row>
-            <Col md={8} className='col-md-offset-1'>
-              <Row className='wizard-table-row'>
-                <Col md={2} className='col-md-offset-1'>
-                  <strong className='wizard-label-title'>Type</strong>
-                </Col>
-                <Col md={8}>
-                  {payment.type}
-                </Col>
-              </Row>
-              <Row className='wizard-table-row'>
-                <Col md={2} className='col-md-offset-1'>
-                  <strong className='wizard-label-title'>Number</strong>
-                </Col>
-                <Col md={8}>
-                  {payment.number}
-                </Col>
-              </Row>
-              <Row className='wizard-table-row'>
-                <Col md={2} className='col-md-offset-1'>
-                  <strong className='wizard-label-title'>Expiration Month</strong>
-                </Col>
-                <Col md={8}>
-                  {payment.expirationMonth}
-                </Col>
-              </Row>
-              <Row className='wizard-table-row'>
-                <Col md={2} className='col-md-offset-1'>
-                  <strong className='wizard-label-title'>Expiration Year</strong>
-                </Col>
-                <Col md={8}>
-                  {payment.expirationYear}
-                </Col>
-              </Row>
-              <Row className='wizard-table-row'>
-                <Col md={2} className='col-md-offset-1'>
-                  <strong className='wizard-label-title'>Name</strong>
-                </Col>
-                <Col md={8}>
-                  {payment.name}
-                </Col>
-              </Row>
-              <Row className='wizard-table-row'>
-                <Col md={2} className='col-md-offset-1'>
-                  <strong className='wizard-label-title'>CVV</strong>
-                </Col>
-                <Col md={8}>
-                  {payment.cvv}
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Grid>
+        <Row className='wizard-content'>
+          <Col sm={8} md={8} className='col-sm-offset-1 col-md-offset-1'>
+            <Row className='wizard-table-row'>
+              <Col sm={2} md={2} className='col-sm-offset-1 col-md-offset-1'>
+                <strong className='wizard-label-title'>Type</strong>
+              </Col>
+              <Col sm={8} md={8}>
+                {payment.type}
+              </Col>
+            </Row>
+            <Row className='wizard-table-row'>
+              <Col sm={2} md={2} className='col-sm-offset-1 col-md-offset-1'>
+                <strong className='wizard-label-title'>Number</strong>
+              </Col>
+              <Col sm={8} md={8}>
+                {payment.number}
+              </Col>
+            </Row>
+            <Row className='wizard-table-row'>
+              <Col sm={2} md={2} className='col-sm-offset-1 col-md-offset-1'>
+                <strong className='wizard-label-title'>Expiration Month</strong>
+              </Col>
+              <Col sm={8} md={8}>
+                {payment.expirationMonth}
+              </Col>
+            </Row>
+            <Row className='wizard-table-row'>
+              <Col sm={2} md={2} className='col-sm-offset-1 col-md-offset-1'>
+                <strong className='wizard-label-title'>Expiration Year</strong>
+              </Col>
+              <Col sm={8} md={8}>
+                {payment.expirationYear}
+              </Col>
+            </Row>
+            <Row className='wizard-table-row'>
+              <Col sm={2} md={2} className='col-sm-offset-1 col-md-offset-1'>
+                <strong className='wizard-label-title'>Name</strong>
+              </Col>
+              <Col sm={8} md={8}>
+                {payment.name}
+              </Col>
+            </Row>
+            <Row className='wizard-table-row'>
+              <Col sm={2} md={2} className='col-sm-offset-1 col-md-offset-1'>
+                <strong className='wizard-label-title'>CVV</strong>
+              </Col>
+              <Col sm={8} md={8}>
+                {payment.cvv}
+              </Col>
+            </Row>
+          </Col>
+        </Row>
         <Buttonpad buttons={[
                     {callback: PartnerWizardActions.previousStep, text: BACK},
                     {callback: PartnerWizardActions.submitStatus.bind(PartnerWizardActions, this.getPartner().items), text: SUBMIT_ITEM_STATUS}
