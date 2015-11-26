@@ -219,16 +219,12 @@ body
   background rgba(#fff, .8)
   overflow hidden
 .wizard-subheader
-  background cl-primary
+  background cl-secondary
   padding 1px
   text-align left
   text-indent 5px
   color #fff
   text-shadow 0 2px 2px rgba(#000,.2)
-  box-shadow inset 0 -1px rgba(#fff, .8), 0 4px rgba(#000, .06), inset 0 4px rgba(#fff, .2), inset 0 2px 2px rgba(#fff, .2)
-  h1
-    font-size 2em
-    margin-bottom .5em
 .wizard-footbox
   position relative
   top 15%
@@ -246,7 +242,15 @@ body
     display inline-block
 .wizard-content
   padding 20px
-  background-color cl-quaternary
+  background-color cl-third
+  input, button, a
+    width 100%
+    display inline-block
+.wizard-main-content
+  padding 20px
+  background-color cl-third
+  height 400px
+  overflow-y auto
   input, button, a
     width 100%
     display inline-block
