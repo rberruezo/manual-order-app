@@ -147,7 +147,7 @@ body
     background rgb(28, 184, 65) + 60
     background-image linear-gradient(to bottom, rgba(#fff,0), rgb(28, 184, 65) + 30)
   &:active    
-    background cl-blue
+    background green
     background-image linear-gradient(to top, rgba(#fff,0), rgb(28, 184, 65) - 20)
 .button-error
   @extends .in-app-button
@@ -156,7 +156,7 @@ body
     background rgb(202, 60, 60) + 60
     background-image linear-gradient(to bottom, rgba(#fff,0), rgb(202, 60, 60) + 30)
   &:active    
-    background cl-blue
+    background cl-red
     background-image linear-gradient(to top, rgba(#fff,0), rgb(202, 60, 60) - 20)
 .button-warning
   @extends .in-app-button
@@ -165,17 +165,17 @@ body
     background rgb(223, 117, 20) + 60
     background-image linear-gradient(to bottom, rgba(#fff,0), rgb(223, 117, 20) + 30)
   &:active    
-    background cl-blue
+    background yellow
     background-image linear-gradient(to top, rgba(#fff,0), rgb(223, 117, 20) - 20)
 .button-secondary
   @extends .in-app-button
-  background rgb(66, 184, 221) + 30
+  background cl-primary
   &:hover
-    background rgb(66, 184, 221) + 60
-    background-image linear-gradient(to bottom, rgba(#fff,0), rgb(66, 184, 221) + 30)
+    background cl-primary + 30
+    background-image linear-gradient(to bottom, rgba(#fff,0), cl-primary)
   &:active    
     background cl-blue
-    background-image linear-gradient(to top, rgba(#fff,0), rgb(66, 184, 221) - 20)
+    background-image linear-gradient(to top, rgba(#fff,0), cl-primary - 50)
 .navigationBar
   border-radius 10px
   background-color #dde
