@@ -34,7 +34,7 @@ class ItemStatus extends React.Component {
 			{Radio => (
         <section className="wizard-subbox">
           <Row className='wizard-content'>
-            <Col sm={8} md={8}>
+            <Col sm={8} md={8} className='col-sm-offset-2 col-md-offset-2'>
 		          <Row>
 		            <h5>Status</h5>
 		          </Row>
