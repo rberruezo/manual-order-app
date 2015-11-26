@@ -19,7 +19,7 @@ class Buttonpad extends React.Component {
               button.type = 'secondary';
             }
   		   		return (
-              <Col>
+              <Col sm={3} md={3}>
                 <button className={'button-'+button.type} key={key++} onClick={button.callback}>
                   {button.text}
                 </button>
