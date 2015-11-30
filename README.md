@@ -13,14 +13,22 @@ Make sure you have installed NodeJS and NPM first and that you can run them from
 
 ## Documentation
 
-### Components Flow Interaction
+### Components Interaction
 
-![ComponentsFlowInteraction](docs/ComponentsFlowInteraction.png)
+#### Views
+
+![ComponentsInteraction](docs/ComponentsInteraction-Views.png)
+
+#### Actions & Stores
+
+![ComponentsInteraction](docs/ComponentsInteraction-ActionsStores.png)
+
+#### Complete
+
+![ComponentsInteraction](docs/ComponentsInteraction.png)
 
 ### UI Flow
 
-![UIFlow](docs/UIFlow.png)
-
-### Order Wizard Flow
+#### Order Wizard Flow
 
 ![OrderWizardFlow](docs/OrderWizardFlow.png)
